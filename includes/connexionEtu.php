@@ -57,5 +57,5 @@
 	</table>
 	<input type="submit" name="connexion" value="Connexion">
 	<br><br>
-	<a href="?page=inscription">Pas de compte? Inscrivez-vous!</a>
+	<a href="?page=inscriptionEtu">Pas de compte? Inscrivez-vous!</a>
 </form>

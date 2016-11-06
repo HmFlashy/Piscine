@@ -1,4 +1,3 @@
-<h3>Remplissez ce formulaire pour vous inscrire<h3>
 <?php
 	$erreur='';
 	$pseudo='';
@@ -7,13 +6,15 @@
 	$confmdp='';
 	$prenom='';
 	$nom='';
+	$idEcole='';
+	$code='';
 	if(!empty($_POST))
 	{
 		if(empty($_POST['pseudo']))
 		{
 			$erreur="Rentrez votre pseudo";
 		}
-		if(empty($_POST['email']))
+		elseif(empty($_POST['email']))
 		{
 			$erreur="Rentrez votre email";
 		}
@@ -37,12 +38,23 @@
 		{
 			$erreur="Rentrez votre nom";
 		}
+		elseif($_POST['idEcole'] == -1)
+		{
+			$erreur="Choisissez une école";
+		}
+		elseif(empty($_POST['code']))
+		{
+			$erreur="Rentrez le code de validation";
+		}
+		elseif($_POST['code']!="codeProf")
+		{
+			$erreur="Mauvais code professeur";
+		}
 		else
 		{
-			$test = $connexion -> prepare('SELECT count(*) FROM personne WHERE identifiant= ?');
-			$test -> execute(array($_POST['pseudo']));
-			$existance = $test -> fetchColumn();
-			if($existance==1)
+			$test = $connexion -> query("SELECT count(pseudo) FROM personne WHERE pseudo = '" . $_POST['pseudo'] ."'");
+			$existance = $test -> fetch();
+			if($existance['count(pseudo)']==1)
 				$erreur = "Pseudo déjà pris, choisissez en un autre";
 			else
 			{
@@ -50,10 +62,7 @@
 				$mdp=$_POST['mdp'];
 				$prenom=$_POST['prenom'];
 				$nom=$_POST['nom'];
-				if(empty($_POST['code']))
-					$code=NULL;
-				else
-					$code=$_POST['code'];
+				$idEcole=$_POST['idEcole'];
 				$req = $connexion->prepare('INSERT INTO personne (pseudo, nom, prenom, email, motdepasse) VALUES(:pseudo, :nom, :prenom, :email, :motdepasse)');
 				$req->execute(array(
 					'pseudo' => $pseudo,
@@ -62,17 +71,18 @@
 					'email' => $email,
 					'motdepasse' => md5($mdp),
 					));
-				$req = $connexion->prepare('INSERT INTO elève (pseudo, code) VALUES(:pseudo, :code)');
+				$req = $connexion->prepare('INSERT INTO professeur (pseudo, idEcole) VALUES(:pseudo, :idEcole)');
 				$req->execute(array(
 					'pseudo' => $pseudo,
-					'code' => $code,
+					'idEcole' => $idEcole,
 					));
-				header('Location: ?page=connexionEtu');
+				header('Location: ?page=connexionProf');
 	  			exit();
 	  		}
 		}
 	}
 ?>
+<h3>Remplissez ce formulaire pour vous inscrire<h3>
 <form method="post" action="#">
 	<table>
 		<?php 
@@ -98,7 +108,24 @@
 		    <td><input type="text" name="nom" placeholder="Nom"></td>
 		</tr>
 		<tr>
-		    <td><input type="text" name="code" placeholder="Code Professeur"></td>
+		    <td>
+		    	<select name='idEcole'>
+		    		<option  value=-1>Choisissez une école</option>
+		    		<?php
+						$req = $connexion->query('SELECT idEcole, Nom FROM ecole');
+						$nomEcole = $req -> fetchAll(PDO::FETCH_ASSOC);
+		    			foreach ($nomEcole as $value) {
+		    				echo "<option value=" . $value["idEcole"] . ">" . $value["Nom"] . "</option>";
+		    			}
+		    		?>
+		    	</select>
+		    </td>
+		</tr>
+		<tr>
+		    	<td  style="text-align: center"><input type="button" name="nouveau" value="Ajout d'une école" style="text-align: center"  style="color:black; font-weight:bold"onclick></a></td>
+		</tr>
+		<tr>
+		    <td><input type="text" name="code" placeholder="Code Validation"></td>
 		</tr>
 	</table>
 	<input type="submit" name="connexion" value="Connexion">

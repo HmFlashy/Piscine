@@ -9,4 +9,6 @@
 		</tr>
 	</table>
 	<input type="submit" name="connexion" value="Connexion">
+	<br><br>
+	<a href="?page=inscriptionProf">Pas de compte? Inscrivez-vous!</a>
 </form>
