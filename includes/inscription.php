@@ -51,7 +51,7 @@
 				$prenom=$_POST['prenom'];
 				$nom=$_POST['nom'];
 				if(empty($_POST['code']))
-					$code='';
+					$code=NULL;
 				else
 					$code=$_POST['code'];
 				$req = $connexion->prepare('INSERT INTO personne (pseudo, nom, prenom, email, motdepasse) VALUES(:pseudo, :nom, :prenom, :email, :motdepasse)');
@@ -61,6 +61,11 @@
 					'prenom' => $prenom,
 					'email' => $email,
 					'motdepasse' => md5($mdp),
+					));
+				$req = $connexion->prepare('INSERT INTO elève (pseudo, code) VALUES(:pseudo, :code)');
+				$req->execute(array(
+					'pseudo' => $pseudo,
+					'code' => $code,
 					));
 				header('Location: ?page=connexionEtu');
 	  			exit();

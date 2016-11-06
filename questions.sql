@@ -38,8 +38,8 @@ INSERT INTO questions(question) VALUES ("Vous aimez fabriquer ou réparer des ob
 ");
 INSERT INTO questions(question) VALUES ("Vous aimez ne pas savoir précisément ce que vous avez à faire 
 ");
-INSERT INTO questions(question) VALUES ("Vous aimez mettre en œuvre des " bonnes pratiques " acquises par l’expérience 
-");
+INSERT INTO questions(question) VALUES ('Vous aimez mettre en œuvre des " bonnes pratiques " acquises par l’expérience 
+');
 INSERT INTO questions(question) VALUES ("Vous aimez faire preuve d’initiative et prendre des décisions rapides 
 ");
 INSERT INTO questions(question) VALUES ("Vous aimez écouter, dialoguer, essayer de comprendre les autres 
@@ -84,8 +84,8 @@ INSERT INTO questions(question) VALUES ("Vous aimez trouver une solution concrè
 ");
 INSERT INTO questions(question) VALUES ("Vous aimez concevoir ou améliorer les méthodes de travail 
 ");
-INSERT INTO questions(question) VALUES ("Vous aimez utiliser votre " bon sens " 
-");
+INSERT INTO questions(question) VALUES ('Vous aimez utiliser votre " bon sens "
+');
 INSERT INTO questions(question) VALUES ("Vous aimez rendre service, venir en aide à d’autres personnes 
 ");
 INSERT INTO questions(question) VALUES ("Vous aimez répondre aux objections de vos interlocuteurs pour mieux les convaincre 

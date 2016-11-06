@@ -116,17 +116,6 @@ INSERT INTO `personne` (`pseudo`, `nom`, `prenom`, `email`, `motdepasse`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `phrase`
---
-
-CREATE TABLE `phrase` (
-  `idPhrase` int(8) NOT NULL,
-  `phrase` varchar(120) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Les différentes phrases du test';
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `professeur`
 --
 
@@ -183,12 +172,6 @@ ALTER TABLE `personne`
   ADD PRIMARY KEY (`pseudo`);
 
 --
--- Index pour la table `phrase`
---
-ALTER TABLE `phrase`
-  ADD PRIMARY KEY (`idPhrase`);
-
---
 -- Index pour la table `professeur`
 --
 ALTER TABLE `professeur`
@@ -215,11 +198,6 @@ ALTER TABLE `ecole`
 --
 ALTER TABLE `elève`
   MODIFY `idEleve` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `phrase`
---
-ALTER TABLE `phrase`
-  MODIFY `idPhrase` int(8) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `professeur`
 --
