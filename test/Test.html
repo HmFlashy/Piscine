@@ -20,8 +20,8 @@
 
 			#questionnaire
 			{
-				margin-left: 30%;
-				margin-right: 30%;
+				margin-left: 20%;
+				margin-right: 20%;
 			}
 			.p1
 			{
@@ -110,34 +110,40 @@
 		//Fonction qui affiche les phrases suivantes et stockent les données des phrases actuelles
 		function suivant()
 		{
-			for(p = current; p < current + 6; p++)
+			if(choix.indexOf(-1) ==-1)
 			{
-				document.getElementById(p).remove();
+				for(p = current; p < current + 6; p++)
+				{
+					document.getElementById(p).remove();
+				}
+				current += 6;
+				if(current >= 5)
+					document.getElementById("previous").style.visibility = "visible";
+				document.getElementById("next").style.visibility = "hidden";
+				changePhrase();
+				for(i = 0; i < 3; i++)
+					choix[i] = -1;
 			}
-			current += 6;
-			if(current >= 5)
-				document.getElementById("previous").style.visibility = "visible";
-			document.getElementById("next").style.visibility = "hidden";
-			changePhrase();
-			for(i = 0; i < 3; i++)
-				choix[i] = -1;
 		}
 
 		//Fonction qui affiche les phrases précédentes et suppriment les données enregistrés des phrases précédentes
 		function precedent()
 		{
-			for(p = current; p < current + 6; p++)
+			if(current > 5)
 			{
-				document.getElementById(p).remove();
+				for(p = current; p < current + 6; p++)
+				{
+					document.getElementById(p).remove();
+				}
+				current -= 6;
+				if(current < 6)
+				{
+					document.getElementById("previous").style.visibility = "hidden";
+				}
+				changePhrase();
+				for(i = 0; i < 3; i++)
+					choix[i] = -1;
 			}
-			current -= 6;
-			if(current < 6)
-			{
-				document.getElementById("previous").style.visibility = "hidden";
-			}
-			changePhrase();
-			for(i = 0; i < 3; i++)
-				choix[i] = -1;
 		}
 
 		//Fonction qui change la couleur des cases on fonction de l'ordre à laquelle est sont cliqués
@@ -176,13 +182,14 @@
 		}
 	</script>
 	<body>
-		<div class="container-fluid">
-			<p id="commencer" style="text-align: center;"><button id="bCommencer" class="btn btn-primary btn-md" onclick="changePhrase()">Commencer</button></p>
-			<div class="row" id="questionnaire"></div>
-			<ul class="pager">
-				<li id="previous" style="visibility: hidden;" onclick="precedent()""><a href="#">Précédent</a></li>
-				<li id="next" style="visibility: hidden;" onclick="suivant()"><a href="#">Suivant</a></li>
-			</ul>
-		</div>
+		<div class="container-fluid" style="margin-top: 10%;">	
+			<div class="container-fluid">
+				<p id="commencer" style="text-align: center;"><button id="bCommencer" class="btn btn-primary btn-md" onclick="changePhrase()">Commencer</button></p>
+				<div class="row" id="questionnaire"></div>
+				<ul class="pager">
+					<li id="previous" style="visibility: hidden;" onclick="precedent()""><a href="#">Précédent</a></li>
+					<li id="next" style="visibility: hidden;" onclick="suivant()"><a href="#">Suivant</a></li>
+				</ul>
+			</div>
 	</body>
 </html>
