@@ -62,6 +62,13 @@
 				vertical-align: middle;
 			}
 
+			#groupe
+			{
+				width:auto;
+				display:inline-block;
+				margin:auto;
+			}
+
 			button
 			{
 			display: inline-block;
@@ -86,6 +93,7 @@
 			{
     			$("#commencer").remove();
 			}
+			document.getElementById("groupe").innerHTML = "Groupe " + ((current / 6) + 1);
 			for(j = current ; j < current + 6; j++)
 			{
 				var bouton = document.createElement('button');
@@ -182,14 +190,15 @@
 		}
 	</script>
 	<body>
-		<div class="container-fluid" style="margin-top: 10%;">	
-			<div class="container-fluid">
-				<p id="commencer" style="text-align: center;"><button id="bCommencer" class="btn btn-primary btn-md" onclick="changePhrase()">Commencer</button></p>
+		<div class="container-fluid" style="margin-top: 10%;">
+			<div class="container-fluid" style="text-align: center;"">
+				<h1 id="groupe" class></h1><br><br>
+				<div id="commencer" "><button id="bCommencer" class="btn btn-primary btn-md" onclick="changePhrase()">Commencer</button></div>
 				<div class="row" id="questionnaire"></div>
 				<ul class="pager">
 					<li id="previous" style="visibility: hidden;" onclick="precedent()""><a href="#">Précédent</a></li>
 					<li id="next" style="visibility: hidden;" onclick="suivant()"><a href="#">Suivant</a></li>
 				</ul>
-			</div>
+		</div>
 	</body>
 </html>
