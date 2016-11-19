@@ -5,6 +5,8 @@
 		<title>Piscine !</title>
 		<link rel="stylesheet" href="styles.css" type="text/css">
 		<meta charset="utf-8"/>	
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<Script language="text/javascript"></Script>
 	</head>
