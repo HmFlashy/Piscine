@@ -2,5 +2,4 @@
 <a href='?page=connexionEtu'><input class="button" type="button" name="etudiant" value="ETUDIANT" style=""  style="color:black; font-weight:bold"onclick></a>
 <a href='?page=connexionProf'><input class="button" type="button" name="professeur" value="PROFESSEUR" style=""  style="color:black; font-weight:bold"onclick></a>
 <br>
-
 <a href='?page=test'><input class="button" type="button" name="test" value="TEST" style=""  style="color:black; font-weight:bold"onclick></a>

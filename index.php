@@ -14,7 +14,7 @@
 	<body>
 	<?php include('includes/connect.php');?>
 	<?php include('includes/entete.php');?>
-		<div id="corps" class="">
+		<div id="corps" class="container" style="margin-top: 15px">
 			<?php
 				if($_SESSION == NULL)
 				{
@@ -34,6 +34,6 @@
 				include($nomPage);
 			?> 
 		</div>
-	</body>
 	<?php include('includes/pieddepage.php');?>
+	</body>
 </html>
