@@ -1,22 +1,21 @@
-<?php 
-	$test = $connexion -> query('SELECT question FROM questions');
-	$questions = $test -> fetchAll();
-?>
+
+<!-- Convertis le tableau récupéré de la base de donnée en php en javascript -->
 <script type="text/javascript">
 	var q = [];
 	var compteur = 0;
 </script>
-	<?php
-		foreach($questions as $question)
-		{
-	?>
+<?php 
+	$test = $connexion -> query('SELECT question FROM questions');
+	$questions = $test -> fetchAll();
+	foreach($questions as $question){
+?>
 <script type="text/javascript">
-		q[compteur]='<?php printf($question['question']) ?>';
-		compteur++;
+	q.push('<?php printf($question['question']) ?>');
+	compteur++;
 </script>
-	<?php
-		}
-	?>
+<?php } ?>
+<!-- Jusqu'ici -->
+
 <script type="text/javascript">
 	var choix = [-1, -1, -1];
 	var current = 0;
@@ -59,7 +58,7 @@
 		{
 			for(p = current; p < current + 6; p++)
 			{
-				document.getElementById(p + 1).remove();
+				document.getElementById(p+1).remove();
 			}
 			current += 6;
 			if(current >= 5)
@@ -76,9 +75,10 @@
 	{
 		if(current > 5)
 		{
+			document.getElementById("next").style.visibility = "hidden";
 			for(p = current; p < current + 6; p++)
 			{
-				document.getElementById(p + 1).remove();
+				document.getElementById(p+1).remove();
 			}
 			current -= 6;
 			if(current < 6)
@@ -97,6 +97,7 @@
 		if(contains(choix, j))
 		{
 			$("#" + j).removeClass("p" + (choix.indexOf(j) + 1));
+			document.getElementById("next").style.visibility = "hidden";
 			choix[choix.indexOf(j)] = -1;
 		}
 		else

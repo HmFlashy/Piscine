@@ -85,12 +85,6 @@ input
 {
 	margin-top: 5%;
 }
-
-#questionnaire
-{
-	margin-left: 10%;
-	margin-right: 10%;
-}
 .p1
 {
 	background: #000000;
@@ -129,7 +123,6 @@ input
 	text-decoration: none;
 	vertical-align: middle;
 }
-
 button
 {
 	display: inline-block;
@@ -146,4 +139,30 @@ button
 span
 {
 	font-size: 1.5vw;
+}
+
+@media (max-width: 700px)
+{
+	#questionnaire
+	{
+	margin-left: 0%;
+	margin-right: 0%;
+	}
+	span
+	{
+		font-size: 7px;
+	}
+} 
+
+@media (min-width: 700px)
+{
+	#questionnaire
+	{
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+	span
+	{
+		font-size:1vw;
+	}
 }
