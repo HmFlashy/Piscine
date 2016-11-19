@@ -14,7 +14,7 @@
 	<body>
 	<?php include('includes/connect.php');?>
 	<?php include('includes/entete.php');?>
-		<div id="corps">
+		<div id="corps" class="container">
 			<?php
 				if($_SESSION == NULL)
 				{

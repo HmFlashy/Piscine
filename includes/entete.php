@@ -1,5 +1,5 @@
-<div id="entete">
-		<h1>TEST DE HOLLANDE<br>
+<div id='entete' class="page-header">
+		<h1>TEST DE HOLLANDE
 		<?php 
 		session_set_cookie_params(0);
 		session_start();

@@ -16,9 +16,11 @@
 <?php } ?>
 <!-- Jusqu'ici -->
 
+
+
 <script type="text/javascript">
-	var choix = [-1, -1, -1];
-	var current = 0;
+	var choix = [-1, -1, -1]; //Tableau contenant les choix dans l'ordre de préférence (pour les couleurs et l'attribution des points)
+	var current = 0; //Pour savoir ou on en est dans les questions par rapport au total de questions et pour pouvoir les afficher
 
 	//Fonction qui permet de changer les phrases à afficher en fonctions de leurs indices (a faire, ici elle affiche juste des numéros)
 	function changePhrase(){
@@ -30,13 +32,13 @@
 		for(j = current; j < current + 6; j++)
 		{
 			var bouton = document.createElement('button');
-			var span = document.createElement('span');
+			var div = document.createElement('div');
+			div.setAttribute('id', 'dBut');
 			bouton.setAttribute('id', j+1);
-			span.setAttribute('id', 'quest');
 			bouton.setAttribute('onclick', 'changeCouleur(' + (j+1) + ')');
 			bouton.setAttribute("class", "col-xs-12");
-			span.innerHTML = q[j];
-			bouton.appendChild(span);
+			div.innerHTML = q[j];
+			bouton.appendChild(div);
 			$('.row')[0].appendChild(bouton);
 		} 
 	}
@@ -127,7 +129,7 @@
 		}
 	}
 </script>
-<div class="container-fluid" style="margin-top: 10%;">
+<div class="container-fluid">
 	<div class="container-fluid" style="text-align: center;"">
 		<h1 id="groupe" class></h1><br><br>
 		<div id="commencer" "><button id="bCommencer" class="btn btn-primary btn-md" onclick="changePhrase()">Commencer</button></div>

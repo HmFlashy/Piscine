@@ -38,6 +38,7 @@ h1
 #corps
 {
 	text-align: center;
+	padding-bottom: 50px;
 }
 
 .button
@@ -48,6 +49,10 @@ h1
 	float:center;
 }
 
+#dBut
+{
+	white-space: normal;
+}
 h2
 {
 	color:white;
@@ -81,10 +86,6 @@ input
 	text-align: center;
 }
 
-#bcommencer
-{
-	margin-top: 5%;
-}
 .p1
 {
 	background: #000000;
@@ -145,12 +146,10 @@ span
 {
 	#questionnaire
 	{
-	margin-left: 0%;
-	margin-right: 0%;
-	}
-	span
-	{
-		font-size: 7px;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
 	}
 } 
 
@@ -161,8 +160,10 @@ span
 		margin-left: 10%;
 		margin-right: 10%;
 	}
-	span
-	{
-		font-size:1vw;
-	}
+}
+
+nav
+{
+	margin-top: 40px;
+	margin-bottom: 0px;
 }
