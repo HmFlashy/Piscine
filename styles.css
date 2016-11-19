@@ -1,8 +1,14 @@
+html
+{
+	height: 100%;
+}
+
 body
 {
+	width : 100%;
+	height: 100%;
 	margin:0px;
 	color: white;
-	background-color: black;
 }
 
 #entete
@@ -10,6 +16,7 @@ body
 	text-align: center;
 	width:100%;
 	background-color: white;
+    margin:0px;
 }
 
 #titre
@@ -22,7 +29,7 @@ body
 
 h1
 {
-	margin:0;
+	margin:0px;
 	color: black;
 }
 
@@ -37,6 +44,8 @@ h1
 
 #corps
 {
+	height: 100%;
+	width: 100%;
 	text-align: center;
 	padding-bottom: 50px;
 }
@@ -55,8 +64,14 @@ h1
 }
 h2
 {
+	padding:0px;
 	color:white;
 	text-align: center;
+}
+
+#titreAcc
+{
+	margin:0px;
 }
 
 footer
@@ -126,15 +141,16 @@ input
 }
 button
 {
-	display: inline-block;
+	background: white;
+	border-radius: 0px;
 	padding: 6px 12px;
 	margin-bottom: 0;
 	font-size: 14px;
 	font-weight: normal;
 	line-height: 1.42857143;
 	text-align: center;
-	white-space: nowrap;
 	vertical-align: middle;
+	text-decoration: none;
 }
 
 span
@@ -164,6 +180,6 @@ span
 
 nav
 {
-	margin-top: 40px;
 	margin-bottom: 0px;
+	text-align: center;
 }

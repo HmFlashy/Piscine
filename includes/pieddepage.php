@@ -1,5 +1,3 @@
-<nav class="navbar-default navbar-fixed-bottom">
-  <div class="container">
+<nav class="navbar-fixed-bottom">
     Site réalisé par polytech
-  </div>
 </nav>

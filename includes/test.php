@@ -138,4 +138,5 @@
 			<li id="previous" style="visibility: hidden;" onclick="precedent()""><a href="#">Précédent</a></li>
 			<li id="next" style="visibility: hidden;" onclick="suivant()"><a href="#">Suivant</a></li>
 		</ul>
+	</div>
 </div>
