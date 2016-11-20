@@ -6,7 +6,6 @@ html
 body
 {
 	margin:0px;
-	color: white;
 }
 
 #entete
@@ -14,7 +13,9 @@ body
 	text-align: center;
 	width:100%;
 	background-color: #F5F5F5;
+    padding-top: 10px;
     margin:0px;
+    padding-bottom: 10px;
     -moz-box-shadow: inset 0px 0px 5px 0px #656565;
 	-webkit-box-shadow: inset 0px 0px 5px 0px #656565;
 	-o-box-shadow: inset 0px 0px 5px 0px #656565;
@@ -26,6 +27,7 @@ button
 {
 	text-decoration: none;
 }
+
 #titre
 {
 	float:left;
@@ -46,7 +48,6 @@ h1
 	width:15%;
 	height:150px;
 	float: right;
-	background-color: grey;
 }
 
 #corps
@@ -69,6 +70,7 @@ h1
 {
 	white-space: normal;
 }
+
 h2
 {
 	padding:0px;

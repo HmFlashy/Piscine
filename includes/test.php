@@ -5,12 +5,12 @@
 	var compteur = 0;
 </script>
 <?php 
-	$test = $connexion -> query('SELECT question FROM questions');
+	$test = $connexion -> query('SELECT libelleQuestion FROM questions');
 	$questions = $test -> fetchAll();
 	foreach($questions as $question){
 ?>
 <script type="text/javascript">
-	q.push('<?php printf($question['question']) ?>');
+	q.push('<?php printf($question['libelleQuestion']) ?>');
 	compteur++;
 </script>
 <?php } ?>

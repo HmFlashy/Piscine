@@ -46,7 +46,7 @@
 ?>
 <h2>Rentrez le code de session donné par votre professeur</h2>
 <br>
-<?php echo($erreur); ?>
+<?php echo($erreur . " <br>"); ?>
 <form action="#" method="post" id="rejSess">
     <div class="input-group">
       <input type="text" name="codeSess" class="form-control" placeholder="Code de Session">

@@ -69,33 +69,22 @@
 	}
 ?>
 <h3>Remplissez ce formulaire pour vous inscrire<h3>
+<?php 
+	if(!empty($erreur))
+	{
+		echo ("<div><span>" . $erreur . "</span></div>");
+	}
+?>
+<br>
 <form method="post" action="#">
-	<table>
-		<?php 
-			if(!empty($erreur))
-				echo $erreur;
-		?>
-		<tr>
-		    <td><input type="text" name="pseudo" placeholder="Identifiant"></td>
-		</tr>
-		<tr>
-		    <td><input type="email" name="email" placeholder="Votre email"></td>
-		</tr>
-		<tr>
-		    <td><input type="password" name="mdp" placeholder="Mot De Passe"></td>
-		</tr>
-		<tr>
-		    <td><input type="password" name="confmdp" placeholder="Confirmation"></td>
-		</tr>
-		<tr>
-		    <td><input type="text" name="prenom" placeholder="Prénom"></td>
-		</tr>
-		<tr>
-		    <td><input type="text" name="nom" placeholder="Nom"></td>
-		</tr>
-		<tr>
-		    <td><input type="text" name="code" placeholder="Code Professeur"></td>
-		</tr>
-	</table>
-	<input type="submit" name="connexion" value="Connexion">
+	<div class="form-group connex">
+		<input type="text" class="form-control" name="pseudo" placeholder="Identifiant">
+		<input type="email" class="form-control" name="email" placeholder="Votre email">
+		<input type="password" class="form-control" name="mdp" placeholder="Mot De Passe">
+		<input type="password" class="form-control" name="confmdp" placeholder="Confirmation">
+		<input type="text" class="form-control" name="prenom" placeholder="Prénom">
+		<input type="text" class="form-control" name="nom" placeholder="Nom">
+		<br>
+		<input type="submit" class="btn btn-outline-primary" name="connexion" value="S'inscrire">
+	</div>
 </form>

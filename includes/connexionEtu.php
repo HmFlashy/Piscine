@@ -1,4 +1,3 @@
-<h3>Vous êtes un élève:</h3>
 <?php
 	$erreur='';
 	$pseudo='';
@@ -43,6 +42,7 @@
 		}
 	}
 ?>
+<h3>Vous êtes un élève:</h3>
 <form method="post" action="#">
 	<?php 
 		if(!empty($erreur))
@@ -53,7 +53,7 @@
 		<input type="text" class="form-control" name="pseudo" placeholder="Identifiant">
 		<input type="password" class="form-control" name="mdp" placeholder="Mot De Passe">
 		<br>
-		<input type="submit" class="btn btn-primary" name="connexion" value="Connexion">
+		<input type="submit" class="btn btn-outline-primary" name="connexion" value="Connexion">
 	</div>
 	<br>
 </form>
