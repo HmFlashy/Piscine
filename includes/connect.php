@@ -5,7 +5,7 @@
 		
 		try //On essaie de lancer la connexion, si tout se passe bien on continue
 		{
-			$bdd = new PDO('mysql:host=localhost; dbname=testdehollande; charset=utf8', 'root', '');
+			$bdd = new PDO('mysql:host=localhost; dbname=testdehollande; charset=utf8', 'root', 'root');
 		}
 		catch (Exception $e) //Si la connection échou on affiche l'erreur.
 		{

@@ -22,6 +22,10 @@ body
 	filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=NaN, Strength=5);
 }
 
+button
+{
+	text-decoration: none;
+}
 #titre
 {
 	float:left;
@@ -86,18 +90,6 @@ footer
 	width:100%;
 	background: white;
 }
-table
-{
-	margin-top: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    border-spacing: 5px;
-	text-align: center;
-}
-td
-{
-	text-align: left;
-}
 
 input
 {
@@ -142,19 +134,6 @@ input
 	text-decoration: none;
 	vertical-align: middle;
 }
-button
-{
-	background: white;
-	border-radius: 0px;
-	padding: 6px 12px;
-	margin-bottom: 0;
-	font-size: 14px;
-	font-weight: normal;
-	line-height: 1.42857143;
-	text-align: center;
-	vertical-align: middle;
-	text-decoration: none;
-}
 
 span
 {
@@ -178,6 +157,18 @@ span
 
 @media (min-width: 700px)
 {
+	.connex
+	{
+		margin-left: auto;
+   		margin-right: auto;
+		width: 300px;
+	}
+	#rejSess
+	{
+		margin-left: auto;
+   		margin-right: auto;
+		width: 300px;
+	}
 	#questionnaire
 	{
 		margin-left: 10%;

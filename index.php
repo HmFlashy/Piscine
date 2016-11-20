@@ -14,21 +14,35 @@
 	<body>
 	<?php include('includes/connect.php');?>
 	<?php include('includes/entete.php');?>
-		<div id="corps" class="container" style="margin-top: 15px">
+		<div id="corps" class="container" style="margin-top: 15px; text-align: center;">
 			<?php
 				if($_SESSION == NULL)
 				{
-					$nomPage = 'includes/accueil.php';
+					if(isset($_GET['page']))
+					{
+						if(($_GET['page'] == "connexionEtu") OR ($_GET['page'] == "connexionProf") OR ($_GET['page'] == "test"))
+						{
+							$nomPage = 'includes/' . $_GET['page'] . '.php';
+						}
+						else
+						{
+							$nomPage = 'includes/accueil.php';
+						}
+					}
+					else
+					{
+						$nomPage = 'includes/accueil.php';
+					}
 				}
 				elseif ($_SESSION['etudiant'] == 1) {
 					$nomPage = 'includes/acceuilEtu.php';
-				}
-				if(isset($_GET['page']))
-				{
-					$paramPage ='includes/' . addslashes($_GET['page']) . '.php';
-					if(file_exists($paramPage) && $paramPage != 'index.php')
+					if(isset($_GET['page']))
 					{
-						$nomPage = $paramPage;
+						$paramPage ='includes/' . addslashes($_GET['page']) . '.php';
+						if(file_exists($paramPage) && $paramPage != 'index.php')
+						{
+							$nomPage = $paramPage;
+						}
 					}
 				}
 				include($nomPage);

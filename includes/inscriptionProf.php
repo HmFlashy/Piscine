@@ -52,10 +52,18 @@
 		}
 		else
 		{
-			$test = $connexion -> query("SELECT count(pseudo) FROM personne WHERE pseudo = '" . $_POST['pseudo'] ."'");
-			$existance = $test -> fetch();
-			if($existance['count(pseudo)']==1)
-				$erreur = "Pseudo déjà pris, choisissez en un autre";
+			$test = $connexion -> prepare("SELECT count(pseudo) FROM professeur WHERE pseudoProfesseur = ?");
+			$test -> execute(array($_POST['pseudo']));
+			$existancePseudo = $test -> fetch();
+			$test = $connexion -> prepare("SELECT count(emailProfesseur) FROM professeur WHERE emailProfesseur = ?");
+			$test -> execute(array($_POST['email']));
+			$existanceMail = $test -> fetch();
+			if($existancePseudo['count(pseudo)']==1)
+				$erreur = "Pseudo déjà pris, choisissez en un autre\n";
+			elseif($existanceMail['count(emailProfesseur)']==1)
+			{
+				$erreur += "Email déja pris";
+			}
 			else
 			{
 				$pseudo=$_POST['pseudo'];
@@ -63,18 +71,13 @@
 				$prenom=$_POST['prenom'];
 				$nom=$_POST['nom'];
 				$idEcole=$_POST['idEcole'];
-				$req = $connexion->prepare('INSERT INTO personne (pseudo, nom, prenom, email, motdepasse) VALUES(:pseudo, :nom, :prenom, :email, :motdepasse)');
+				$req = $connexion->prepare('INSERT INTO professeur (pseudoProfesseur, nomProfesseur, prenomProfesseur, emailProfesseur, motDePasseProfesseur) VALUES(:pseudo, :nom, :prenom, :email, :motdepasse)');
 				$req->execute(array(
 					'pseudo' => $pseudo,
 					'nom' => $nom,
 					'prenom' => $prenom,
 					'email' => $email,
 					'motdepasse' => md5($mdp),
-					));
-				$req = $connexion->prepare('INSERT INTO professeur (pseudo, idEcole) VALUES(:pseudo, :idEcole)');
-				$req->execute(array(
-					'pseudo' => $pseudo,
-					'idEcole' => $idEcole,
 					));
 				header('Location: ?page=connexionProf');
 	  			exit();
@@ -106,23 +109,6 @@
 		</tr>
 		<tr>
 		    <td><input type="text" name="nom" placeholder="Nom"></td>
-		</tr>
-		<tr>
-		    <td>
-		    	<select name='idEcole'>
-		    		<option  value=-1>Choisissez une école</option>
-		    		<?php
-						$req = $connexion->query('SELECT idEcole, Nom FROM ecole');
-						$nomEcole = $req -> fetchAll(PDO::FETCH_ASSOC);
-		    			foreach ($nomEcole as $value) {
-		    				echo "<option value=" . $value["idEcole"] . ">" . $value["Nom"] . "</option>";
-		    			}
-		    		?>
-		    	</select>
-		    </td>
-		</tr>
-		<tr>
-		    	<td  style="text-align: center"><input type="button" name="nouveau" value="Ajout d'une école" style="text-align: center"  style="color:black; font-weight:bold"onclick></a></td>
 		</tr>
 		<tr>
 		    <td><input type="text" name="code" placeholder="Code Validation"></td>

@@ -38,7 +38,8 @@
 		}
 		else
 		{
-			$test = $connexion -> query("SELECT count(pseudo) FROM personne WHERE pseudo = '" . $_POST['pseudo'] ."'");
+			$test = $connexion -> prepare("SELECT count(pseudo) FROM eleve WHERE pseudoEleve = ?");
+			$test -> execute(array($_POST['pseudo']));
 			$existance = $test -> fetch();
 			if($existance['count(pseudo)']==1)
 				$erreur = "Pseudo déjà pris, choisissez en un autre";
@@ -53,18 +54,13 @@
 					$code=NULL;
 				else
 					$code=$_POST['code'];
-				$req = $connexion->prepare('INSERT INTO personne (pseudo, nom, prenom, email, motdepasse) VALUES(:pseudo, :nom, :prenom, :email, :motdepasse)');
+				$req = $connexion->prepare('INSERT INTO eleve (pseudoEleve, nomEleve, prenomEleve, emailEleve, motDePasseEleve) VALUES(:pseudo, :nom, :prenom, :email, :motdepasse)');
 				$req->execute(array(
 					'pseudo' => $pseudo,
 					'nom' => $nom,
 					'prenom' => $prenom,
 					'email' => $email,
 					'motdepasse' => md5($mdp),
-					));
-				$req = $connexion->prepare('INSERT INTO elève (pseudo, code) VALUES(:pseudo, :code)');
-				$req->execute(array(
-					'pseudo' => $pseudo,
-					'code' => $code,
 					));
 				header('Location: ?page=connexionEtu');
 	  			exit();

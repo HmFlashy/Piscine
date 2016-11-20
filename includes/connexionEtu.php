@@ -1,4 +1,4 @@
-<h3>Vous êtes un élève ou une personne quelconque:</h3>
+<h3>Vous êtes un élève:</h3>
 <?php
 	$erreur='';
 	$pseudo='';
@@ -17,17 +17,17 @@
 		{
 			$pseudo=$_POST['pseudo'];
 			$mdp=$_POST['mdp'];
-			$test = $connexion -> prepare('SELECT count(*) FROM personne WHERE pseudo= ?');
+			$test = $connexion -> prepare('SELECT count(*) AS nb FROM eleve WHERE pseudoEleve= ?');
 			$test -> execute(array($_POST['pseudo']));
-			$existance = $test -> fetchColumn();
-			if($existance==0)
+			$existance = $test -> fetch();
+			if($existance["nb"]==0)
 				$erreur = "Compte inexistant";
 			else
 			{
-				$test = $connexion -> prepare('SELECT motdepasse FROM personne WHERE pseudo= ?');
+				$test = $connexion -> prepare('SELECT idEleve, motDePasseEleve FROM eleve WHERE pseudoEleve= ?');
 				$test -> execute(array($_POST['pseudo']));
 				$res = $test -> fetch();
-				if($res['motdepasse'] != md5($mdp))
+				if($res['motDePasseEleve'] != md5($mdp))
 				{
 					$erreur="Mauvais mot de passe";	
 				}
@@ -35,6 +35,7 @@
 				{
 					$_SESSION['login']=$pseudo;
 					$_SESSION['etudiant'] = 1;
+					$_SESSION['idEleve'] = $res["idEleve"];
 					header('Location: ?page=acceuilEtu');
 	  				exit();
 	  			}
@@ -43,19 +44,17 @@
 	}
 ?>
 <form method="post" action="#">
-	<table>
-		<?php 
-			if(!empty($erreur))
-				echo $erreur;
-		?>
-		<tr>
-		    <td><input type="text" name="pseudo" placeholder="Identifiant"></td>
-		</tr>
-		<tr>
-		    <td><input type="password" name="mdp" placeholder="Mot De Passe"></td>
-		</tr>
-	</table>
-	<input type="submit" name="connexion" value="Connexion">
-	<br><br>
-	<a href="?page=inscriptionEtu">Pas de compte? Inscrivez-vous!</a>
+	<?php 
+		if(!empty($erreur))
+			echo $erreur;
+	?>
+    <div class="form-group connex">
+    	<br>
+		<input type="text" class="form-control" name="pseudo" placeholder="Identifiant">
+		<input type="password" class="form-control" name="mdp" placeholder="Mot De Passe">
+		<br>
+		<input type="submit" class="btn btn-primary" name="connexion" value="Connexion">
+	</div>
+	<br>
 </form>
+<a href="?page=inscriptionEtu">Pas de compte? Inscrivez-vous!</a>
