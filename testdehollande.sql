@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 20 Novembre 2016 à 13:22
+-- Généré le :  Dim 20 Novembre 2016 à 13:32
 -- Version du serveur :  10.0.17-MariaDB
 -- Version de PHP :  5.6.14
 
@@ -31,6 +31,13 @@ CREATE TABLE `appartenir` (
   `idSession` int(11) NOT NULL DEFAULT '0',
   `resultatSession` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `appartenir`
+--
+
+INSERT INTO `appartenir` (`idEleve`, `idSession`, `resultatSession`) VALUES
+(1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -66,6 +73,24 @@ CREATE TABLE `contenir` (
   `idGroupe` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `contenir`
+--
+
+INSERT INTO `contenir` (`idQuestionnaire`, `idGroupe`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 5),
+(1, 6),
+(1, 7),
+(1, 8),
+(1, 9),
+(1, 10),
+(1, 11),
+(1, 12);
+
 -- --------------------------------------------------------
 
 --
@@ -81,6 +106,13 @@ CREATE TABLE `eleve` (
   `motDePasseEleve` char(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `eleve`
+--
+
+INSERT INTO `eleve` (`idEleve`, `pseudoEleve`, `nomEleve`, `prenomEleve`, `emailEleve`, `motDePasseEleve`) VALUES
+(1, 'pseudoEleveTest', 'nomEleveTest', 'prenomEleveTest', 'emailEleveTest@test.fr', 'b6edd10559b20cb0a3ddaeb15e5267cc');
+
 -- --------------------------------------------------------
 
 --
@@ -92,6 +124,13 @@ CREATE TABLE `generer` (
   `idSession` int(11) NOT NULL DEFAULT '0',
   `idQuestionnaire` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `generer`
+--
+
+INSERT INTO `generer` (`idProfesseur`, `idSession`, `idQuestionnaire`) VALUES
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -138,6 +177,13 @@ CREATE TABLE `professeur` (
   `motDePasseProfesseur` char(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `professeur`
+--
+
+INSERT INTO `professeur` (`idProfesseur`, `pseudoProfesseur`, `nomProfesseur`, `prenomProfesseur`, `emailProfesseur`, `motDePasseProfesseur`) VALUES
+(1, 'profTest', 'nomProfTest', 'prenomProfTest', 'emailProfTest@test.fr', 'b6edd10559b20cb0a3ddaeb15e5267cc');
+
 -- --------------------------------------------------------
 
 --
@@ -149,6 +195,13 @@ CREATE TABLE `questionnaire` (
   `idProfesseur` int(11) DEFAULT NULL,
   `libelleQuestionnaire` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `questionnaire`
+--
+
+INSERT INTO `questionnaire` (`idQuestionnaire`, `idProfesseur`, `libelleQuestionnaire`) VALUES
+(1, NULL, 'Standard');
 
 -- --------------------------------------------------------
 
@@ -256,6 +309,13 @@ CREATE TABLE `session` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Contenu de la table `session`
+--
+
+INSERT INTO `session` (`idSession`, `codeSession`, `dateSession`, `libelleSession`, `departement`) VALUES
+(1, 'codesession', '2016-11-20', 'sessionTest', 'IG3');
+
+--
 -- Index pour les tables exportées
 --
 
@@ -340,7 +400,7 @@ ALTER TABLE `categoriequestion`
 -- AUTO_INCREMENT pour la table `eleve`
 --
 ALTER TABLE `eleve`
-  MODIFY `idEleve` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idEleve` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `groupequestions`
 --
@@ -350,12 +410,12 @@ ALTER TABLE `groupequestions`
 -- AUTO_INCREMENT pour la table `professeur`
 --
 ALTER TABLE `professeur`
-  MODIFY `idProfesseur` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idProfesseur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `questionnaire`
 --
 ALTER TABLE `questionnaire`
-  MODIFY `idQuestionnaire` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idQuestionnaire` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `questions`
 --
@@ -365,7 +425,7 @@ ALTER TABLE `questions`
 -- AUTO_INCREMENT pour la table `session`
 --
 ALTER TABLE `session`
-  MODIFY `idSession` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idSession` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Contraintes pour les tables exportées
 --
