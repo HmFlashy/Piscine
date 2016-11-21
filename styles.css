@@ -13,7 +13,7 @@ body
 	text-align: center;
 	width:100%;
 	background-color: #F5F5F5;
-    padding-top: 10px;
+    padding-top: 15px;
     margin:0px;
     padding-bottom: 10px;
     -moz-box-shadow: inset 0px 0px 5px 0px #656565;
@@ -78,11 +78,6 @@ h2
 	text-align: center;
 }
 
-#titreAcc
-{
-	margin:0px;
-}
-
 footer
 {
 	position:fixed;
@@ -144,6 +139,10 @@ span
 
 @media (max-width: 700px)
 {
+	#titreAcc
+	{
+		font-size: 15px;
+	}
 	#questionnaire
 	{
 	margin-left: 0px;
@@ -153,7 +152,7 @@ span
 	}
 	#grostitre
 	{
-		font-size: 25px;
+		font-size: 30px;
 	}
 } 
 
