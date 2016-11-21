@@ -1,6 +1,6 @@
 <div id='entete' class='container'>
 	<div class="page-header" style="text-align: center;">
-			<h1 id="grostitre">TEST DE HOLLANDE lolilolilol
+			<h1 id="grostitre">TEST DE HOLLANDE lolilolilolilol
 			<?php 
 			session_start();
 			session_set_cookie_params(0);
