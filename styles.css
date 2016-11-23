@@ -23,6 +23,20 @@ body
 	filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=NaN, Strength=5);
 }
 
+#sessFaites
+{
+	border-radius: 20px;
+	background-color: #F5F5F5;
+    padding-top: 15px;
+    margin:0px;
+    padding-bottom: 10px;
+    -moz-box-shadow: inset 0px 0px 5px 0px #656565;
+	-webkit-box-shadow: inset 0px 0px 5px 0px #656565;
+	-o-box-shadow: inset 0px 0px 5px 0px #656565;
+	box-shadow: inset 0px 0px 5px 0px #656565;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=NaN, Strength=5);
+}
+
 button
 {
 	text-decoration: none;
@@ -147,6 +161,17 @@ nav
 
 @media (max-width: 700px)
 {
+	#sessFaites
+	{
+		margin-right: auto;
+		margin-left: auto; 
+	}
+	#rejSess
+	{
+		margin-left: auto;
+   		margin-right: auto;
+		width: 300px;
+	}
 	#titreAcc
 	{
 		font-size: 15px;
@@ -166,6 +191,10 @@ nav
 
 @media (min-width: 700px)
 {
+	#sessFaites
+	{
+		float:right; 
+	}
 	.connex
 	{
 		margin-left: auto;
