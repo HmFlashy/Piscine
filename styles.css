@@ -159,7 +159,7 @@ nav
 	text-align: center;
 }
 
-@media (max-width: 700px)
+@media (max-width: 800px;)
 {
 	#sessFaites
 	{
@@ -189,8 +189,14 @@ nav
 	}
 } 
 
-@media (min-width: 700px)
+@media (min-width: 800px)
 {
+	#deco
+	{
+		position: absolute;
+		right: 10px;
+		top: 0px;
+	}
 	#sessFaites
 	{
 		float:right; 

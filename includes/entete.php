@@ -7,9 +7,9 @@
 			if($_SESSION != NULL)
 			{
 				echo("<br>Bienvenue " . $_SESSION['login']);
-				echo('<div style=" margin-top: auto; margin-bottom: auto;">
-					<a href="fonctions/deconnexion.php"><button class="btn btn-secondary" onclick="">Deconnexion</button></a>
-				</div>');
+				echo('<div id="deco" style="">
+						<a href="fonctions/deconnexion.php" role="button" class="btn btn-secondary"  onclick="">Deconnexion</a>
+					</div>');
 			}
 			?>
 			</h1>
