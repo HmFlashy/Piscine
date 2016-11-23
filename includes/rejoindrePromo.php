@@ -44,7 +44,7 @@
 		}
 	}
 ?>
-<h2>Rentrez le code de session donné par votre professeur</h2>
+<h2>Rentrez le code de promotion donné par votre professeur</h2>
 <br>
 <?php echo($erreur . " <br>"); ?>
 <form action="#" method="post" class="connex">
