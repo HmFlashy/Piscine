@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 23 Novembre 2016 à 18:25
+-- Généré le :  Mer 23 Novembre 2016 à 19:19
 -- Version du serveur :  10.0.17-MariaDB
 -- Version de PHP :  5.6.14
 
@@ -27,10 +27,16 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `appartenir` (
-  `idEleve` int(11) NOT NULL DEFAULT '0',
-  `idSession` int(11) NOT NULL DEFAULT '0',
-  `resultatSession` char(1) DEFAULT NULL
+  `idPromo` int(11) NOT NULL,
+  `idEleve` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `appartenir`
+--
+
+INSERT INTO `appartenir` (`idPromo`, `idEleve`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -58,6 +64,47 @@ INSERT INTO `categoriequestion` (`idCategorie`, `libelleCategorie`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `departement`
+--
+
+CREATE TABLE `departement` (
+  `idDepartement` int(11) NOT NULL,
+  `libelleDepartement` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `departement`
+--
+
+INSERT INTO `departement` (`idDepartement`, `libelleDepartement`) VALUES
+(1, 'IG3'),
+(2, 'IG4'),
+(3, 'IG5'),
+(4, 'GBA3'),
+(5, 'GBA4'),
+(6, 'GBA5'),
+(7, 'MAT3'),
+(8, 'MAT4'),
+(9, 'MAT5'),
+(10, 'MI3'),
+(11, 'MI4'),
+(12, 'MI5'),
+(13, 'MEA3'),
+(14, 'MEA4'),
+(15, 'MEA5'),
+(16, 'STE3'),
+(17, 'STE4'),
+(18, 'STE5'),
+(19, 'EGC3'),
+(20, 'EGC4'),
+(21, 'EGC5'),
+(22, 'ENR3'),
+(23, 'ENR4'),
+(24, 'ENR5');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `eleve`
 --
 
@@ -76,6 +123,18 @@ CREATE TABLE `eleve` (
 
 INSERT INTO `eleve` (`idEleve`, `pseudoEleve`, `nomEleve`, `prenomEleve`, `emailEleve`, `motDePasseEleve`) VALUES
 (1, 'testE', 'nomE', 'preE', 'e@eleve', 'aa36dc6e81e2ac7ad03e12fedcb6a2c0');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `participer`
+--
+
+CREATE TABLE `participer` (
+  `idEleve` int(11) NOT NULL DEFAULT '0',
+  `idSession` int(11) NOT NULL DEFAULT '0',
+  `resultatSession` char(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -108,7 +167,7 @@ INSERT INTO `professeur` (`idProfesseur`, `pseudoProfesseur`, `nomProfesseur`, `
 CREATE TABLE `promotion` (
   `idPromo` int(11) NOT NULL,
   `idProfesseur` int(11) DEFAULT NULL,
-  `nomPromo` varchar(10) DEFAULT NULL,
+  `idDepartement` int(11) DEFAULT NULL,
   `codePromo` char(12) DEFAULT NULL,
   `anneePromo` date DEFAULT NULL,
   `libellePromo` varchar(25) DEFAULT NULL,
@@ -119,8 +178,8 @@ CREATE TABLE `promotion` (
 -- Contenu de la table `promotion`
 --
 
-INSERT INTO `promotion` (`idPromo`, `idProfesseur`, `nomPromo`, `codePromo`, `anneePromo`, `libellePromo`, `taillePromo`) VALUES
-(1, 1, 'IG3 2017', 'promo', '2016-11-23', 'IG3', 50);
+INSERT INTO `promotion` (`idPromo`, `idProfesseur`, `idDepartement`, `codePromo`, `anneePromo`, `libellePromo`, `taillePromo`) VALUES
+(1, 1, 1, 'promo', '2016-11-23', 'IG3 2016', 50);
 
 -- --------------------------------------------------------
 
@@ -221,7 +280,7 @@ INSERT INTO `questions` (`idQuestion`, `idProfesseur`, `idCategorie`, `libelleQu
 
 CREATE TABLE `session` (
   `idSession` int(11) NOT NULL,
-  `idPromo` int(11) NOT NULL DEFAULT '0',
+  `idPromo` int(11) DEFAULT NULL,
   `dateSession` datetime DEFAULT NULL,
   `libelleSession` varchar(30) DEFAULT NULL,
   `activeSession` tinyint(1) DEFAULT NULL
@@ -232,7 +291,7 @@ CREATE TABLE `session` (
 --
 
 INSERT INTO `session` (`idSession`, `idPromo`, `dateSession`, `libelleSession`, `activeSession`) VALUES
-(1, 1, '2016-11-23 18:17:37', 'Session 1 IG3', 0);
+(1, 1, '2016-11-23 19:17:38', 'IG3 2016 début', 0);
 
 --
 -- Index pour les tables exportées
@@ -242,8 +301,8 @@ INSERT INTO `session` (`idSession`, `idPromo`, `dateSession`, `libelleSession`, 
 -- Index pour la table `appartenir`
 --
 ALTER TABLE `appartenir`
-  ADD PRIMARY KEY (`idEleve`,`idSession`),
-  ADD KEY `idSession` (`idSession`);
+  ADD PRIMARY KEY (`idPromo`,`idEleve`),
+  ADD KEY `idEleve` (`idEleve`);
 
 --
 -- Index pour la table `categoriequestion`
@@ -252,10 +311,23 @@ ALTER TABLE `categoriequestion`
   ADD PRIMARY KEY (`idCategorie`);
 
 --
+-- Index pour la table `departement`
+--
+ALTER TABLE `departement`
+  ADD PRIMARY KEY (`idDepartement`);
+
+--
 -- Index pour la table `eleve`
 --
 ALTER TABLE `eleve`
   ADD PRIMARY KEY (`idEleve`);
+
+--
+-- Index pour la table `participer`
+--
+ALTER TABLE `participer`
+  ADD PRIMARY KEY (`idEleve`,`idSession`),
+  ADD KEY `idSession` (`idSession`);
 
 --
 -- Index pour la table `professeur`
@@ -268,8 +340,8 @@ ALTER TABLE `professeur`
 --
 ALTER TABLE `promotion`
   ADD PRIMARY KEY (`idPromo`),
-  ADD UNIQUE KEY `nomPromo` (`nomPromo`),
-  ADD KEY `idProfesseur` (`idProfesseur`);
+  ADD KEY `idProfesseur` (`idProfesseur`),
+  ADD KEY `idDepartement` (`idDepartement`);
 
 --
 -- Index pour la table `questions`
@@ -283,7 +355,7 @@ ALTER TABLE `questions`
 -- Index pour la table `session`
 --
 ALTER TABLE `session`
-  ADD PRIMARY KEY (`idSession`,`idPromo`),
+  ADD PRIMARY KEY (`idSession`),
   ADD KEY `idPromo` (`idPromo`);
 
 --
@@ -291,10 +363,20 @@ ALTER TABLE `session`
 --
 
 --
+-- AUTO_INCREMENT pour la table `appartenir`
+--
+ALTER TABLE `appartenir`
+  MODIFY `idPromo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT pour la table `categoriequestion`
 --
 ALTER TABLE `categoriequestion`
   MODIFY `idCategorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT pour la table `departement`
+--
+ALTER TABLE `departement`
+  MODIFY `idDepartement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT pour la table `eleve`
 --
@@ -328,14 +410,22 @@ ALTER TABLE `session`
 -- Contraintes pour la table `appartenir`
 --
 ALTER TABLE `appartenir`
-  ADD CONSTRAINT `appartenir_ibfk_1` FOREIGN KEY (`idEleve`) REFERENCES `eleve` (`idEleve`),
-  ADD CONSTRAINT `appartenir_ibfk_2` FOREIGN KEY (`idSession`) REFERENCES `session` (`idSession`);
+  ADD CONSTRAINT `appartenir_ibfk_1` FOREIGN KEY (`idPromo`) REFERENCES `promotion` (`idPromo`),
+  ADD CONSTRAINT `appartenir_ibfk_2` FOREIGN KEY (`idEleve`) REFERENCES `eleve` (`idEleve`);
+
+--
+-- Contraintes pour la table `participer`
+--
+ALTER TABLE `participer`
+  ADD CONSTRAINT `participer_ibfk_1` FOREIGN KEY (`idEleve`) REFERENCES `eleve` (`idEleve`),
+  ADD CONSTRAINT `participer_ibfk_2` FOREIGN KEY (`idSession`) REFERENCES `session` (`idSession`);
 
 --
 -- Contraintes pour la table `promotion`
 --
 ALTER TABLE `promotion`
-  ADD CONSTRAINT `promotion_ibfk_1` FOREIGN KEY (`idProfesseur`) REFERENCES `professeur` (`idProfesseur`);
+  ADD CONSTRAINT `promotion_ibfk_1` FOREIGN KEY (`idProfesseur`) REFERENCES `professeur` (`idProfesseur`),
+  ADD CONSTRAINT `promotion_ibfk_2` FOREIGN KEY (`idDepartement`) REFERENCES `departement` (`idDepartement`);
 
 --
 -- Contraintes pour la table `questions`
