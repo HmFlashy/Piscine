@@ -1,1 +1,0 @@
-<?php 'sudo git pull';
