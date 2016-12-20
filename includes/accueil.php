@@ -3,3 +3,4 @@
 <a href='?page=connexionProf'><button class="button btn btn-primary" name="professeur" style=""  style="color:black; font-weight:bold"onclick>Professeur</button></a>
 <br>
 <a href='?page=test'><button class="button btn btn-primary" name="test" style=""  style="color:black; font-weight:bold"onclick>Test</button></a>
+<a href='?page=riasec'><button class="button btn btn-primary" name="roasec" style=""  style="color:black; font-weight:bold"onclick>Riasec</button></a>

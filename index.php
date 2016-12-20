@@ -5,10 +5,11 @@
 		<title>Piscine !</title>
 		<link rel="stylesheet" href="styles.css" type="text/css">
 		<meta charset="utf-8"/>	
-		<link href="css/bootstrap-flex.css" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<Script language="text/javascript"></Script>
+		<script language="text/javascript"></script>
 	</head>
    <!--Affichage de la page-->
 	<body>
@@ -20,7 +21,7 @@
 				{
 					if(isset($_GET['page']))
 					{
-						if(($_GET['page'] == "connexionEtu") OR ($_GET['page'] == "connexionProf") OR ($_GET['page'] == "test") OR ($_GET['page'] == "inscriptionEtu") OR ($_GET['page'] == "inscriptionProf"))
+						if(($_GET['page'] == "connexionEtu") OR ($_GET['page'] == "connexionProf") OR ($_GET['page'] == "test") OR ($_GET['page'] == "inscriptionEtu") OR ($_GET['page'] == "inscriptionProf") OR ($_GET['page'] == "riasec"))
 						{
 							$nomPage = 'includes/' . $_GET['page'] . '.php';
 						}

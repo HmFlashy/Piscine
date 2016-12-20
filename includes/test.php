@@ -52,7 +52,7 @@
 			div.setAttribute('id', 'dBut');
 			bouton.setAttribute('id', j+1);
 			bouton.setAttribute('onclick', 'changeCouleur(' + (j+1) + ')');
-			bouton.setAttribute("class", "btn btn-secondary buttonT col-xs-12");
+			bouton.setAttribute("class", "buttonT col-xs-12");
 			div.innerHTML = q[j];
 			bouton.appendChild(div);
 			$('.row')[0].appendChild(bouton);
