@@ -46,7 +46,10 @@
 	{
 		$i = 0;
 		foreach ($libelleSessNonFaites as $value) {
-			echo "<a class='btn btn-default' href='?page=test&promo=".$idSessNonFaites[$i]."' role='button'>". $value . "</a>";
+			echo '<form method="post" action="?page=test">';
+			echo "<input type='hidden' name='idSession' value='".$idSessNonFaites[$i]."'>";
+			echo "<input class='btn btn-default' type='submit' name='promo' value='".$value."'>";
+			echo '</form>';
 			echo "<br>";
 			$i += 1;
 		}

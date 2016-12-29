@@ -16,6 +16,9 @@
 				setcookie('result1', serialize($_POST['result1']), time()+3600);
 				setcookie('result2', serialize($_POST['result2']), time()+3600);
 				setcookie('result3', serialize($_POST['result3']), time()+3600);
+				setcookie('promo', $_POST['promo'], time()+3600);
+				setcookie('idSession', $_POST['idSession'], time()+3600);
+				?><script>console.log( 'Debug Objects: <?php echo $_POST['idSession'];?> ');</script><?php
 				header('Location: ?page=resultatTest');
 			}
 		}
@@ -57,6 +60,7 @@
 			</tbody>
 		</table>
 		<input type='hidden' name='groupe' value='<?php echo $groupe; ?>'>
+		<input type='hidden' name='idSession' value='<?php echo $_POST['idSession']; ?>'>
 		<?php 
 			foreach($_POST['result1'] as $value)
 			{
