@@ -15,7 +15,7 @@
    <!--Affichage de la page-->
 	<body>
 	<?php include('includes/connect.php');?>
-	<?php include('includes/blacklist.php');?>
+	<?php include('blacklist/blacklist.php');?>
 	<?php include('includes/entete.php');?>
 		<div id="corps" class="container" style="margin-top: 15px; text-align: center;">
 			<?php
@@ -41,7 +41,7 @@
 					$nomPage = 'includes/acceuilEtu.php';
 					if(isset($_GET['page']))
 					{
-						if(in_array($_GET['page'], $blacklistProf))
+						if(in_array($_GET['page'], $blacklistEleve))
 						{
 							$paramPage ='includes/' . addslashes($_GET['page']) . '.php';
 							if(file_exists($paramPage) && $paramPage != 'index.php')
@@ -55,7 +55,7 @@
 					$nomPage = 'includes/acceuilProf.php';
 					if(isset($_GET['page']))
 					{
-						if(in_array($_GET['page'], $blacklistEleve))
+						if(in_array($_GET['page'], $blacklistProf))
 						{
 							$paramPage ='includes/' . addslashes($_GET['page']) . '.php';
 							if(file_exists($paramPage) && $paramPage != 'index.php')
