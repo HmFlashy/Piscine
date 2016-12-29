@@ -1,44 +1,88 @@
 <?php 
-	echo $_POST['groupe'];
 	if(isset($_POST['groupe']))
 	{
+		if($_POST['1'] == NULL || $_POST['2'] == NULL || $_POST['3'] == NULL)
+		{
+			//On refait
+		}
+		else
+		{
+			$_POST['groupe'] += 1;
+			$_POST['result1'][] = $_POST['1'];
+			$_POST['result2'][] = $_POST['2'];
+			$_POST['result3'][] = $_POST['3'];
+			if($_POST['groupe'] == 12)
+			{
+				setcookie('result1', serialize($_POST['result1']), time()+3600);
+				setcookie('result2', serialize($_POST['result2']), time()+3600);
+				setcookie('result3', serialize($_POST['result3']), time()+3600);
+				header('Location: ?page=resultatTest');
+			}
+		}
 		$groupe = $_POST['groupe'];
 	}
-	$test = $connexion -> prepare('SELECT idCategorie, libelleQuestion FROM questions LIMIT ' . (6 * $groupe) . ',' . ((6 * $groupe) + 6));
+	else
+	{
+		$groupe = 0;
+	}
+	$test = $connexion -> prepare('SELECT idCategorie, libelleQuestion FROM questions LIMIT ' . (6 * $groupe) . ',' . 6);
 	if (!$test) {
    		echo "\nPDO::errorInfo():\n";
-   		print_r($dbh->errorInfo());
+   		print_r($connexion->errorInfo());
 	}
 	$test->execute();
 	$questions = $test -> fetchAll();
 ?>
+
 <div style='width: 800px; margin-left: auto; margin-right: auto;'>
-	<form action="?page=test" method='post'>
-		<table class="table table-striped">
+<form action="?page=test" method="post">
+		<h2>Groupe <?php echo ($groupe + 1); ?></h2>
+		<table style='text-align: left;' class="table table-striped">
 		    <thead>
 		      <tr>
-		        <th style='text-align: center;'>Question</th>
-		        <th style='text-align: center;'>1</th>
-		        <th style='text-align: center;'>2</th>
-		        <th style='text-align: center;'>3</th>
+		        <th>Question</th>
+		        <th>1</th>
+		        <th>2</th>
+		        <th>3</th>
 		      </tr>
 		    </thead>
 		    <tbody>
 		    	<?php foreach($questions as $question) { 
 					echo '<tr><td>' .$question['libelleQuestion']. '</td>
-						<td><input type="radio" class="radio1" name="1" value="'.$question['idCategorie'].'"></td>
+						<td><input type="radio"  class="radio1" name="1" value="'.$question['idCategorie'].'"></td>
 						<td><input type="radio" class="radio2" name="2" value="'.$question['idCategorie'].'"></td>
 						<td><input type="radio" class="radio3" name="3" value="'.$question['idCategorie'].'"></td>
 					  </tr>';
 				} ?>
 			</tbody>
-		 </table>
-		 <input type='hidden' name='groupe' value='<?php ($groupe + 1) ?>'>
-		 <input type='submit' value='Valider'>
+		</table>
+		<input type='hidden' name='groupe' value='<?php echo $groupe; ?>'>
+		<?php 
+			foreach($_POST['result1'] as $value)
+			{
+			  echo '<input type="hidden" name="result1[]" value="'. $value. '">';
+			}
+			foreach($_POST['result2'] as $value)
+			{
+			  echo '<input type="hidden" name="result2[]" value="'. $value. '">';
+			}
+			foreach($_POST['result3'] as $value)
+			{
+			  echo '<input type="hidden" name="result3[]" value="'. $value. '">';
+			}
+		?>
+
+		<?php 
+			if($groupe == 11)
+		 		echo '<input type="submit" value="Resultat">';
+			else
+		 		echo '<input type="submit" class="btn btn-default" value="Valider">';
+		?>
 	</form>
-	<p id='test'></p>
 </div>
+
 <script>
+
 
 $('.radio1').on('change', function() {
    if(($('input[name=1]:checked').val() == $('input[name=2]:checked').val() || ($('input[name=1]:checked').val() == $('input[name=3]:checked').val())))
@@ -60,5 +104,4 @@ $('.radio3').on('change', function() {
    		$('input[name=3]:checked').prop('checked', false);
    }
 });
-
 </script>

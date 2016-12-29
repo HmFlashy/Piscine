@@ -5,13 +5,13 @@ $bdd =  $bdd = new PDO('mysql:host=localhost; dbname=testdehollande; charset=utf
 if(isset($_GET['choixSup']))
 {
 	?>
-<form method="post" action="supprimerCode.php">
+<form method="post" action="?page=supprimerCode">
 <?php 
 }
 else
 {
 ?>
-	<form method="post" action="generationCode.php">
+	<form method="post" action="?page=generationCode">
 <?php 
 }
 ?>

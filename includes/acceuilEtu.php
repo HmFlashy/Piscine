@@ -6,9 +6,9 @@
 	if($existance != 0)
 	{
 		echo "Vos différentes promotions:<br><br>";
-		echo "<a class='btn btn-secondary' href='?page=promoPerso&promo=" .$existance["libellePromo"] . "' role='button'>". $existance["libellePromo"] . "</a>";
+		echo "<a class='btn btn-default' href='?page=promoPerso&promo=" .$existance["libellePromo"] . "' role='button'>". $existance["libellePromo"] . "</a>";
 		echo "<br><br>";
 	}
 ?>
-<a href="?page=rejoindrePromo" class="btn btn-secondary" role="button" value="Rejoindre une session">Rejoindre une promotion</a>
+<a href="?page=rejoindrePromo" class="btn btn-default" role="button" value="Rejoindre une session">Rejoindre une promotion</a>
 </div>
