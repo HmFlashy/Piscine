@@ -4,7 +4,7 @@
 $bdd = new PDO('mysql:host=localhost; dbname=testdehollande; charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO:: ERRMODE_EXCEPTION));
 
 
-$bdd->exec("DELETE FROM promotion WHERE idDepartement = '".$_POST['choixPromo']."'");
+$bdd->exec("DELETE FROM promotion WHERE idDepartement = '".$_POST['libellePromo']."'");
 
 ?>
 

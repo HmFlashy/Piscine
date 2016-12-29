@@ -12,9 +12,7 @@ else
 {
 ?>
 	<form method="post" action="?page=generationCode">
-<?php 
-}
-?>
+
  <p>
        Indiquez la promotion : <br />
 
@@ -52,11 +50,7 @@ elseif(isset($_POST['EGC']))
 {
 	$requete= $bdd->query('SELECT * FROM departement WHERE libelleDepartement LIKE "%EGC%"');
 }
-?>	
 
-
-
-<?php
 while($donnees = $requete->fetch())
 {
 ?>
@@ -64,23 +58,22 @@ while($donnees = $requete->fetch())
       		
 <?php 
 }
-
-
-if(null == isset($_GET['choixSup']))
-{
 ?>
+
+
+
 	<p>
         <label for="libellePromo">Indiquez le nom que vous voulez donner à cette promotion :</label>
         <input type="text" name="libellePromo" id="libellePromo" placeholder="Ex : IG_3 2016" size="30" maxlength="10" />
     </p>
-<?php 
-}
-?>
+
     
 
 <input type="submit" value="Valider" title="valider pour aller à la page sélectionnée" />
 
-
+<?php 
+}
+?>
 
   
            </p>
