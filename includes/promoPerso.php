@@ -40,7 +40,7 @@
 	<?php
 	if(count($libelleSessNonFaites)== 0)
 	{
-		echo '<p>Aucune session non faites sur cette promotion</p>';
+		echo '<p>Aucune session non faites sur cette promotion</p><br><br><br>';
 	}
 	else
 	{
@@ -68,7 +68,7 @@
 		{
 			$i = 0;
 			foreach ($libelleSessFaites as $value) {
-				echo "<button class='btn btn-default'>".$value."<br>".$resSessFaites[$i]."</button>";
+				echo "<button class='btn btn-default'>".$value."<br>Resultat: ".$resSessFaites[$i]."</button>";
 				echo "<br><br>";
 				$i += 1;
 			}
