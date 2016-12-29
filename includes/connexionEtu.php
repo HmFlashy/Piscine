@@ -43,7 +43,7 @@
 	}
 ?>
 <h3>Vous êtes un élève:</h3>
-<form method="post" action="#">
+<form method="post" action="?page=connexionEtu">
 	<?php 
 		if(!empty($erreur))
 			echo $erreur;

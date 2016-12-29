@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "SugarPunch";
+    src: url('fonts/HotSweat.ttf');
+}
+
 html
 {
 	height: 100%;
@@ -21,6 +26,11 @@ body
 	-o-box-shadow: inset 0px 0px 5px 0px #656565;
 	box-shadow: inset 0px 0px 5px 0px #656565;
 	filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=NaN, Strength=5);
+}
+
+#grostitre
+{
+	font-family: "SugarPunch";
 }
 
 #sessFaites
@@ -75,7 +85,6 @@ button
 h1
 {
 	margin:0px;
-	color: black;
 }
 
 #insc
@@ -110,7 +119,6 @@ h1
 h2
 {
 	padding:0px;
-	color:white;
 	text-align: center;
 }
 
@@ -180,8 +188,12 @@ nav
 	background-color: white;
 	text-align: center;
 }
-@media (max-width: 800px;)
+@media(max-width: 800px)
 {
+	#grostitre
+	{
+		font-size: 18px;
+	}
 	#sessFaites
 	{
 		margin-right: auto;
@@ -204,10 +216,6 @@ nav
 		padding-left: 0px;
 		padding-right: 0px;
 	}
-	#grostitre
-	{
-		font-size: 30px;
-	}
 
 	.paragraphe
 	{
@@ -219,10 +227,19 @@ nav
 	{
 		width: 20px;
 	}
+
+	#test
+	{
+		width:auto;
+	}
 } 
 
 @media (min-width: 800px)
 {
+	#grostitre
+	{
+		font-size: 35px;
+	}
 
 	.paragraphe
 	{
@@ -234,7 +251,7 @@ nav
 	{
 		position: absolute;
 		right: 10px;
-		top: 0px;
+		top: 10px;
 	}
 	#sessFaites
 	{
@@ -256,6 +273,12 @@ nav
 	{
 		margin-left: 10%;
 		margin-right: 10%;
+	}
+	#test
+	{
+		margin-left: auto;
+		margin-right: auto;
+		width:80%;
 	}
 }
 

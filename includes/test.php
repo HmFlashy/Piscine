@@ -34,7 +34,7 @@
 	$questions = $test -> fetchAll();
 ?>
 
-<div style='width: 800px; margin-left: auto; margin-right: auto;'>
+<div id='test'>
 <form action="?page=test" method="post">
 		<h2>Groupe <?php echo ($groupe + 1); ?></h2>
 		<table style='text-align: left;' class="table table-striped">
