@@ -13,12 +13,12 @@ if (isset($_GET['choixSup']))
 while ($donnees = $reponse->fetch())
 {
 ?>
-<a><button type="submit" name=<?php echo $donnees['libellePromo']?> value =<?php echo $donnees['libellePromo']?> style=""  style="color:black; font-weight:bold"onclick><?php echo $donnees['libellePromo'] ?></button></a>
+<form action="?page=supprimerCode&choixSup=supprimerCodePromo" method="post">
+<a><button type="submit" name="libellePromo" value ="<?php echo $donnees['libellePromo'];?>"  style="color:black; font-weight:bold"onclick><?php echo $donnees['libellePromo'] ;?></button></a>
+
 <?php
 }
-?>
-<form action="?page=supprimerCode&choixSup=supprimerCodePromo" method="POST">
-<?php
+
 }
 else
 {
@@ -36,3 +36,6 @@ else
 <?php
 }
 ?>
+
+
+</form>
