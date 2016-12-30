@@ -1,7 +1,7 @@
 <?php 
 	if(isset($_POST['groupe']))
 	{
-		if($_POST['1'] == NULL || $_POST['2'] == NULL || $_POST['3'] == NULL)
+		if(!isset($_POST['1']) || !isset($_POST['2']) || !isset($_POST['3']))
 		{
 			//On refait
 		}
