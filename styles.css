@@ -47,6 +47,11 @@ body
 	filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=NaN, Strength=5);
 }
 
+.titreAcc
+{
+	font-size: 25px;
+}
+
 button
 {
 	text-decoration: none;
@@ -87,6 +92,11 @@ h1
 	margin:0px;
 }
 
+h3
+{
+	margin:0px;
+}
+
 #insc
 {
 	line-height: 20px;
@@ -105,10 +115,14 @@ h1
 
 .button
 {
-	margin-top: 50px;
-	width:250px;
+	width:200px;
 	height:50px;
-	float:center;
+	padding:15px;
+}
+
+p
+{
+	margin: 0px;
 }
 
 #dBut
@@ -190,6 +204,24 @@ nav
 }
 @media(max-width: 800px)
 {
+
+	.riasec li
+	{
+		width: 100%;
+		margin-bottom: 10px;
+		height: 25px;
+		font-size: 12px;
+	}
+	.riasec2
+	{
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+	}
+	.button
+	{
+		margin-top: 20px;
+	}
 	#grostitre
 	{
 		font-size: 18px;
@@ -205,7 +237,7 @@ nav
    		margin-right: auto;
 		width: 300px;
 	}
-	#titreAcc
+	.titreAcc
 	{
 		font-size: 15px;
 	}
@@ -216,13 +248,6 @@ nav
 		padding-left: 0px;
 		padding-right: 0px;
 	}
-
-	.paragraphe
-	{
-		width: auto;
-		margin: auto;
-	}
-
 	.fade
 	{
 		width: 20px;
@@ -236,17 +261,26 @@ nav
 
 @media (min-width: 800px)
 {
+	.riasec li
+	{
+		width: auto;
+		margin:auto;
+		font-size: 12px;
+	}
+	.riasec2
+	{
+		margin-left: auto;
+		margin-right: auto;
+		width: 500px;
+	}
+	.button
+	{
+		margin-top: 50px;
+	}
 	#grostitre
 	{
 		font-size: 35px;
 	}
-
-	.paragraphe
-	{
-		width: 500px;
-		margin: auto;
-	}
-
 	#deco
 	{
 		position: absolute;

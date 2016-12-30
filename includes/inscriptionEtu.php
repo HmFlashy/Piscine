@@ -38,7 +38,7 @@
 		}
 		else
 		{
-			$test = $connexion -> prepare("SELECT count(pseudo) FROM eleve WHERE pseudoEleve = ?");
+			$test = $connexion -> prepare("SELECT count(pseudoEleve) FROM eleve WHERE pseudoEleve = ?");
 			$test -> execute(array($_POST['pseudo']));
 			$existance = $test -> fetch();
 			if($existance['count(pseudo)']==1)
@@ -50,19 +50,24 @@
 				$prenom=$_POST['prenom'];
 				$nom=$_POST['nom'];
 				$email=$_POST['email'];
-				if(empty($_POST['code']))
-					$code=NULL;
-				else
-					$code=$_POST['code'];
 				$req = $connexion->prepare('INSERT INTO eleve (pseudoEleve, nomEleve, prenomEleve, emailEleve, motDePasseEleve) VALUES(:pseudo, :nom, :prenom, :email, :motdepasse)');
-				$req->execute(array(
-					'pseudo' => $pseudo,
-					'nom' => $nom,
-					'prenom' => $prenom,
-					'email' => $email,
-					'motdepasse' => md5($mdp),
-					));
-				header('Location: ?page=connexionEtu');
+				if(!$req)
+				{
+					echo 'Problème';
+				}
+				else
+				{
+					$req->execute(array(
+						'pseudo' => $pseudo,
+						'nom' => $nom,
+						'prenom' => $prenom,
+						'email' => $email,
+						'motdepasse' => md5($mdp),
+						));
+					echo 'Votre inscription a été réalisé avec succès !<br>';
+					echo 'Retour à l\'accueil dans 3 secondes...' !';
+					header("refresh:3;url=?");//Renvoie sur la page d'acceuil au bout de 3s.
+				}
 	  			exit();
 	  		}
 		}
@@ -76,7 +81,7 @@
 	}
 ?>
 <br>
-<form method="post" action="#">
+<form method="post" action="?page=inscriptionEtu">
 	<div class="form-group connex">
 		<input type="text" class="form-control" name="pseudo" placeholder="Identifiant">
 		<input type="email" class="form-control" name="email" placeholder="Votre email">

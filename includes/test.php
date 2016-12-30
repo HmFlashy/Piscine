@@ -78,7 +78,7 @@
 
 		<?php 
 			if($groupe == 11)
-		 		echo '<input type="submit" value="Resultat">';
+		 		echo '<input type="submit" class="btn btn-danger" value="Resultat">';
 			else
 		 		echo '<input type="submit" class="btn btn-default" value="Valider">';
 		?>

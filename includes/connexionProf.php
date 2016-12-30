@@ -58,4 +58,3 @@
 	</div>
 	<br>
 </form>
-<a href="?page=inscriptionProf">Pas de compte? Inscrivez-vous!</a>

@@ -1,6 +1,7 @@
-<h2 id="titreAcc">Bienvenue ! Vous êtes sur un site interactif permettant de réaliser le test de Hollande.<br>Veuillez vous connecter.</h2>
-<a href='?page=connexionEtu'><button class="button btn btn-primary" name="etudiant" style=""  style="color:black; font-weight:bold"onclick>Etudiant</button></a>
-<a href='?page=connexionProf'><button class="button btn btn-primary" name="professeur" style=""  style="color:black; font-weight:bold"onclick>Professeur</button></a>
+<h2 class="titreAcc">Bienvenue ! Vous êtes sur un site interactif permettant de réaliser le test de Hollande.<br>Veuillez vous connecter.</h2>
+<a href='?page=connexionEtu' class="button btn btn-primary" name="etudiant" style="color:black; font-weight:bold"onclick><p>Etudiant</p></a>
+<a href='?page=connexionProf' class="button btn btn-primary" name="professeur" style="color:black; font-weight:bold"onclick>Professeur</a>
 <br>
-<a href='?page=test'><button class="button btn btn-primary" name="test" style=""  style="color:black; font-weight:bold"onclick>Test</button></a>
-<a href='?page=riasec'><button class="button btn btn-primary" name="roasec" style=""  style="color:black; font-weight:bold"onclick>Riasec</button></a>
+<a href='?page=riasec' class="button btn btn-primary " name="riasec" style="color:black; font-weight:bold"onclick>Riasec</a>
+<br>
+<a href='?page=aPropos' class="button btn btn-warning" name="test" style="color:black; font-weight:bold"onclick>A propos</a>
