@@ -65,7 +65,7 @@
 						'motdepasse' => md5($mdp),
 						));
 					echo 'Votre inscription a été réalisé avec succès !<br>';
-					echo 'Retour à l\'accueil dans 3 secondes...' !';
+					echo 'Retour à l\'accueil dans 3 secondes...';
 					header("refresh:3;url=?");//Renvoie sur la page d'acceuil au bout de 3s.
 				}
 	  			exit();
