@@ -51,9 +51,9 @@
     <div class="input-group">
       <input type="text" name="codePromo" class="form-control" placeholder="Code de Promotion">
       <span class="input-group-btn">
-        <input class="btn btn-secondary" type="submit" value="Valider" id="valider">
+        <input class="btn btn-default" type="submit" value="Valider" id="valider">
       </span>
     </div>
 </form>
 <br>
-<a class="btn btn-secondary" href="?" role="button">Retour</a>
+<a class="btn btn-warning" href="?" role="button">Retour</a>

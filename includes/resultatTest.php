@@ -76,6 +76,9 @@
 	<h2>Vous êtes du type:<br></h2>
 	<h3><?php echo $Type;?></h3><br>
 	<p style='width: 50%; margin: auto;'><?php echo $desc['descriptionCategorie']?></p>
+	<br>
+	<br>
+	<a href='?' class='btn btn-warning'>Retour à l'accueil</a>
 </div> 
 
 <?php
@@ -113,7 +116,13 @@ function insererResultat($connexion, $idEleve, $idSession, $indice)
 			break;
 	}
 	$req = $connexion->prepare('INSERT INTO participer VALUES ("'.$idEleve.'","'.$idSession.'","'.$Type.'")');
-	$req->execute();
+	if (!$req) { 
+	    echo "Vous avez déjà enregistré votre résultat! Si vous avez fait des changements ce résultat n'est peut être pas le même que celui enregistré.";
+	}
+	else
+	{
+		$req->execute();
+	}
 	return True;
 }
 ?>

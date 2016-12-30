@@ -7,7 +7,7 @@
 		{
 			echo("<br>Bienvenue " . $_SESSION['login']);
 			echo('<div id="deco" style="">
-					<a href="fonctions/deconnexion.php" role="button" class="btn btn-default"  onclick="">Deconnexion</a>
+					<a href="fonctions/deconnexion.php" role="button" class="btn btn-danger"  onclick="">Deconnexion</a>
 				</div>');
 		}
 		?>
