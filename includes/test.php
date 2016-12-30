@@ -18,7 +18,6 @@
 				setcookie('result3', serialize($_POST['result3']), time()+3600);
 				setcookie('promo', $_POST['promo'], time()+3600);
 				setcookie('idSession', $_POST['idSession'], time()+3600);
-				?><script>console.log( 'Debug Objects: <?php echo $_POST['idSession'];?> ');</script><?php
 				header('Location: ?page=resultatTest');
 			}
 		}
@@ -66,7 +65,7 @@
 			{
 				foreach($_POST['result1'] as $value)
 				{
-				  echo '<input type="hidden" name="result1[]" value="'. $value. '">';
+				  echo '<input type="hidden" name="result1[]" value="'.$value. '">';
 				}
 			}
 			if(isset($_POST['result2']))

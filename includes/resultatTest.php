@@ -8,6 +8,7 @@
 		setcookie('result1');
 		setcookie('result2');
 		setcookie('result3');
+		setcookie('promo');
 		setcookie('idSession');
 		$resultat = array(0, 0, 0, 0, 0, 0);
 		foreach($result1 as $value)
@@ -22,21 +23,26 @@
 		{
 			$resultat[$value - 1] += 1;
 		}
-		$indices = array(-1);
+		$indices = array();
 		$i = 0;
 		foreach($resultat as $value)
 		{
-			if($value > $resultat[$indices[0]])
-			{
-				$indices = array($i);
-			}
-			elseif ($value == $resultat[$indices[0]])
-			{
+			if($i == 0)
 				$indices[] = $i;
+			else
+			{
+				if($value > $resultat[$indices[0]])
+				{
+					$indices = array($i);
+				}
+				elseif ($value == $resultat[$indices[0]])
+				{
+					$indices[] = $i;
+				}
 			}
 			$i += 1;
 		}
-		if(count($indice) > 1)
+		if(count($indices) > 1)
 			$choix = $indices[rand(0, count($indices) - 1)];
 		else
 			$choix = $indices[0];
