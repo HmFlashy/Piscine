@@ -62,17 +62,26 @@
 		<input type='hidden' name='groupe' value='<?php echo $groupe; ?>'>
 		<input type='hidden' name='idSession' value='<?php echo $_POST['idSession']; ?>'>
 		<?php 
-			foreach($_POST['result1'] as $value)
+			if(isset($_POST['result1']))
 			{
-			  echo '<input type="hidden" name="result1[]" value="'. $value. '">';
+				foreach($_POST['result1'] as $value)
+				{
+				  echo '<input type="hidden" name="result1[]" value="'. $value. '">';
+				}
 			}
-			foreach($_POST['result2'] as $value)
+			if(isset($_POST['result2']))
 			{
-			  echo '<input type="hidden" name="result2[]" value="'. $value. '">';
+				foreach($_POST['result2'] as $value)
+				{
+				  echo '<input type="hidden" name="result2[]" value="'. $value. '">';
+				}
 			}
-			foreach($_POST['result3'] as $value)
+			if(isset($_POST['result2']))
 			{
-			  echo '<input type="hidden" name="result3[]" value="'. $value. '">';
+				foreach($_POST['result3'] as $value)
+				{
+				  echo '<input type="hidden" name="result3[]" value="'. $value. '">';
+				}
 			}
 		?>
 
