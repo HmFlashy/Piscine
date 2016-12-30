@@ -13,7 +13,7 @@
             Retapez votre nouveau mot de passe : 
             <input type="password" name="nouveau_deuxieme_mot_de_passe" />
             </p>
-            <input type="submit" value="Valider" />
+      <input type="submit" value="Valider" />
 </form>
 
 
