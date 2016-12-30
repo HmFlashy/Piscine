@@ -1,4 +1,0 @@
-if (self.CavalryLogger) { CavalryLogger.start_js(["XEq8l"]); }
-
-__d('MercuryShareAttachmentReactShape',['React'],(function a(b,c,d,e,f,g){'use strict';var h=c('React').PropTypes,i=h.shape({share_id:h.string,description:h.string,media:h.shape({image:h.string,image_size:h.shape({height:h.number,width:h.number}),duration:h.number,playable:h.bool,source:h.string}),source:h.string,style_list:h.arrayOf(h.string),subattachments:h.array,target:h.object,title:h.string,properties:h.object,uri:h.string,action_links:h.array}).isRequired;f.exports=i;}),null);
-__d('MercuryShareAttachmentRenderLocations',[],(function a(b,c,d,e,f,g){'use strict';var h={CHAT:'chat',CHAT_PREVIEW:'chat_preview',MESSENGER:'messenger',WEB_INBOX:'web_inbox',PAGES_INBOX:'pages_inbox',getValues:function i(){return [h.CHAT,h.CHAT_PREVIEW,h.MESSENGER,h.WEB_INBOX,h.PAGES_INBOX];},isPreview:function i(j){return j===h.CHAT_PREVIEW;}};f.exports=h;}),null);
