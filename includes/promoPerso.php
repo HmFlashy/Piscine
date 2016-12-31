@@ -1,10 +1,10 @@
 <?php
-	$test = $connexion -> prepare('SELECT idSession, libelleSession FROM session, promotion WHERE session.idPromo = ? AND session.idPromo = promotion.idPromo');
+	$test = $connexion -> prepare('SELECT idSession, libelleSession FROM session, promotion WHERE promotion.libellePromo = ? AND session.idPromo = promotion.idPromo');
 	if (!$test) {
    		echo "\nPDO::errorInfo():\n";
    		print_r($connexion->errorInfo());
 	}
-	$test -> execute(array($_GET['promo']));
+	$test -> execute(array($_POST['promo']));
 	$nbr = $test -> rowCount();
 	if($nbr != 0)
 	{
