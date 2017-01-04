@@ -2,7 +2,7 @@
 <?php
 if(isset($_POST['depart']))
 {
-	$req = recupererPromotion($connexion, $_POST['depart']);
+	$req = recupererDepartement($connexion, $_POST['depart']);
 }
 ?>
 <h2>Indiquez la promotion :</h2><br>
@@ -28,7 +28,7 @@ if(isset($_POST['depart']))
 </div>
 
 <?php
-	function recupererPromotion($connexion, $libelle)
+	function recupererDepartement($connexion, $libelle)
 	{
 		$requete = $connexion->prepare('SELECT * FROM departement WHERE libelleDepartement LIKE "%'.$libelle.'%"');
 		if(!$requete)
