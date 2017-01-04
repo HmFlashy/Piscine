@@ -6,13 +6,16 @@
 
 <?php
 include_once("Model/Session/recupererResultatPromo.php");
-$tabRec=recupererResultatPromo($connexion, 1)
+$tabRec=recupererResultatPromo($connexion, 1);
 ?>
 <div id="container" ></div>
 
 <script type="text/javascript">
 $(function () {
-    var tab = <?php json_encode($tabRec); ?>;
+    <?php
+    echo "var tab = ". json_encode($tabRec) . ";\n";
+    ?>
+    console.log(tab);
     Highcharts.chart('container', {
 
         chart: {
