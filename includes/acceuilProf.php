@@ -117,4 +117,4 @@ echo '</td>';
 echo '</tr>'
 ?>
 </table>
-<a href='?page=gererPromos'><button class="button btn btn-primary" name="GererLesPromos" style="color:black; font-weight:bold"onclick>Gérer les promos</button></a>
+<a href='?page=choixDepartement'><button class="button btn btn-primary" name="creerPromo" style="color:black; font-weight:bold"onclick>Créer une promotion</button></a>

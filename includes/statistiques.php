@@ -8,7 +8,20 @@
 include_once("Model/Session/recupererResultatPromo.php");
 $tabRec=recupererResultatPromo($connexion, 1);
 ?>
-<div id="container" ></div>
+<br>
+<br>
+<div style='width: 100%; text-align: center;'>
+<div id="container" style="margin: auto; width: 500px;"></div>
+</div>
+<br>
+<br>
+<form method="post" action="">
+<?php
+echo '<input type="hidden" name="supSession" value="1">';
+echo '<input type="submit" class="btn btn-warning" name="choixPromo" value="Supprimer Session">';
+?>
+</form>
+<a href='?' class='btn btn-warning'>Retour à l'accueil</a>
 
 <script type="text/javascript">
 $(function () {
