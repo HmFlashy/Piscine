@@ -4,11 +4,15 @@
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
+<?php
+include_once("Model/Promotion/recupererResultatPromo.php");
+$tabRec=recupererResultatPromo($connexion, 1)
+?>
 <div id="container" ></div>
 
 <script type="text/javascript">
 $(function () {
-
+    var tab = <?php json_encode($tabRec); ?>;
     Highcharts.chart('container', {
 
         chart: {
@@ -50,7 +54,7 @@ $(function () {
 
         series: [{
             name: 'Profil Promo',
-            data: [43000, 19000, 60000, 35000, 17000, 10000],
+            data: tab,
             pointPlacement: 'on'
         }]
 
