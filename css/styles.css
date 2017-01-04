@@ -22,7 +22,7 @@ body
 	box-shadow: inset 0px 0px 5px 0px #656565;
 	filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=NaN, Strength=5);
 }
-th
+.th-promo
 {
 	text-align:center;
 	width: 12%;

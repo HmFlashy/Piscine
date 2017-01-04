@@ -22,14 +22,14 @@ $max = max(count($tabIG), count($tabGBA), count($tabMEA), count($tabMI), count($
 <h2 id="titreAcc">Vous êtes connectés en tant que professeur.</h2><br>
 <table class="table table-striped">
 <tr>
-<th>IG</th>
-<th>GBA</th>
-<th>MEA</th>
-<th>MI</th>
-<th>MAT</th>
-<th>STE</th>
-<th>EGC</th>
-<th>ENR</th>
+<th class="th-promo">IG</th>
+<th class="th-promo">GBA</th>
+<th class="th-promo">MEA</th>
+<th class="th-promo">MI</th>
+<th class="th-promo">MAT</th>
+<th class="th-promo">STE</th>
+<th class="th-promo">EGC</th>
+<th class="th-promo">ENR</th>
 </tr>
 <?php
 $i = 0;

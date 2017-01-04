@@ -5,7 +5,7 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
 <?php
-include_once("Model/Promotion/recupererResultatPromo.php");
+include_once("Model/Session/recupererResultatPromo.php");
 $tabRec=recupererResultatPromo($connexion, 1)
 ?>
 <div id="container" ></div>
