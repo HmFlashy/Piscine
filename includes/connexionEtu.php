@@ -32,9 +32,8 @@
 				}
 				else
 				{
-					$_SESSION['login']=$pseudo;
-					$_SESSION['etudiant'] = 1;
-					$_SESSION['idEleve'] = $res["idEleve"];
+ 					setcookie("connexion", $pseudo . '.' . $res["idEleve"] . '.' . md5($mdp), time()+3600);
+ 					setcookie("type", '1', time()+3600);
 					header('Location: ?page=acceuilEtu');
 	  				exit();
 	  			}

@@ -32,9 +32,8 @@
 				}
 				else
 				{
-					$_SESSION['login']=$pseudo;
-					$_SESSION['prof'] = 1;
-					$_SESSION['idProfesseur'] = $res["idProfesseur"];
+					setcookie("connexion", $pseudo . '.' . $res["idProfesseur"] . '.' . md5($mdp), time()+3600);
+ 					setcookie("type", '2', time()+3600);
 					header('Location: ?page=acceuilProf');
 	  				exit();
 	  			}

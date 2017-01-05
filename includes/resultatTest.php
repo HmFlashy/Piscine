@@ -47,14 +47,6 @@
 		else
 			$choix = $indices[0];
 
-		$req = $connexion -> prepare('SELECT descriptionCategorie FROM categoriequestion WHERE idCategorie =' . $choix);
-		if (!$req) {
-	   		echo "\nPDO::errorInfo():\n";
-	   		print_r($connexion->errorInfo());
-		}
-		$req->execute();
-		$desc = $req -> fetch();
-
 		switch($choix)
 		{
 			case 0:
@@ -76,7 +68,12 @@
 				$Type = 'Conventionnel';
 				break;
 		}
-		$bon = insererResultat($connexion, $_SESSION['idEleve'], $idSession, $choix);
+
+		include_once('Model/CategorieQuestions/recupererDescriptionIndice.php');
+		$desc = recupererDescriptionIndice($connexion, $choix);
+
+		include_once('Model/Participer/insererResultat.php');
+		$bon = insererResultat($connexion, $session[1], $idSession, $choix);
 ?>
 <div>
 	<h2>Vous êtes du type:<br></h2>
@@ -94,41 +91,4 @@
 		echo '<p>Vous devez d\'abord faire le test... Retour à l\'accueil dans 3 secondes...<p>';
 		header("refresh:3;url=?");//Renvoie sur la page d'acceuil au bout de 3s.
 	}
-?>
-
-<?php
-function insererResultat($connexion, $idEleve, $idSession, $indice)
-{
-	$Type = '';
-	switch($indice)
-	{
-		case 0:
-			$Type = 'R';
-			break;
-		case 1:
-			$Type = 'I';
-			break;
-		case 2:
-			$Type = 'A';
-			break;
-		case 3:
-			$Type = 'S';
-			break;
-		case 4:
-			$Type = 'E';
-			break;
-		case 5:
-			$Type = 'C';
-			break;
-	}
-	$req = $connexion->prepare('INSERT INTO participer VALUES ("'.$idEleve.'","'.$idSession.'","'.$Type.'")');
-	if (!$req) { 
-	    echo "Vous avez déjà enregistré votre résultat! Si vous avez fait des changements ce résultat n'est peut être pas le même que celui enregistré.";
-	}
-	else
-	{
-		$req->execute();
-	}
-	return True;
-}
 ?>

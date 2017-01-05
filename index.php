@@ -15,60 +15,66 @@
 	</head>
    <!--Affichage de la page-->
 	<body>
+	<?php 
+		if(isset($_COOKIE['connexion']))
+			//Permet le sécurisation de la connexion, et la manipulation de la base de donnée.
+			$session = explode(".", $_COOKIE['connexion']);
+	?>
 	<?php include('includes/connect.php');?>
+	<?php include_once('Model/verificationConnexion.php');?>
 	<?php include('blacklist/blacklist.php');?>
 	<?php include('includes/entete.php');?>
-		<div id="corps" class="container" style="margin-top: 15px; text-align: center;">
-			<?php
-				if($_SESSION == NULL)
+	<div id="corps" class="container" style="margin-top: 45px; text-align: center;">
+		<?php
+			if(!isset($session) || !verificationCookie($connexion, $session))
+			{
+				if(isset($_GET['page']))
 				{
-					if(isset($_GET['page']))
+					if(($_GET['page'] == "connexionEtu") OR ($_GET['page'] == "connexionProf") OR ($_GET['page'] == "resultatTest") OR ($_GET['page'] == "test") OR ($_GET['page'] == "inscriptionEtu") OR ($_GET['page'] == "inscriptionProf") OR ($_GET['page'] == "riasec"))
 					{
-						if(($_GET['page'] == "connexionEtu") OR ($_GET['page'] == "connexionProf") OR ($_GET['page'] == "resultatTest") OR ($_GET['page'] == "test") OR ($_GET['page'] == "inscriptionEtu") OR ($_GET['page'] == "inscriptionProf") OR ($_GET['page'] == "riasec"))
-						{
-							$nomPage = 'includes/' . $_GET['page'] . '.php';
-						}
-						else
-						{
-							$nomPage = 'includes/accueil.php';
-						}
+						$nomPage = 'includes/' . $_GET['page'] . '.php';
 					}
 					else
 					{
 						$nomPage = 'includes/accueil.php';
 					}
 				}
-				elseif (isset($_SESSION['etudiant'])) {
-					$nomPage = 'includes/acceuilEtu.php';
-					if(isset($_GET['page']))
+				else
+				{
+					$nomPage = 'includes/accueil.php';
+				}
+			}
+			elseif ($_COOKIE['type'] == '1'){
+				$nomPage = 'includes/acceuilEtu.php';
+				if(isset($_GET['page']))
+				{
+					if(in_array($_GET['page'], $blacklistEleve))
 					{
-						if(in_array($_GET['page'], $blacklistEleve))
+						$paramPage ='includes/' . addslashes($_GET['page']) . '.php';
+						if(file_exists($paramPage) && $paramPage != 'index.php')
 						{
-							$paramPage ='includes/' . addslashes($_GET['page']) . '.php';
-							if(file_exists($paramPage) && $paramPage != 'index.php')
-							{
-								$nomPage = $paramPage;
-							}
+							$nomPage = $paramPage;
 						}
 					}
 				}
-				elseif (isset($_SESSION['prof'])) {
-					$nomPage = 'includes/acceuilProf.php';
-					if(isset($_GET['page']))
+			}
+			elseif ($_COOKIE['type'] == '2') {
+				$nomPage = 'includes/acceuilProf.php';
+				if(isset($_GET['page']))
+				{
+					if(in_array($_GET['page'], $blacklistProf))
 					{
-						if(in_array($_GET['page'], $blacklistProf))
+						$paramPage ='includes/' . addslashes($_GET['page']) . '.php';
+						if(file_exists($paramPage) && $paramPage != 'index.php')
 						{
-							$paramPage ='includes/' . addslashes($_GET['page']) . '.php';
-							if(file_exists($paramPage) && $paramPage != 'index.php')
-							{
-								$nomPage = $paramPage;
-							}
+							$nomPage = $paramPage;
 						}
 					}
 				}
-				include($nomPage);
-			?> 
-		</div>
+			}
+			include($nomPage);
+		?> 
+	</div>
 	<?php include('includes/pieddepage.php');?>
 	</body>
 </html>

@@ -1,5 +1,5 @@
 
-<h2> Resultat Promo</h2>
+<h2> Resultat Session</h2>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -8,10 +8,8 @@
 include_once("Model/Session/recupererResultatPromo.php");
 $tabRec=recupererResultatPromo($connexion, 1);
 ?>
-<br>
-<br>
 <div style='width: 100%; text-align: center;'>
-<div id="container" style="margin: auto; width: 500px;"></div>
+<div id="container" class='riasec2'></div>
 </div>
 <br>
 <br>

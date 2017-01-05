@@ -3,11 +3,12 @@
 		<?php 
 		session_start();
 		session_set_cookie_params(0);
-		if($_SESSION != NULL)
+		if(isset($_COOKIE['connexion']) && verificationCookie($connexion, $session))
 		{
-			echo("<br>Bienvenue " . $_SESSION['login']);
-			echo('<div id="deco" style="">
-					<a href="fonctions/deconnexion.php" role="button" class="btn btn-danger"  onclick="">Deconnexion</a>
+			$elements = explode(".", $_COOKIE['connexion']);
+			echo("<br>Bienvenue " . $elements[0]);
+			echo('<div id="deco">
+					<a href="Model/deconnexion.php" role="button" class="btn btn-danger"  onclick="">Deconnexion</a>
 				</div>');
 		}
 		?>

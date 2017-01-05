@@ -8,28 +8,28 @@
 	$nbr = $test -> rowCount();
 	if($nbr != 0)
 	{
-		$sessions = $test -> fetchAll();
+		$sess = $test -> fetchAll();
 		$libelleSessFaites = array();
 		$idSessFaites = array();
 		$resSessFaites = array();
 		$libelleSessNonFaites = array();
 		$idSessNonFaites = array();
 		$resSessFaites = array();
-		foreach ($sessions as $session) {
+		foreach ($sess as $value) {
 			$req = $connexion -> prepare('SELECT * FROM participer WHERE participer.idEleve = ? AND participer.idSession = ?');
-			$req -> execute(array($_SESSION['idEleve'], $session['idSession']));
+			$req -> execute(array($session[1], $value['idSession']));
 			$nb = $req -> rowCount();
 			if($nb == 1)
 			{
 				$res = $req -> fetch();
-				$libelleSessFaites[] = $session['libelleSession'];
-				$idSessFaites[] = $session['idSession'];
+				$libelleSessFaites[] = $value['libelleSession'];
+				$idSessFaites[] = $value['idSession'];
 				$resSessFaites[] = $res['resultatSession'];
 			}
 			else
 			{
-				$libelleSessNonFaites[] = $session['libelleSession'];
-				$idSessNonFaites[] = $session['idSession'];
+				$libelleSessNonFaites[] = $value['libelleSession'];
+				$idSessNonFaites[] = $value['idSession'];
 			}
 		}
 	}
