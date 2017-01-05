@@ -3,9 +3,9 @@
 		<?php 
 		session_start();
 		session_set_cookie_params(0);
-		if(isset($session]) && verificationCookie($connexion, $session))
+		if(isset($session) && verificationCookie($connexion, $session))
 		{
-			echo("<br>Bienvenue " . $elements[0]);
+			echo("<br>Bienvenue " . $session[0]);
 			echo('<div id="deco">
 					<a href="Model/deconnexion.php" role="button" class="btn btn-danger"  onclick="">Deconnexion</a>
 				</div>');

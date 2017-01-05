@@ -10,19 +10,19 @@
 	{
 		if(empty($_POST['pseudo']))
 		{
-			$erreur="Rentrez votre pseudo";
+			$erreur="Rentrez un identifiant";
 		}
 		elseif(empty($_POST['email']))
 		{	
-			$erreur="Rentrez votre email";
+			$erreur="Rentrez un email";
 		}
 		elseif(empty($_POST['mdp']))
 		{
-			$erreur="Rentrez votre mot de passe";
+			$erreur="Rentrez un mot de passe";
 		}
 		elseif(empty($_POST['confmdp']))
 		{
-			$erreur="Rentrez la confirmation de votre mot de passe";
+			$erreur="Rentrez la confirmation du mot de passe";
 		}
 		elseif($_POST['mdp'] != $_POST['confmdp'])
 		{
@@ -77,7 +77,7 @@
 <?php 
 	if(!empty($erreur))
 	{
-		echo ("<div><span>" . $erreur . "</span></div>");
+		echo ("<br><div style='font-size: 15px;'>" . $erreur . "</div>");
 	}
 ?>
 <br>
