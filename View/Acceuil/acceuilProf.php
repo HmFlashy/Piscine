@@ -97,3 +97,4 @@ echo '</tr>'
 ?>
 </table>
 <a href='?page=choixDepartement'><button class="button btn btn-primary" name="creerPromo" style="color:black; font-weight:bold"onclick>Créer une promotion</button></a>
+<a href='?page=modifierQuestion'><button class="button btn btn-primary" name="creerPromo" style="color:black; font-weight:bold"onclick>Modifier les questions</button></a>
