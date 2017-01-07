@@ -1,6 +1,5 @@
-<?php
-$bdd =  $bdd = new PDO('mysql:host=localhost; dbname=testdehollande; charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO:: ERRMODE_EXCEPTION));
-$req = $bdd->prepare('SELECT motDePasseProfesseur FROM professeur WHERE pseudoProfesseur = ?');
+<?php=
+$req = $connexion->prepare('SELECT motDePasseProfesseur FROM professeur WHERE pseudoProfesseur = ?');
 $req->execute(array($_SESSION['login']));
 
 $testDejaRentre = True;
@@ -17,9 +16,9 @@ if(isset($_POST['ancien_mot_de_passe']) and md5($_POST['ancien_mot_de_passe']) =
     	//si l'ancien mdp est different du nouveau
     	if($donnees['motDePasseProfesseur'] != $_POST['nouveau_premier_mot_de_passe'] )
     	{
-    		//changement du mdp de la bdd
+    		//changement du mdp de la connexion
     		
-					$req = $bdd->prepare('UPDATE professeur SET motDePasseProfesseur = :nvmdp WHERE pseudoProfesseur = :pseudo');
+					$req = $connexion->prepare('UPDATE professeur SET motDePasseProfesseur = :nvmdp WHERE pseudoProfesseur = :pseudo');
 					$req->execute(array('nvmdp' => md5($_POST['nouveau_premier_mot_de_passe']),'pseudo' => $_SESSION['login'] ));
 					$testDejaRentre = False;
 					 ?>

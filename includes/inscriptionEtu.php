@@ -41,7 +41,7 @@
 			$test = $connexion -> prepare("SELECT count(pseudoEleve) FROM eleve WHERE pseudoEleve = ?");
 			$test -> execute(array($_POST['pseudo']));
 			$existance = $test -> fetch();
-			if($existance['count(pseudo)']==1)
+			if($existance['count(pseudoEleve)']==1)
 				$erreur = "Pseudo déjà pris, choisissez en un autre";
 			else
 			{
