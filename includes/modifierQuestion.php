@@ -24,7 +24,7 @@ $test = $connexion -> prepare('SELECT idQuestion, libelleQuestion, libelleCatego
 		    <thead>
 		      <tr>
 		        <th>N°</th>
-		        <th>Libelle</th>
+		        <th>Libellé</th>
 		        <th>Type</th>
 		      </tr>
 		    </thead>

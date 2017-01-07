@@ -16,7 +16,7 @@
 		$idSessNonFaites = array();
 		$resSessFaites = array();
 		foreach ($sess as $value) {
-			$req = $connexion -> prepare('SELECT * FROM participer WHERE participer.idEleve = ? AND participer.idSession = ?');
+			$req = $connexion -> prepare('SELECT idSession, resultatSession, libelleCategorie FROM participer, categoriequestion WHERE participer.idEleve = ? AND participer.idSession = ? AND participer.resultatSession = categoriequestion.idCategorie ORDER BY participer.idSession');
 			$req -> execute(array($session[1], $value['idSession']));
 			$nb = $req -> rowCount();
 			if($nb == 1)
@@ -24,7 +24,7 @@
 				$res = $req -> fetch();
 				$libelleSessFaites[] = $value['libelleSession'];
 				$idSessFaites[] = $value['idSession'];
-				$resSessFaites[] = $res['resultatSession'];
+				$resSessFaites[] = $res['libelleCategorie'];
 			}
 			else
 			{
@@ -68,8 +68,9 @@
 		{
 			$i = 0;
 			foreach ($libelleSessFaites as $value) {
-				echo "<button class='btn btn-default'>".$value."<br>Resultat: ".$resSessFaites[$i]."</button>";
-				echo "<br><br>";
+				echo '<form method="post" action="?page=statistiques" class="riasec2">';
+		 		echo '<button type="submit" class="btn btn-default" name="idSession" value="'. $idSessFaites[$i]. '">'. $value ."<br>Resultat: ".$resSessFaites[$i].'</button>';
+				echo "</form><br>";
 				$i += 1;
 			}
 		}

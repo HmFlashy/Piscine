@@ -17,8 +17,10 @@ echo '<td>';
 echo '<div style="height: 300px; overflow: auto;">';
 	foreach($tabIG as $key => $value)
 	{
-		echo '<form method="post" action="?page=statistiques">';
-		echo '<input type="submit" class="boutonPromo btn btn-info" style="display: inline-block; margin-bottom=2px;" name="choixPromo" value="'.$value["libellePromo"].'" id="'.$value["idPromo"].'">';
+		echo '<form method="post" action="?page=choixSession">';
+		echo '<input type="hidden" name="choixPromo" value="'.$value["idPromo"].'">';
+		echo '<input type="hidden" name="codePromo" value="'.$value["codePromo"].'">';
+		echo '<input type="submit" class="boutonPromo btn btn-info" style="display: inline-block; margin-bottom=2px;" name="nomPromo"  value="'.$value["libellePromo"].'" id="'.$value["idPromo"].'">';
 		echo "</form>";
 	}
 echo '</div>';
@@ -27,8 +29,10 @@ echo '<td>';
 echo '<div style="height: 300px; overflow: auto;">';
 	foreach($tabGBA as $key => $value)
 	{
-		echo '<form method="post" action="?page=gerererSession">';
-		echo '<input type="submit" class="boutonPromo btn btn-info" style="display: inline-block; margin-bottom=2px;" name="choixPromo" value="'.$value["libellePromo"].'" id="'.$value["idPromo"].'">';
+		echo '<form method="post" action="?page=choixSession">';
+		echo '<input type="hidden" name="choixPromo" value="'.$value["idPromo"].'">';
+		echo '<input type="hidden" name="codePromo" value="'.$value["codePromo"].'">';
+		echo '<input type="submit" class="boutonPromo btn btn-info" style="display: inline-block; margin-bottom=2px;" name="nomPromo" value="'.$value["libellePromo"].'" id="'.$value["idPromo"].'">';
 		echo "</form>";
 	}
 echo '</div>';
@@ -37,8 +41,10 @@ echo '<td>';
 echo '<div style="height: 300px; overflow: auto;">';
 	foreach($tabMEA as $key => $value)
 	{
-		echo '<form method="post" action="?page=gerererSession">';
-		echo '<input type="submit" class="boutonPromo btn btn-info" style="display: inline-block; margin-bottom=2px;" name="choixPromo" value="'.$value["libellePromo"].'" id="'.$value["idPromo"].'">';
+		echo '<form method="post" action="?page=choixSession">';
+		echo '<input type="hidden" name="choixPromo" value="'.$value["idPromo"].'">';
+		echo '<input type="hidden" name="codePromo" value="'.$value["codePromo"].'">';
+		echo '<input type="submit" class="boutonPromo btn btn-info" style="display: inline-block; margin-bottom=2px;" name="nomPromo" value="'.$value["libellePromo"].'" id="'.$value["idPromo"].'">';
 		echo "</form>";
 	}
 echo '</div>';
@@ -47,8 +53,10 @@ echo '<td>';
 echo '<div style="height: 300px; overflow: auto;">';
 	foreach($tabMI as $key => $value)
 	{
-		echo '<form method="post" action="?page=gerererSession">';
-		echo '<input type="submit" class="boutonPromo btn btn-info" style="display: inline-block; margin-bottom=2px;" name="choixPromo" value="'.$value["libellePromo"].'" id="'.$value["idPromo"].'">';
+		echo '<form method="post" action="?page=choixSession">';
+		echo '<input type="hidden" name="choixPromo" value="'.$value["idPromo"].'">';
+		echo '<input type="hidden" name="codePromo" value="'.$value["codePromo"].'">';
+		echo '<input type="submit" class="boutonPromo btn btn-info" style="display: inline-block; margin-bottom=2px;" name="nomPromo" value="'.$value["libellePromo"].'" id="'.$value["idPromo"].'">';
 		echo "</form>";
 	}
 echo '</div>';
@@ -57,8 +65,10 @@ echo '<td>';
 echo '<div style="height: 300px; overflow: auto;">';
 	foreach($tabMAT as $key => $value)
 	{
-		echo '<form method="post" action="?page=gerererSession">';
-		echo '<input type="submit" class="boutonPromo btn btn-info" style="display: inline-block; margin-bottom=2px;" name="choixPromo" value="'.$value["libellePromo"].'" id="'.$value["idPromo"].'">';
+		echo '<form method="post" action="?page=choixSession">';
+		echo '<input type="hidden" name="choixPromo" value="'.$value["idPromo"].'">';
+		echo '<input type="hidden" name="codePromo" value="'.$value["codePromo"].'">';
+		echo '<input type="submit" class="boutonPromo btn btn-info" style="display: inline-block; margin-bottom=2px;" name="nomPromo" value="'.$value["libellePromo"].'" id="'.$value["idPromo"].'">';
 		echo "</form>";
 	}
 echo '</div>';
@@ -67,8 +77,10 @@ echo '<td>';
 echo '<div style="height: 300px; overflow: auto;">';
 	foreach($tabSTE as $key => $value)
 	{
-		echo '<form method="post" action="?page=gerererSession">';
-		echo '<input type="submit" class="boutonPromo btn btn-info" style="display: inline-block; margin-bottom=2px;" name="choixPromo" value="'.$value["libellePromo"].'" id="'.$value["idPromo"].'">';
+		echo '<form method="post" action="?page=choixSession">';
+		echo '<input type="hidden" name="choixPromo" value="'.$value["idPromo"].'">';
+		echo '<input type="hidden" name="codePromo" value="'.$value["codePromo"].'">';
+		echo '<input type="submit" class="boutonPromo btn btn-info" style="display: inline-block; margin-bottom=2px;" name="nomPromo" value="'.$value["libellePromo"].'" id="'.$value["idPromo"].'">';
 		echo "</form>";
 	}
 echo '</div>';
@@ -77,8 +89,10 @@ echo '<td>';
 echo '<div style="height: 300px; overflow: auto;">';
 	foreach($tabEGC as $key => $value)
 	{
-		echo '<form method="post" action="?page=gerererSession">';
-		echo '<input type="submit" class="boutonPromo btn btn-info" style="display: inline-block; margin-bottom=2px;" name="choixPromo" value="'.$value["libellePromo"].'" id="'.$value["idPromo"].'">';
+		echo '<form method="post" action="?page=choixSession">';
+		echo '<input type="hidden" name="choixPromo" value="'.$value["idPromo"].'">';
+		echo '<input type="hidden" name="codePromo" value="'.$value["codePromo"].'">';
+		echo '<input type="submit" class="boutonPromo btn btn-info" style="display: inline-block; margin-bottom=2px;" name="nomPromo" value="'.$value["libellePromo"].'" id="'.$value["idPromo"].'">';
 		echo "</form>";
 	}
 echo '</div>';
@@ -87,8 +101,10 @@ echo '<td>';
 echo '<div style="height: 300px; overflow: auto;">';
 	foreach($tabENR as $key => $value)
 	{
-		echo '<form method="post" action="?page=gerererSession">';
-		echo '<input type="submit" class="boutonPromo btn btn-info" style="display: inline-block; margin-bottom=2px;" name="choixPromo" value="'.$value["libellePromo"].'" id="'.$value["idPromo"].'">';
+		echo '<form method="post" action="?page=choixSession">';
+		echo '<input type="hidden" name="choixPromo" value="'.$value["idPromo"].'">';
+		echo '<input type="hidden" name="codePromo" value="'.$value["codePromo"].'">';
+		echo '<input type="submit" class="boutonPromo btn btn-info" style="display: inline-block; margin-bottom=2px;" name="nomPromo" value="'.$value["libellePromo"].'" id="'.$value["idPromo"].'">';
 		echo "</form>";
 	}
 echo '</div>';
