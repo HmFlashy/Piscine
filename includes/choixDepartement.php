@@ -19,7 +19,7 @@ if (isset($_GET['choixSup']))
 	 	if(!empty($donnees['libellePromo']))
 		{
 		?>
-	 		<a><button type="submit" name="libellePromo" value ="<?php echo $donnees['libellePromo'];?>"  style="color:black; font-weight:bold"onclick><?php echo $donnees['libellePromo'] ;?></button></a>
+	 		<a><button type="submit" name="libellePromo" value ="<?php echo $donnees['libellePromo'];?>"  style="font-weight:bold"onclick><?php echo $donnees['libellePromo'] ;?></button></a>
 		<?php
 	 	}
 	 	else #sinon on affiche le libelleDepartement (de departement) qui correspond à l'idDepartement (de promotion) -on a deja trié grace au sql
@@ -28,7 +28,7 @@ if (isset($_GET['choixSup']))
 	 		#eux memes sont egales aux idDepartement (de promotion).
 	 	{
 	 	?>
-	 	<a><button type="submit" name="idDep" value ="<?php echo $donnees['idDepartement'];?>"  style="color:black; font-weight:bold"onclick><?php echo $donnees['libelleDepartement'] ;?></button></a>
+	 	<a><button type="submit" name="idDep" value ="<?php echo $donnees['idDepartement'];?>"  style="font-weight:bold"onclick><?php echo $donnees['libelleDepartement'] ;?></button></a>
 		<?php
 	 	}
 	}
@@ -37,15 +37,15 @@ else
 {
 ?>
 <h2 id="titreAcc">Choisissez le département : </h2>
-	<form action="?page=choixPromotion" method="POST">
-	<input type='submit' class="button btn btn-primary" name="depart" value="IG"  style="color:black; font-weight:bold"onclick>
-	<input type='submit' class="button btn btn-primary" name="depart" value="ENR"  style="color:black; font-weight:bold"onclick>
-	<input type='submit' class="button btn btn-primary" name="depart" value="GBA"  style="color:black; font-weight:bold"onclick>
-	<input type='submit' class="button btn btn-primary" name="depart" value="MAT"  style="color:black; font-weight:bold"onclick>
-	<input type='submit' class="button btn btn-primary" name="depart" value="MI"  style="color:black; font-weight:bold"onclick>
-	<input type='submit' class="button btn btn-primary" name="depart" value="MEA"  style="color:black; font-weight:bold"onclick>
-	<input type='submit' class="button btn btn-primary" name="depart" value="STE"  style="color:black; font-weight:bold"onclick>
-	<input type='submit' class="button btn btn-primary" name="depart" value="EC"  style="color:black; font-weight:bold"onclick>
+	<form action="?page=choixPromotion" method="POST" class='riasec2'>
+	<input type='submit' class="button btn btn-info" name="depart" value="IG"  style="font-weight:bold"onclick>
+	<input type='submit' class="button btn btn-info" name="depart" value="ENR"  style="font-weight:bold"onclick>
+	<input type='submit' class="button btn btn-info" name="depart" value="GBA"  style="font-weight:bold"onclick>
+	<input type='submit' class="button btn btn-info" name="depart" value="MAT"  style="font-weight:bold"onclick>
+	<input type='submit' class="button btn btn-info" name="depart" value="MI"  style="font-weight:bold"onclick>
+	<input type='submit' class="button btn btn-info" name="depart" value="MEA"  style="font-weight:bold"onclick>
+	<input type='submit' class="button btn btn-info" name="depart" value="STE"  style="font-weight:bold"onclick>
+	<input type='submit' class="button btn btn-info" name="depart" value="EC"  style="font-weight:bold"onclick>
 <?php
 }
 ?>

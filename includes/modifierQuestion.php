@@ -1,5 +1,5 @@
 <?php
-$test = $connexion -> prepare('SELECT idQuestion, libelleQuestion FROM questions');
+$test = $connexion -> prepare('SELECT idQuestion, libelleQuestion, libelleCategorie FROM questions, categoriequestion WHERE questions.idCategorie = categoriequestion.idCategorie ORDER BY questions.idQuestion' );
 	if (!$test) {
    		echo "\nPDO::errorInfo():\n";
    		print_r($connexion->errorInfo());
@@ -14,27 +14,26 @@ $test = $connexion -> prepare('SELECT idQuestion, libelleQuestion FROM questions
 	exit();
 	
 }	
-
-
 	?>
 
 
 <div id='modifierQuestion'>
 <form action="?page=modifierQuestion" method="post">
 		<h2>Questions</h2>
-		<table style='text-align: left;' class="table table-striped">
+		<table style='text-align: left;' class="modQ table table-striped">
 		    <thead>
 		      <tr>
-		        <th>Questions</th>
-		        <th></th>
-		        
+		        <th>N°</th>
+		        <th>Libelle</th>
+		        <th>Type</th>
 		      </tr>
 		    </thead>
 		    <tbody>
 		    	<?php foreach($questions as $question) { 
 					echo '<tr><td>' .$question['idQuestion']. '</td>
 						<td>'.$question['libelleQuestion'].'</td>
-						<td><button class="button btn btn-primary" type="submit" name="modifier" value="'.$question['idQuestion'].'" style="color:black; font-weight:bold"onclick>Modifier</button></td>
+						<td>'.$question['libelleCategorie'].'</td>
+						<td><button class="btn btn-primary" type="submit" name="modifier" value="'.$question['idQuestion'].'" style="font-weight:bold"onclick>Modifier</button></td>
 					  </tr>';
 				} ?>
 			</tbody>
