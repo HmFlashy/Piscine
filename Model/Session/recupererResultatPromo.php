@@ -16,22 +16,22 @@ function recupererResultatPromo($connexion, $numSession)
 		{
 			switch($value['resultatSession'])
 			{
-				case'R':
+				case'1':
 					$tabRes[0]=$tabRes[0]+1;
 					break;
-				case'I':
+				case'2':
 					$tabRes[1]=$tabRes[1]+1;
 					break;
-				case'A':
+				case'3':
 					$tabRes[2]=$tabRes[2]+1;
 					break;
-				case'S':
+				case'4':
 					$tabRes[3]=$tabRes[3]+1;
 					break;
-				case'E':
+				case'5':
 					$tabRes[4]=$tabRes[4]+1;
 					break;
-				case'C':
+				case'6':
 					$tabRes[5]=$tabRes[5]+1;
 					break;
 			}
