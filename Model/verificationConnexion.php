@@ -6,7 +6,7 @@ function verificationCookie($connexion, $elements)
 		$test = $connexion -> prepare('SELECT * FROM eleve WHERE idEleve = ?');
 		$test -> execute(array($elements[1]));
 		$existance = $test -> fetch();
-		if($elements[2] == $existance['motDePasseEleve'] && $elements[0] == $existance['pseudoEleve'])
+		if($elements[2] == $existance['motDePasseEleve'] && strtolower($elements[0]) == strtolower($existance['pseudoEleve']))
 		{
 			return True;
 		}
@@ -17,7 +17,7 @@ function verificationCookie($connexion, $elements)
 		$test = $connexion -> prepare('SELECT * FROM professeur WHERE idProfesseur = ?');
 		$test -> execute(array($elements[1]));
 		$existance = $test -> fetch();
-		if($elements[2] == $existance['motDePasseProfesseur'] && $elements[0] == $existance['pseudoProfesseur'])
+		if($elements[2] == $existance['motDePasseProfesseur'] && strtolower($elements[0]) == strtolower($existance['pseudoProfesseur']))
 		{
 			return True;
 		}
