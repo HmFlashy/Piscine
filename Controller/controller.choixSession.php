@@ -1,4 +1,14 @@
 <?php
+	if(isset($_POST['idEleve']))
+	{
+		include_once("Model/Promotion/supprimerEtudiantPromo.php"); 
+		include_once("Model/Participer/supprimerResultat.php"); 
+		if(supprimerEtudiantPromo($connexion, $_POST['idEleve'], $_POST['choixPromo']) != 1)
+		{
+			echo 'Erreur suppression etudiant';
+			exit;
+		}
+	}
 	if(isset($_POST["nomPromo"]))
 	{
 		if(isset($_POST['libelleSession']))
@@ -14,7 +24,9 @@
 			}
 		}
 		include_once("Model/Session/recupererSession.php"); 
+		include_once("Model/Eleve/recupererEleves.php");
 		$tabSess=recupererSession($connexion,$_POST['choixPromo']);
+		$tabEleves=recupererEleves($connexion, $_POST["choixPromo"]);
 		include_once('View/Session/choixSession.php');
 	}
 	else

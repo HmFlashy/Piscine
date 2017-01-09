@@ -39,4 +39,3 @@
 	$promotions = recupererPromotionsEtu($connexion, $session[1]);
 	include_once("View/Acceuil/acceuilEtu.php");
 ?>
-	

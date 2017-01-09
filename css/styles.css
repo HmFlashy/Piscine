@@ -202,6 +202,11 @@ span
 	font-size: 1.5vw;
 }
 
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
 
 nav
 {
@@ -214,6 +219,10 @@ nav
 	h2
 	{
 		font-size: 20px;
+	}
+	.listeSession
+	{
+		margin-top: 50px;
 	}
 	.riasec li
 	{

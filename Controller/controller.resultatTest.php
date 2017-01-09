@@ -73,7 +73,7 @@
 		$desc = recupererDescriptionIndice($connexion, $choix);
 
 		include_once('Model/Participer/insererResultat.php');
-		$bon = insererResultat($connexion, $session[1], $idSession, $choix);
+		$bon = insererResultat($connexion, $session[1], $idSession, $choix + 1);
 ?>
 <div>
 	<h2>Vous êtes du type:<br></h2>

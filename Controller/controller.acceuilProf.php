@@ -1,13 +1,5 @@
 
-<?php 
-$tabIG= array();
-$tabGBA= array();
-$tabMEA= array();
-$tabMI= array();
-$tabMAT= array();
-$tabSTE= array();
-$tabEGC= array();
-$tabENR= array();
+<?php
 include_once("Model/Promotion/recupererPromotions.php");
 $tabIG = recupererPromotion($connexion, 'IG');
 $tabGBA = recupererPromotion($connexion, 'GBA');

@@ -20,11 +20,11 @@
 			//Permet le sécurisation de la connexion, et la manipulation de la base de donnée.
 			$session = explode(".", $_COOKIE['connexion']);
 	?>
-	<?php include('includes/connect.php');?>
+	<?php include_once('Model/connect.php');?>
 	<?php include_once('Model/verificationConnexion.php');?>
-	<?php include('blacklist/blacklist.php');?>
-	<?php include('includes/entete.php');?>
-	<div id="corps" class="container" style="text-align: center;">
+	<?php include_once('blacklist/blacklist.php');?>
+	<?php include_once('Controller/Controller.entete.php');?>
+	<div id="corps" class="container" style="text-align: center; padding-bottom: 45px;">
 		<?php
 			if(!isset($session) || !verificationCookie($connexion, $session))
 			{
@@ -32,25 +32,25 @@
 				{
 					if(($_GET['page'] == "connexionEtu") OR ($_GET['page'] == "connexionProf") OR ($_GET['page'] == "resultatTest") OR ($_GET['page'] == "test") OR ($_GET['page'] == "inscriptionEtu") OR ($_GET['page'] == "inscriptionProf") OR ($_GET['page'] == "riasec"))
 					{
-						$nomPage = 'includes/' . $_GET['page'] . '.php';
+						$nomPage = 'Controller/controller.' . $_GET['page'] . '.php';
 					}
 					else
 					{
-						$nomPage = 'includes/accueil.php';
+						$nomPage = 'Controller/controller.accueil.php';
 					}
 				}
 				else
 				{
-					$nomPage = 'includes/accueil.php';
+					$nomPage = 'Controller/controller.accueil.php';
 				}
 			}
 			elseif ($_COOKIE['type'] == '1'){
-				$nomPage = 'includes/acceuilEtu.php';
+				$nomPage = 'Controller/controller.acceuilEtu.php';
 				if(isset($_GET['page']))
 				{
 					if(in_array($_GET['page'], $blacklistEleve))
 					{
-						$paramPage ='includes/' . addslashes($_GET['page']) . '.php';
+						$paramPage ='Controller/controller.' . addslashes($_GET['page']) . '.php';
 						if(file_exists($paramPage) && $paramPage != 'index.php')
 						{
 							$nomPage = $paramPage;
@@ -59,12 +59,12 @@
 				}
 			}
 			elseif ($_COOKIE['type'] == '2') {
-				$nomPage = 'includes/acceuilProf.php';
+				$nomPage = 'Controller/controller.acceuilProf.php';
 				if(isset($_GET['page']))
 				{
 					if(in_array($_GET['page'], $blacklistProf))
 					{
-						$paramPage ='includes/' . addslashes($_GET['page']) . '.php';
+						$paramPage ='Controller/controller.' . addslashes($_GET['page']) . '.php';
 						if(file_exists($paramPage) && $paramPage != 'index.php')
 						{
 							$nomPage = $paramPage;
@@ -75,6 +75,6 @@
 			include($nomPage);
 		?> 
 	</div>
-	<?php include('includes/pieddepage.php');?>
+	<?php include_once('Controller/controller.pieddepage.php');?>
 	</body>
 </html>

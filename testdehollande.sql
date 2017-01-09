@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Client :  localhost
--- Généré le :  Jeu 29 Décembre 2016 à 18:38
--- Version du serveur :  5.7.16-0ubuntu0.16.04.1
--- Version de PHP :  7.0.8-0ubuntu0.16.04.3
+-- Client :  127.0.0.1
+-- Généré le :  Lun 09 Janvier 2017 à 19:41
+-- Version du serveur :  10.1.19-MariaDB
+-- Version de PHP :  5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -55,12 +55,12 @@ CREATE TABLE `categoriequestion` (
 --
 
 INSERT INTO `categoriequestion` (`idCategorie`, `libelleCategorie`, `descriptionCategorie`) VALUES
-(1, 'Réaliste', 'Les personnes de ce type exercent surtout des tâches concrètes. Habiles de leurs mains, elles savent coordonner leurs gestes. Elles se servent d\'outils, font fonctionner des appareils, des machines, des véhicules. Les réalistes ont le sens de la mécanique, le souci de la précision. Plusieurs exercent leur profession à l\'extérieur plutôt qu\'à l\'intérieur. Leur travail demande souvent une bonne endurance physique, et même des capacités athlétiques. Ces personnes sont patientes, minutieuses, constantes, sensées, naturelles, franches, pratiques, concrètes, simples.'),
-(2, 'Investigateur', 'La plupart des personnes de ce type ont des connaissances théoriques pour agir. Elles disposent de renseignements spécialisés dont elles se servent pour résoudre des problèmes. Ce sont des personnes qui observent. Leur principale compétence tient à la compréhension qu\'elles ont des phénomènes. Elles aiment bien se laisser absorber dans leurs réflexions. Elles aiment jouer avec les idées. Elles valorisent le savoir. Ces personnes sont critiques, curieuses, soucieuses de se renseigner, calmes, réservées, persévérantes, tolérantes, prudentes dans leurs jugements, logiques, objectives, rigoureuses, intellectuelles.'),
-(3, 'Artiste', 'Les personnes de ce type aiment les activités qui leur permettent de s\'exprimer librement, à partir de leurs perceptions, de leur sensibilité et de leur intuition. Elles s\'intéressent au travail de création, qu\'il s\'agisse d\'art visuel, de littérature, de musique, de publicité ou de spectacle. D\'esprit indépendant et non conformiste, elles sont à l\'aise dans des situations qui sortent de l\'ordinaire. Elles sont dotées d\'une grande sensibilité et imagination. Bien qu\'elles soient rebutées par les tâches méthodiques et routinières, elles sont néanmoins capables de travailler avec discipline. Ces personnes sont spontanées, expressives, imaginatives, émotives, indépendantes, originales, intuitives, passionnées, fières, flexibles, disciplinées.'),
-(4, 'Social', 'Les personnes de ce type aiment être en contact avec les autres dans le but de les aider, de les informer, de les éduquer, de les divertir, de les soigner ou encore de favoriser leur croissance. Elles s\'intéressent aux comportements humains et sont soucieuses de la qualité de leurs relations avec les autres. Elles utilisent leur savoir ainsi que leurs impressions et leurs émotions pour agir et pour interagir. Elles aiment communiquer et s\'expriment facilement. Ces personnes sont attentives aux autres, coopératives, collaboratrices, compréhensives, dévouées, sensibles, sympathiques, perspicaces, bienveillantes, communicatives, encourageantes.'),
-(5, 'Entreprenant', 'Les personnes de ce type aiment influencer leur entourage. Leur capacité de décision, le sens de l\'organisation et une habileté particulière à communiquer leur enthousiasme les appuient dans leurs objectifs. Elles savent vendre des idées autant que des biens matériels. Elles ont le sens de l\'organisation, de la planification et de l\'initiative et savent mener à bien leurs projets. Elles savent faire preuve d\'audace et d\'efficacité. Ces personnes sont persuasives, énergiques, optimistes, audacieuses, sûres d\'elles-mêmes, ambitieuses, déterminées, diplomates, débrouillardes, sociables.'),
-(6, 'Conventionnel', 'Les personnes de ce type ont une préférence pour les activités précises, méthodiques, axées sur un résultat prévisible. Elles se préoccupent de l\'ordre et de la bonne organisation matérielle de leur environnement. Elles préfèrent se conformer à des conventions bien établies et à des consignes claires plutôt que d\'agir avec improvisation. Elles aiment calculer, classer, tenir à jour des registres ou des dossiers. Elles sont efficaces dans tout travail qui exige de l\'exactitude et à l\'aise dans les tâches routinières. Ces personnes sont loyales, organisées, efficaces, respectueuses de l\'autorité, perfectionnistes, raisonnables, consciencieuses, ponctuelles, discrètes, strictes.');
+(1, 'Réaliste', 'Les personnes de ce type exercent surtout des tâches concrètes. Habiles de leurs mains, elles savent coordonner leurs gestes. Elles se servent d''outils, font fonctionner des appareils, des machines, des véhicules. Les réalistes ont le sens de la mécanique, le souci de la précision. Plusieurs exercent leur profession à l''extérieur plutôt qu''à l''intérieur. Leur travail demande souvent une bonne endurance physique, et même des capacités athlétiques. Ces personnes sont patientes, minutieuses, constantes, sensées, naturelles, franches, pratiques, concrètes, simples.'),
+(2, 'Investigateur', 'La plupart des personnes de ce type ont des connaissances théoriques pour agir. Elles disposent de renseignements spécialisés dont elles se servent pour résoudre des problèmes. Ce sont des personnes qui observent. Leur principale compétence tient à la compréhension qu''elles ont des phénomènes. Elles aiment bien se laisser absorber dans leurs réflexions. Elles aiment jouer avec les idées. Elles valorisent le savoir. Ces personnes sont critiques, curieuses, soucieuses de se renseigner, calmes, réservées, persévérantes, tolérantes, prudentes dans leurs jugements, logiques, objectives, rigoureuses, intellectuelles.'),
+(3, 'Artiste', 'Les personnes de ce type aiment les activités qui leur permettent de s''exprimer librement, à partir de leurs perceptions, de leur sensibilité et de leur intuition. Elles s''intéressent au travail de création, qu''il s''agisse d''art visuel, de littérature, de musique, de publicité ou de spectacle. D''esprit indépendant et non conformiste, elles sont à l''aise dans des situations qui sortent de l''ordinaire. Elles sont dotées d''une grande sensibilité et imagination. Bien qu''elles soient rebutées par les tâches méthodiques et routinières, elles sont néanmoins capables de travailler avec discipline. Ces personnes sont spontanées, expressives, imaginatives, émotives, indépendantes, originales, intuitives, passionnées, fières, flexibles, disciplinées.'),
+(4, 'Social', 'Les personnes de ce type aiment être en contact avec les autres dans le but de les aider, de les informer, de les éduquer, de les divertir, de les soigner ou encore de favoriser leur croissance. Elles s''intéressent aux comportements humains et sont soucieuses de la qualité de leurs relations avec les autres. Elles utilisent leur savoir ainsi que leurs impressions et leurs émotions pour agir et pour interagir. Elles aiment communiquer et s''expriment facilement. Ces personnes sont attentives aux autres, coopératives, collaboratrices, compréhensives, dévouées, sensibles, sympathiques, perspicaces, bienveillantes, communicatives, encourageantes.'),
+(5, 'Entreprenant', 'Les personnes de ce type aiment influencer leur entourage. Leur capacité de décision, le sens de l''organisation et une habileté particulière à communiquer leur enthousiasme les appuient dans leurs objectifs. Elles savent vendre des idées autant que des biens matériels. Elles ont le sens de l''organisation, de la planification et de l''initiative et savent mener à bien leurs projets. Elles savent faire preuve d''audace et d''efficacité. Ces personnes sont persuasives, énergiques, optimistes, audacieuses, sûres d''elles-mêmes, ambitieuses, déterminées, diplomates, débrouillardes, sociables.'),
+(6, 'Conventionnel', 'Les personnes de ce type ont une préférence pour les activités précises, méthodiques, axées sur un résultat prévisible. Elles se préoccupent de l''ordre et de la bonne organisation matérielle de leur environnement. Elles préfèrent se conformer à des conventions bien établies et à des consignes claires plutôt que d''agir avec improvisation. Elles aiment calculer, classer, tenir à jour des registres ou des dossiers. Elles sont efficaces dans tout travail qui exige de l''exactitude et à l''aise dans les tâches routinières. Ces personnes sont loyales, organisées, efficaces, respectueuses de l''autorité, perfectionnistes, raisonnables, consciencieuses, ponctuelles, discrètes, strictes.');
 
 -- --------------------------------------------------------
 
@@ -164,7 +164,7 @@ INSERT INTO `eleve` (`idEleve`, `pseudoEleve`, `nomEleve`, `prenomEleve`, `email
 CREATE TABLE `participer` (
   `idEleve` int(11) NOT NULL DEFAULT '0',
   `idSession` int(11) NOT NULL DEFAULT '0',
-  `resultatSession` char(1) DEFAULT NULL
+  `resultatSession` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -422,7 +422,7 @@ ALTER TABLE `professeur`
 -- AUTO_INCREMENT pour la table `promotion`
 --
 ALTER TABLE `promotion`
-  MODIFY `idPromo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idPromo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `questions`
 --
@@ -432,7 +432,7 @@ ALTER TABLE `questions`
 -- AUTO_INCREMENT pour la table `session`
 --
 ALTER TABLE `session`
-  MODIFY `idSession` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idSession` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Contraintes pour les tables exportées
 --
