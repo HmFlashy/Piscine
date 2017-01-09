@@ -64,14 +64,15 @@
 		<form action="#" method="post" class="connex">
 		    <div class="input-group">
 		      <input type="text" name="libelleSession" class="form-control" placeholder="Libelle de Session" required>
-			  <input type='hidden' name='choixPromo' value='<?php echo $_POST["choixPromo"];?>'>
-			  <input type="hidden" name="nomPromo" value="<?php echo $_POST["nomPromo"];?>">
-			  <input type="hidden" name="choixPromo" value="<?php echo $_POST["choixPromo"];?>">
-			  <input type="hidden" name="codePromo" value="<?php echo $_POST["codePromo"];?>">
 		      <span class="input-group-btn">
 		        <input class="btn btn-warning" type="submit" value="Valider" id="valider">
 		      </span>
 		    </div>
+			<input type='hidden' name='choixPromo' value='<?php echo $_POST["choixPromo"];?>'>
+			<input type="hidden" name="nomPromo" value="<?php echo $_POST["nomPromo"];?>">
+			<input type="hidden" name="choixPromo" value="<?php echo $_POST["choixPromo"];?>">
+			<input type="hidden" name="codePromo" value="<?php echo $_POST["codePromo"];?>">
 		</form>
 	</div>
 </div>
+<a href='?' class='btn btn-warning'>Retour à l'accueil</a>

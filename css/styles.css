@@ -28,6 +28,21 @@ body
 	width: 12%;
 }
 
+.radio
+{
+	text-align: center;
+	width:100%;
+	background-color: #F5F5F5;
+    padding-top: 15px;
+    margin:0px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    -moz-box-shadow: inset 0px 0px 5px 0px #656565;
+	-webkit-box-shadow: inset 0px 0px 5px 0px #656565;
+	-o-box-shadow: inset 0px 0px 5px 0px #656565;
+	box-shadow: inset 0px 0px 5px 0px #656565;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=NaN, Strength=5);
+}
 .boutonPromo
 {
 	width: 90%;
@@ -157,46 +172,6 @@ input
 {
 	text-align: center;
 }
-
-.p1
-{
-	background: #000000;
-	background: #ff3019; /* Old browsers */
-	background: -moz-linear-gradient(top, #ff3019 0%, #cf0404 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top, #ff3019 0%,#cf0404 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, #ff3019 0%,#cf0404 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	box-shadow: rgba(0,0,0,1) 0 1px 0;
-	color: white;
-	text-decoration: none;
-	vertical-align: middle;
-}
-
-.p2
-{
-	background: #000000;
-	background: #ceb32d; /* Old browsers */
-	background: -moz-linear-gradient(top, #ceb32d 0%, #cc8904 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top, #ceb32d 0%,#cc8904 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, #ceb32d 0%,#cc8904 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	box-shadow: rgba(0,0,0,1) 0 1px 0;
-	color: white;
-	text-decoration: none;
-	vertical-align: middle;
-}
-
-.p3
-{
-	background: #000000;
-	background: #f0f936; /* Old browsers */
-	background: -moz-linear-gradient(top, #f0f936 0%, #a5d604 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top, #f0f936 0%,#a5d604 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, #f0f936 0%,#a5d604 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	box-shadow: rgba(0,0,0,1) 0 1px 0;
-	color: white;
-	text-decoration: none;
-	vertical-align: middle;
-}
-
 span
 {
 	font-size: 1.5vw;

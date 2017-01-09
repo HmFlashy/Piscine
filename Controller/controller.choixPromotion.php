@@ -18,14 +18,21 @@ if(isset($_POST['depart']))
 	}
 	foreach($req as $donnees)
 	{
-		echo '<input type="radio" style="display: inline-block;" name="choixPromo" value="'.$donnees["idDepartement"].'" id="'.$donnees["libelleDepartement"].'"<label for="moins15">'.$donnees["libelleDepartement"].'</label><br>';
+		echo '<label class="radio-inline"><div class="radio" style="margin: 5px; height: 50px; width: 50px;">'.$donnees["libelleDepartement"].'<br><input style="margin-left: auto; margin-right:auto;" type="radio" value="'.$donnees["idDepartement"].'" name="choixPromo"></div></label>';
 	}
 ?>
-<label for="libellePromo">Indiquez le nom que vous voulez donner à cette promotion :</label>
-<input type="text" name="libellePromo" id="libellePromo" placeholder="Ex : IG3 2016" size="30" maxlength="12" />
-<input type="submit" value="Valider" title="valider pour aller à la page sélectionnée" />
+	<br><br>
+	<h3><label for="libellePromo">Indiquez le nom que vous voulez donner à cette promotion :</label></h3><br><br>
+	<div class="input-group riasec2">
+		<input type="text" name="libellePromo" class="form-control" id="libellePromo"  placeholder="Ex : IG3 2016" required>
+		<span class="input-group-btn">
+			<input class="btn btn-warning" type="submit" value="Valider" id="valider">
+		</span>
+	</div>
 	</form>
 </div>
+<br><br>
+<a href='?page=choixDepartement' class='btn btn-warning'>Retour</a>
 
 <?php
 	function recupererDepartement($connexion, $libelle)
