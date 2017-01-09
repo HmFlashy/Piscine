@@ -2,3 +2,8 @@
     font-family: "SugarPunch";
     src: url('fonts/HotSweat.ttf');
 }
+
+@font-face {
+    font-family: "bebas";
+    src: url('fonts/bebas.ttf');
+}

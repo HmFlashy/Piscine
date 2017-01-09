@@ -74,5 +74,5 @@
 			<input type="hidden" name="codePromo" value="<?php echo $_POST["codePromo"];?>">
 		</form>
 	</div>
-</div>
+</div><br><br>
 <a href='?' class='btn btn-warning'>Retour à l'accueil</a>
