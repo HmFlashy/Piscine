@@ -6,30 +6,33 @@
 	}
 	$test -> execute(array($_POST['promo']));
 	$nbr = $test -> rowCount();
+	$libelleSessFaites = array();
+	$idSessFaites = array();
+	$resSessFaites = array();
+	$idSessNonFaites = array();
+	$libelleSessNonFaites = array();
+	$resSessFaites = array();
 	if($nbr != 0)
 	{
 		$sess = $test -> fetchAll();
-		$libelleSessFaites = array();
-		$idSessFaites = array();
-		$resSessFaites = array();
-		$libelleSessNonFaites = array();
-		$idSessNonFaites = array();
-		$resSessFaites = array();
-		foreach ($sess as $value) {
-			$req = $connexion -> prepare('SELECT idSession, resultatSession, libelleCategorie FROM participer, categoriequestion WHERE participer.idEleve = ? AND participer.idSession = ? AND participer.resultatSession = categoriequestion.idCategorie ORDER BY participer.idSession');
-			$req -> execute(array($session[1], $value['idSession']));
-			$nb = $req -> rowCount();
-			if($nb == 1)
-			{
-				$res = $req -> fetch();
-				$libelleSessFaites[] = $value['libelleSession'];
-				$idSessFaites[] = $value['idSession'];
-				$resSessFaites[] = $res['libelleCategorie'];
-			}
-			else
-			{
-				$libelleSessNonFaites[] = $value['libelleSession'];
-				$idSessNonFaites[] = $value['idSession'];
+		if(count($sess) != 0)
+		{
+			foreach ($sess as $value) {
+				$req = $connexion -> prepare('SELECT idSession, resultatSession, libelleCategorie FROM participer, categoriequestion WHERE participer.idEleve = ? AND participer.idSession = ? AND participer.resultatSession = categoriequestion.idCategorie ORDER BY participer.idSession');
+				$req -> execute(array($session[1], $value['idSession']));
+				$nb = $req -> rowCount();
+				if($nb == 1)
+				{
+					$res = $req -> fetch();
+					$libelleSessFaites[] = $value['libelleSession'];
+					$idSessFaites[] = $value['idSession'];
+					$resSessFaites[] = $res['libelleCategorie'];
+				}
+				else
+				{
+					$libelleSessNonFaites[] = $value['libelleSession'];
+					$idSessNonFaites[] = $value['idSession'];
+				}
 			}
 		}
 	}
@@ -38,7 +41,7 @@
 <div style="width: 300; margin-left: auto; margin-right: auto; display: inline-block; ">
 	<h3 style="font-size: 20px;">Vos différentes sessions non faites:</h3><br><br>
 	<?php
-	if(count($libelleSessNonFaites)== 0)
+	if(count($libelleSessNonFaites) == 0)
 	{
 		echo '<p>Aucune session non faites sur cette promotion</p><br><br><br>';
 	}
