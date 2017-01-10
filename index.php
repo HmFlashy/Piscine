@@ -24,7 +24,7 @@
 	<?php include_once('Model/verificationConnexion.php');?>
 	<?php include_once('blacklist/blacklist.php');?>
 	<?php include_once('Controller/Controller.entete.php');?>
-	<div id="corps" class="container" style="text-align: center; padding-bottom: 45px;">
+	<div id="corps" class="container" style="text-align: center; margin-top: 20px;">
 		<?php
 			if(!isset($session) || !verificationCookie($connexion, $session))
 			{
