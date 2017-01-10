@@ -1,4 +1,4 @@
 <?php
 $blacklistProf = array('accueilProf', 'choixDepartement', 'choixPromotion', 'generationCode', 'gererPromos', 'supprimerCode', 'riasec', 'test','mdp','secret', 'genererSession','statistiques','modifierQuestion','modifierQuestion2', 'choixSession');
-$blacklistEleve = array('acceuilEtu', 'promoPerso', 'rejoindrePromo', 'resultatTest', 'riasec', 'test', 'statistiques');
+$blacklistEleve = array('accueilEtu', 'promoPerso', 'rejoindrePromo', 'resultatTest', 'riasec', 'test', 'statistiques');
 ?>

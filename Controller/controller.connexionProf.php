@@ -32,9 +32,9 @@
 				}
 				else
 				{
-					setcookie("connexion", $pseudo . '.' . $res["idProfesseur"] . '.' . md5($mdp), time()+36000);
+					setcookie("connexion", $pseudo . '.' . $res["idProfesseur"] . '.' . md5($mdp), time()+36000, '/');
  					setcookie("type", '2', time()+36000);
-					header('Location: ?page=acceuilProf');
+					header('Location: ?page=accueilProf');
 	  				exit();
 	  			}
 	  		}

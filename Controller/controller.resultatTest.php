@@ -1,5 +1,11 @@
 <?php
-	if(isset($_COOKIE['result1']))
+	if(!isset($_COOKIE['result1']))
+	{
+		echo '<p>Vous devez d\'abord faire le test... Retour à l\'accueil dans 3 secondes...<p>';
+		header("refresh:3;url=?");//Renvoie sur la page d'acceuil au bout de 3s.
+		exit;
+	}
+	else
 	{
 		$result1 = unserialize($_COOKIE['result1']);
 		$result2 = unserialize($_COOKIE['result2']);
@@ -70,7 +76,7 @@
 		}
 
 		include_once('Model/CategorieQuestions/recupererDescriptionIndice.php');
-		$desc = recupererDescriptionIndice($connexion, $choix);
+		$desc = recupererDescriptionIndice($connexion, $choix + 1);
 
 		include_once('Model/Participer/insererResultat.php');
 		$bon = insererResultat($connexion, $session[1], $idSession, $choix + 1);
@@ -78,17 +84,12 @@
 <div>
 	<h2>Vous êtes du type:<br></h2>
 	<h3><?php echo $Type;?></h3><br>
-	<p style='width: 50%; margin: auto;'><?php echo $desc['descriptionCategorie']?></p>
+	<p class="description"><?php echo $desc['descriptionCategorie']?></p>
 	<br>
 	<br>
 	<a href='?' class='btn btn-warning'>Retour à l'accueil</a>
 </div> 
 
 <?php
-	}
-	else
-	{
-		echo '<p>Vous devez d\'abord faire le test... Retour à l\'accueil dans 3 secondes...<p>';
-		header("refresh:3;url=?");//Renvoie sur la page d'acceuil au bout de 3s.
 	}
 ?>

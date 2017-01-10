@@ -45,7 +45,7 @@
 				}
 			}
 			elseif ($_COOKIE['type'] == '1'){
-				$nomPage = 'Controller/controller.acceuilEtu.php';
+				$nomPage = 'Controller/controller.accueilEtu.php';
 				if(isset($_GET['page']))
 				{
 					if(in_array($_GET['page'], $blacklistEleve))
@@ -59,7 +59,7 @@
 				}
 			}
 			elseif ($_COOKIE['type'] == '2') {
-				$nomPage = 'Controller/controller.acceuilProf.php';
+				$nomPage = 'Controller/controller.accueilProf.php';
 				if(isset($_GET['page']))
 				{
 					if(in_array($_GET['page'], $blacklistProf))

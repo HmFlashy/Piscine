@@ -32,9 +32,9 @@
 				}
 				else
 				{
- 					setcookie("connexion", $pseudo . '.' . $res["idEleve"] . '.' . md5($mdp), time()+36000);
+ 					setcookie("connexion", $pseudo . '.' . $res["idEleve"] . '.' . md5($mdp), time()+36000, '/');
  					setcookie("type", '1', time()+36000);
-					header('Location: ?page=acceuilEtu');
+					header('Location: ?page=accueilEtu');
 	  				exit();
 	  			}
 	  		}

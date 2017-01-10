@@ -213,6 +213,12 @@ nav
 		margin-right: auto;
 		width: 100%;
 	}
+	.description
+	{
+		margin-left: auto;
+		margin-right: auto;
+		font-size: 12px;
+	}
 	.modQ
 	{
 		margin-left: auto;
@@ -269,6 +275,12 @@ nav
 		font-size: 12px;
 	}
 	.riasec2
+	{
+		margin-left: auto;
+		margin-right: auto;
+		width: 500px;
+	}
+	.description
 	{
 		margin-left: auto;
 		margin-right: auto;
