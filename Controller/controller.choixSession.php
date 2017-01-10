@@ -1,5 +1,5 @@
 <?php
-	if($_COOKIE['idPromo'])
+	if(isset($_COOKIE['idPromo']))
 	{
 		$promo = explode('.',$_COOKIE['idPromo']);
 		$_POST['choixPromo'] = $promo[0];

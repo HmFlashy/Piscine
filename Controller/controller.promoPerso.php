@@ -59,7 +59,7 @@
 	}
 	?>
 </div>
-<div id="sessFaites" style="">
+<div class="sessFaites" style="">
 	<div style="margin-left: 0.5%; margin-right: 0.5%">
 		<h3 style="font-size: 18px;">Vos différentes sessions faites dans cette promotion:</h3><br><br>	
 		<?php

@@ -56,12 +56,11 @@ body
 	font-family: "SugarPunch";
 }
 
-#sessFaites
+.sessFaites, .session
 {
 	border-radius: 20px;
 	background-color: #F5F5F5;
     padding-top: 15px;
-    margin:0px;
     padding-bottom: 10px;
     -moz-box-shadow: inset 0px 0px 5px 0px #656565;
 	-webkit-box-shadow: inset 0px 0px 5px 0px #656565;
@@ -233,10 +232,12 @@ nav
 	{
 		font-size: 18px;
 	}
-	#sessFaites
+	.sessFaites, .session
 	{
 		margin-right: auto;
 		margin-left: auto; 
+		width: 100%;
+		margin-top: 50px;
 	}
 	#rejSess
 	{
@@ -306,7 +307,7 @@ nav
 		right: 10px;
 		top: 10px;
 	}
-	#sessFaites
+	.sessFaites
 	{
 		float:right; 
 	}
