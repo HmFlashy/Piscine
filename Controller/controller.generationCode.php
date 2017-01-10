@@ -1,5 +1,4 @@
 <?php
-$reponse = $connexion->query('SELECT * FROM promotion');
 
 
 	$characts    = 'abcdefghijklmnopqrstuvwxyz';
@@ -14,7 +13,7 @@ for($i=0;$i < 6;$i++)    //6 est le nombre de caractères
 $req = $connexion->prepare('INSERT INTO promotion(idProfesseur, idDepartement, codePromo, anneePromo, libellePromo, taillePromo)
 	VALUES(:idProfesseur, :idDepartement, :codePromo, :anneePromo, :libellePromo, :taillePromo)');
 $req->execute(array(
-	'idProfesseur' => $session['login'],
+	'idProfesseur' => $session[1],
 	'idDepartement' => $_POST['choixPromo'],
 	'codePromo' => $code_aleatoire,
 	'anneePromo' => date("Y-m-d"),

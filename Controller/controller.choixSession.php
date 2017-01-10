@@ -1,4 +1,12 @@
 <?php
+	if($_COOKIE['idPromo'])
+	{
+		$promo = explode('.',$_COOKIE['idPromo']);
+		$_POST['choixPromo'] = $promo[0];
+		$_POST['nomPromo'] = $promo[1];
+		$_POST['codePromo'] = $promo[2];
+	}
+
 	if(isset($_POST['idEleve']))
 	{
 		include_once("Model/Promotion/supprimerEtudiantPromo.php"); 

@@ -28,7 +28,7 @@
 				$test = $connexion -> prepare('INSERT INTO appartenir (idEleve,idPromo) VALUES (:idEleve, :idPromo)');
 				$test -> execute(array(
 					':idEleve' => $session[1],
-					':idPromo' => $idPromo['idPromo']
+					':idPromo' => $idPromo
 					));
 				header('Location: ?');
 				exit();
