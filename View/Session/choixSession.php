@@ -1,10 +1,10 @@
 <?php 
-	echo '<h2 id="titreAcc">Promotion '.  $_POST["nomPromo"] . ': (code: '.  $_POST["codePromo"]. ')</h2><br><br>';
+	echo '<h2 style="font-weight: bold; id="titreAcc">Promotion '.  $_POST["nomPromo"] . ': (code: '.  $_POST["codePromo"]. ')</h2><br><br>';
 ?>
 <div class="container">
   	<div class="row">
   		<div class="col-sm-6">
-		<h3>Les élèves dans cette promotion: </h3><br>
+		<h3 style="font-weight: bold;">Les élèves dans cette promotion: </h3><br>
 		<?php if(count($tabEleves) != 0){?>
 		<div style="margin-left: auto; margin-right:auto; max-height: 500px; width: 366px; overflow-y: scroll; font-size: 20px;">
 			<div style="text-align: left; margin-right: 15px; float:left; background-color:#EFEFEF;">
@@ -62,7 +62,7 @@
 		</div>
 		<div  class="col-sm-6">
 			<div class="session" style="padding: 10px;">
-			<h3>Les différentes sessions dans cette promotion: </h3><br>
+			<h3 style="font-weight: bold;">Les différentes sessions dans cette promotion: </h3><br>
 				<?php
 				if(count($tabSess) != 0)
 				{

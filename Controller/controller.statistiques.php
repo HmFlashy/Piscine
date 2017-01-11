@@ -5,28 +5,19 @@
 
 <?php
 
-if(isset($_POST['choixSession']))
-	{
-		include_once("Model/Session/recupererResultatPromo.php");
-$tabRec=recupererResultatPromo($connexion, $_POST['idSession']);
-include_once("View/Statistique/statistiques.php");
-	}
+if(isset($_POST['idSession']))
+{
+	include_once("Model/Session/recupererResultatPromo.php");
+    $tabRec=recupererResultatPromo($connexion, $_POST['idSession']);
+    include_once("View/Statistique/statistiques.php");
+}
 
 if(isset($_POST['supprimeSession']))
-	{
-		include_once("Model/Session/supprimerSession.php"); 
-		supprimerSession($connexion, $_POST['supprimeSession']);
-		header ("Location:?page=choixSession");
-		
-	}
-
-if(isset($_POST['']))
 {
-	setcookie("question", $_POST['modifier'], time() + (86400 * 30), "/");
-	header ("Location:?page=modifierQuestion2");
-	exit();
-	
-}	
+	include_once("Model/Session/supprimerSession.php"); 
+	supprimerSession($connexion, $_POST['supprimeSession']);
+	header ("Location:?page=choixSession");
+}
 
 ?>
 

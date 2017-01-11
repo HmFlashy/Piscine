@@ -4,4 +4,4 @@
 <br>
 <a href='?page=riasec' class="button btn btn-primary " name="riasec" style="font-weight:bold"onclick>Riasec</a>
 <br>
-<a href='?page=aPropos' class="button btn btn-warning" name="test" style="color:black; font-weight:bold"onclick>A propos</a>
+<a href='?page=apropos' class="button btn btn-warning" name="test" style="color:black; font-weight:bold"onclick>A propos</a>
