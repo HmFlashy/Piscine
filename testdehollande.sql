@@ -441,7 +441,8 @@ ALTER TABLE `session`
 -- Contraintes pour la table `appartenir`
 --
 ALTER TABLE `appartenir`
-  ADD CONSTRAINT `appartenir_ibfk_1` FOREIGN KEY (`idPromo`) REFERENCES `promotion` (`idPromo`),
+  ADD CONSTRAINT `appartenir_ibfk_1` FOREIGN KEY (`idPromo`) REFERENCES `promotion` (`idPromo`)
+  ON DELETE CASCADE,
   ADD CONSTRAINT `appartenir_ibfk_2` FOREIGN KEY (`idEleve`) REFERENCES `eleve` (`idEleve`);
 
 --
@@ -449,7 +450,8 @@ ALTER TABLE `appartenir`
 --
 ALTER TABLE `participer`
   ADD CONSTRAINT `participer_ibfk_1` FOREIGN KEY (`idEleve`) REFERENCES `eleve` (`idEleve`),
-  ADD CONSTRAINT `participer_ibfk_2` FOREIGN KEY (`idSession`) REFERENCES `session` (`idSession`);
+  ADD CONSTRAINT `participer_ibfk_2` FOREIGN KEY (`idSession`) REFERENCES `session` (`idSession`)
+  ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `promotion`
@@ -469,7 +471,8 @@ ALTER TABLE `questions`
 -- Contraintes pour la table `session`
 --
 ALTER TABLE `session`
-  ADD CONSTRAINT `session_ibfk_1` FOREIGN KEY (`idPromo`) REFERENCES `promotion` (`idPromo`);
+  ADD CONSTRAINT `session_ibfk_1` FOREIGN KEY (`idPromo`) REFERENCES `promotion` (`idPromo`)
+  ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
