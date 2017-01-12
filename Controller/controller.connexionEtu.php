@@ -1,5 +1,4 @@
 <?php
-	include_once('Model/')
 	$erreur='';
 	$pseudo='';
 	$mdp='';
@@ -20,7 +19,7 @@
 			include_once('Model/Eleve/verificationPseudoEleve.php');
 			$existance = verificationPseudoEleve($connexion, $_POST['pseudo']);
 			if($existance['count(pseudoEleve)']==0)
-				$erreur[] = "Compte inexistant";
+				$erreur = "Compte inexistant";
 			else
 			{
 				include_once('Model/Eleve/recupererInfoEleve.php');
