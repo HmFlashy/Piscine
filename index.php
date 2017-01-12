@@ -35,7 +35,7 @@
 				{
 					if(in_array($_GET['page'], $blacklistNonConnecte))
 					{
-						$nomPage = 'Controller/controller.' . $_GET['page'] . '.php';
+						$nomPage = 'Controller/controller.' . addslashes($_GET['page']) . '.php';
 					}
 				}
 			}
@@ -46,11 +46,7 @@
 				{
 					if(in_array($_GET['page'], $blacklistEleve))
 					{
-						$paramPage ='Controller/controller.' . addslashes($_GET['page']) . '.php';
-						if(file_exists($paramPage) && $paramPage != 'index.php')
-						{
-							$nomPage = $paramPage;
-						}
+						$nomPage ='Controller/controller.' . addslashes($_GET['page']) . '.php';
 					}
 				}
 			}
@@ -61,11 +57,7 @@
 				{
 					if(in_array($_GET['page'], $blacklistProf))
 					{
-						$paramPage ='Controller/controller.' . addslashes($_GET['page']) . '.php';
-						if(file_exists($paramPage) && $paramPage != 'index.php')
-						{
-							$nomPage = $paramPage;
-						}
+						$nomPage ='Controller/controller.' . addslashes($_GET['page']) . '.php';
 					}
 				}
 			}

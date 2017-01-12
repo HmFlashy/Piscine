@@ -5,6 +5,7 @@
 		$_POST['choixPromo'] = $promo[0];
 		$_POST['nomPromo'] = $promo[1];
 		$_POST['codePromo'] = $promo[2];
+		setcookie('idPromo');
 	}
 
 	if(isset($_POST['idEleve']))

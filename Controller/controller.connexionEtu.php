@@ -1,4 +1,5 @@
 <?php
+	include_once('Model/')
 	$erreur='';
 	$pseudo='';
 	$mdp='';
@@ -16,16 +17,14 @@
 		{
 			$pseudo=$_POST['pseudo'];
 			$mdp=$_POST['mdp'];
-			$test = $connexion -> prepare('SELECT count(*) AS nb FROM eleve WHERE pseudoEleve= ?');
-			$test -> execute(array($_POST['pseudo']));
-			$existance = $test -> fetch();
-			if($existance["nb"]==0)
-				$erreur = "Compte inexistant";
+			include_once('Model/Eleve/verificationPseudoEleve.php');
+			$existance = verificationPseudoEleve($connexion, $_POST['pseudo']);
+			if($existance['count(pseudoEleve)']==0)
+				$erreur[] = "Compte inexistant";
 			else
 			{
-				$test = $connexion -> prepare('SELECT idEleve, motDePasseEleve FROM eleve WHERE pseudoEleve= ?');
-				$test -> execute(array($_POST['pseudo']));
-				$res = $test -> fetch();
+				include_once('Model/Eleve/recupererInfoEleve.php');
+				$res = recupererInfoEleve($connexion, $pseudo);
 				if($res['motDePasseEleve'] != md5($mdp))
 				{
 					$erreur="Mauvais mot de passe";	
@@ -40,20 +39,5 @@
 	  		}
 		}
 	}
+include_once('View/Connexion/connexionEtu.php');
 ?>
-<h3>Vous êtes un élève:</h3>
-<form method="post" action="?page=connexionEtu">
-	<?php 
-		if(!empty($erreur))
-			echo $erreur;
-	?>
-    <div class="form-group connex">
-    	<br>
-		<input type="text" class="form-control" name="pseudo" placeholder="Identifiant">
-		<input type="password" class="form-control" name="mdp" placeholder="Mot De Passe">
-		<br>
-		<input type="submit" class="btn btn-outline-primary" name="connexion" value="Connexion">
-	</div>
-	<br>
-</form>
-<a href="?page=inscriptionEtu">Pas de compte? Inscrivez-vous!</a>

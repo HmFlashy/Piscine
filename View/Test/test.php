@@ -48,7 +48,11 @@
 
 		<div class="container" style="width: auto;">                
 		  <ul class="pager">
-		    <li><input type="button" name="prec" class="<?php if($groupe == 0) echo 'disabled';?> btn btn-danger" value="Précédent"></li>
+		  <?php
+		  	if($groupe == 0)
+		  		echo '<li><input type="button" name="prec" class="disabled btn btn-danger" value="Précédent"></li>';
+		  	else
+		  		echo '<li><input type="submit" name="prec" class="btn btn-danger" value="Précédent"></li>'; ?>
 		    <li>
 		<?php 
 			if($groupe == 11)
