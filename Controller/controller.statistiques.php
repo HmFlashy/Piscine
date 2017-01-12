@@ -30,7 +30,11 @@ $(function () {
 
         chart: {
             polar: true,
-            type: 'line'
+            type: 'line',
+            backgroundColor:'rgba(255, 255, 255, 0)',
+            style: {
+                 fontFamily: 'poetsen'
+                }
         },
 
         title: {
@@ -46,26 +50,36 @@ $(function () {
             categories: ['Réaliste', 'Investigateur', 'Artiste', 'Social',
                     'Entrepenant', 'Conventionnel'],
             tickmarkPlacement: 'on',
-            lineWidth: 0
+            lineWidth: 0,
+            fontFamily: 'poetsen',
+            labels: {
+              style: {
+                fontSize: '16px'
+              }
+            },
         },
 
         yAxis: {
             gridLineInterpolation: 'polygon',
             lineWidth: 0,
-            min: 0
+            min: 0,
+            gridLineColor: 'black'
         },
 
         tooltip: {
             shared: true,
-            pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f} points</b><br/>'
+            pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f} points</b><br/>',
         },
 
         legend: {
             verticalAlign:'middle',
+            fontWeight: 'bold',
+            fontSize: '15px',
             x:300,
         },
 
         series: [{
+            color: 'red',
             name: 'Profil Promo',
             data: tab,
             pointPlacement: 'on'

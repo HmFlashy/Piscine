@@ -3,7 +3,7 @@
 	<?php
 	if($connecte)
 		echo '<br>
-			  <span style="font-family:\'poetsen\';">Bienvenue ' . $session[0] . '</span>
+			  <span class="bienv" style="font-family:\'poetsen\';">Bienvenue ' . $session[0] . '</span>
 			  <div id="deco">
 			  		<a href="Model/deconnexion.php" role="button" class="btn btn-danger"  onclick="">Deconnexion</a>
 			  </div>';

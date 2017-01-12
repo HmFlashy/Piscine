@@ -1,6 +1,7 @@
 <h2>Resultat Session</h2>
+<br>
 <div style='width: 100%; text-align: center;'>
-<div id="container" class='riasec2'></div>
+<div id="container" class='spider'></div>
 </div>
 <br>
 

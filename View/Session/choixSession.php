@@ -6,7 +6,7 @@
   		<div class="col-sm-6">
 		<h3 style="font-weight: bold;">Les élèves dans cette promotion: </h3><br>
 		<?php if(count($tabEleves) != 0){?>
-		<div style="margin-left: auto; margin-right:auto; max-height: 500px; width: 366px; overflow-y: scroll; font-size: 20px;">
+		<div style="margin-left: auto; margin-right:auto; max-height: 500px; width: 380px; overflow-y: scroll; font-size: 20px;">
 			<div style="text-align: left; margin-right: 15px; float:left; background-color:#EFEFEF;">
 				<ul>
 			<?php
@@ -100,9 +100,10 @@
 		</div>
 	</div>
 </div>
+<br><br>
 <?php
     echo '  <button data-toggle="modal" data-target="#modal1" class="btn btn-danger" name="" value="'.$_POST['choixPromo'].'" >
-				Supprimer ce promo
+				Supprimer cette promotion
 			</button>
         	<div class="modal fade" id="modal1" role="dialog">
 				<div class="modal-dialog">

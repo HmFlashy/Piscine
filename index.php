@@ -64,7 +64,7 @@
 			include($nomPage);
 		?> 
 	</div>
-	<!--<div id="backgroundImg"></div>-->
+	<div id="backgroundImg"></div>
 	<?php include_once('Controller/controller.pieddepage.php');?>
 	</body>
 </html>
