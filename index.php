@@ -13,13 +13,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script language="text/javascript"></script>
 	</head>
-   <!--Affichage de la page-->
-	<body>
+
 	<?php 
 		if(isset($_COOKIE['connexion']))
 			//Permet le sécurisation de la connexion, et la manipulation de la base de donnée.
 			$session = explode(".", $_COOKIE['connexion']);
 	?>
+
+   <!--Affichage de la page-->
+	<body>
 	<?php include_once('Model/connect.php');?>
 	<?php include_once('Model/verificationConnexion.php');?>
 	<?php include_once('blacklist/blacklist.php');?>
@@ -28,23 +30,17 @@
 		<?php
 			if(!isset($session) || !verificationCookie($connexion, $session))
 			{
+				$nomPage = 'Controller/controller.accueil.php';
 				if(isset($_GET['page']))
 				{
-					if(($_GET['page'] == "connexionEtu") OR ($_GET['page'] == "connexionProf") OR ($_GET['page'] == "resultatTest") OR ($_GET['page'] == "test") OR ($_GET['page'] == "inscriptionEtu") OR ($_GET['page'] == "inscriptionProf") OR ($_GET['page'] == "riasec"))
+					if(in_array($_GET['page'], $blacklistNonConnecte))
 					{
 						$nomPage = 'Controller/controller.' . $_GET['page'] . '.php';
 					}
-					else
-					{
-						$nomPage = 'Controller/controller.accueil.php';
-					}
-				}
-				else
-				{
-					$nomPage = 'Controller/controller.accueil.php';
 				}
 			}
-			elseif ($_COOKIE['type'] == '1'){
+			elseif ($_COOKIE['type'] == '1')
+			{
 				$nomPage = 'Controller/controller.accueilEtu.php';
 				if(isset($_GET['page']))
 				{
@@ -58,7 +54,8 @@
 					}
 				}
 			}
-			elseif ($_COOKIE['type'] == '2') {
+			elseif ($_COOKIE['type'] == '2')
+			{
 				$nomPage = 'Controller/controller.accueilProf.php';
 				if(isset($_GET['page']))
 				{
@@ -75,6 +72,7 @@
 			include($nomPage);
 		?> 
 	</div>
+	<!--<div id="backgroundImg"></div>-->
 	<?php include_once('Controller/controller.pieddepage.php');?>
 	</body>
 </html>

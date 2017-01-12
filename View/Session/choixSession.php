@@ -1,10 +1,10 @@
 <?php 
-	echo '<h2 id="titreAcc">Promotion '.  $_POST["nomPromo"] . ': (code: '.  $_POST["codePromo"]. ')</h2><br><br>';
+	echo '<h2 style="font-weight: bold; id="titreAcc">Promotion '.  $_POST["nomPromo"] . ': (code: '.  $_POST["codePromo"]. ')</h2><br><br>';
 ?>
 <div class="container">
   	<div class="row">
   		<div class="col-sm-6">
-		<h3>Les élèves dans cette promotion: </h3><br>
+		<h3 style="font-weight: bold;">Les élèves dans cette promotion: </h3><br>
 		<?php if(count($tabEleves) != 0){?>
 		<div style="margin-left: auto; margin-right:auto; max-height: 500px; width: 366px; overflow-y: scroll; font-size: 20px;">
 			<div style="text-align: left; margin-right: 15px; float:left; background-color:#EFEFEF;">
@@ -62,7 +62,7 @@
 		</div>
 		<div  class="col-sm-6">
 			<div class="session" style="padding: 10px;">
-			<h3>Les différentes sessions dans cette promotion: </h3><br>
+			<h3 style="font-weight: bold;">Les différentes sessions dans cette promotion: </h3><br>
 				<?php
 				if(count($tabSess) != 0)
 				{
@@ -99,7 +99,36 @@
 			</div>
 		</div>
 	</div>
-</div><br><br>
+</div>
+<?php
+    echo '  <button data-toggle="modal" data-target="#modal1" class="btn btn-danger" name="" value="'.$_POST['choixPromo'].'" >
+				Supprimer ce promo
+			</button>
+        	<div class="modal fade" id="modal1" role="dialog">
+				<div class="modal-dialog">
+								    
+					<!-- Modal content-->
+				    <div class="modal-content">
+				        <div class="modal-header">
+				        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+				        	<h4 class="modal-title">Validation</h4>
+				        </div>
+				        <div class="modal-body">
+				        	<p>Etes vous sûre de vouloir supprimer '.$_POST['nomPromo'].'</p>
+				        </div>
+						<div class="modal-footer">
+							<form method="POST" style="float:left;" action="?page=choixSession">
+				        	<button type="submit" style="font-size: 15px; margin-top:0; height: 30px;" class="btn btn-danger" name="supprimePromo" value="'.$_POST['choixPromo'].'" >
+						  		  Supprimer
+						  	</button>
+				        	<button type="button" style="float:right;" class="btn btn-default" data-dismiss="modal">Close</button>
+							</form>
+						</div>
+				    </div>
+				</div>
+		    </div>';
+?>
+<br><br>
 <a href='?' class='btn btn-warning'>Retour à l'accueil</a>
 
 

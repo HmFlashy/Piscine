@@ -1,12 +1,15 @@
 <?php 
 	if(isset($_POST['groupe']))
 	{
-		if(isset($_POST['prec']) && ($_POST['groupe'] > 0))
+		if(isset($_POST['prec']))
 		{
-			array_pop($_POST['result1']);
-			array_pop($_POST['result2']);
-			array_pop($_POST['result3']);
-			$_POST['groupe'] -= 1;
+			if($_POST['groupe'] > 0)
+			{
+				array_pop($_POST['result1']);
+				array_pop($_POST['result2']);
+				array_pop($_POST['result3']);
+				$_POST['groupe'] -= 1;
+			}
 		}
 		else
 		{
