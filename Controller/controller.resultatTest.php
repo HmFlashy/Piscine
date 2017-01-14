@@ -86,59 +86,84 @@
 	<h3><?php echo $Type;?></h3><br>
 	<p class="description"><?php echo $desc['descriptionCategorie']?></p>
 	<br>
-
-
-<script type="text/javascript" src="js/canvasjs.min.js"></script> 
+	<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+<script src="https://code.highcharts.com/highcharts.js"></script>
 <script type="text/javascript">
+var R = '<?php echo $resultat[0]; ?>';
 
+var I = '<?php echo $resultat[1]; ?>';
+var A = '<?php echo $resultat[2]; ?>';
+var S = '<?php echo $resultat[3]; ?>';
+var E = '<?php echo $resultat[4]; ?>';
+var C = '<?php echo $resultat[5]; ?>';
+var Tot='<?php echo $tot; ?>';
+var maxi=Math.max(R,I,A,S,E,C);
+var choixData=new Array([{name: 'Realiste',y: R/Tot*100,sliced: true,selected: true}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artistique',y: A/Tot*100}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100}],
+
+	[{name: 'Realiste',y: R/Tot*100}, {name: 'Investigateur',y: I/Tot*100,sliced: true,selected: true}, {name: 'Artistique',y: A/Tot*100}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100}],
+
+	[{name: 'Realiste',y: R/Tot*100,}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artistique',y: A/Tot*100,sliced: true,selected: true}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100}],
+
+	[{name: 'Realiste',y: R/Tot*100,}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artistique',y: A/Tot*100}, { name: 'Social',y: S/Tot*100,sliced: true,selected: true}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100}],
+
+	[{name: 'Realiste',y: R/Tot*100,}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artistique',y: A/Tot*100}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100,sliced: true,selected: true}, {name: 'Conventionnel',y: C/Tot*100}],
+
+	[{name: 'Realiste',y: R/Tot*100,}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artistique',y: A/Tot*100}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100,sliced: true,selected: true}]
+	)
+var don=null;
+if(maxi==R){
+		don=choixData[0];}
+else if(maxi==I){
+	don=choixData[1];}	
+else if(maxi==A){
+	don=choixData[2];}	
+else if(maxi==S){
+	don=choixData[3];}	
+else if(maxi==E){
+	don=choixData[4];}	
+else if(maxi==C){
+	don=choixData[5];}	
+alert(don);
 $(function () {
-    var R = '<?php echo $resultat[0]; ?>';
-    var I = '<?php echo $resultat[1]; ?>';
-    var A = '<?php echo $resultat[2]; ?>';
-    var S = '<?php echo $resultat[3]; ?>';
-    var E = '<?php echo $resultat[4]; ?>';
-    var C = '<?php echo $resultat[5]; ?>';
-    var Tot='<?php echo $tot; ?>';
-	var chart = new CanvasJS.Chart("chartContainer",
-	{
-		title:{
-			text: "Résultat Test"
-		},
-                animationEnabled: true,
-		legend:{
-			verticalAlign: "center",
-			horizontalAlign: "left",
-			fontSize: 20,
-			fontFamily: "Helvetica"        
-		},
-		theme: "theme2",
-		data: [
-		{        
-			type: "pie",       
-			indexLabelFontFamily: "Garamond",       
-			indexLabelFontSize: 20,
-			indexLabel: "{label} {y}%",
-			startAngle:-20,      
-			showInLegend: true,
-			toolTipContent:"{legendText} {y}%",
-			dataPoints: [
-				{  y: R/Tot*100, legendText:"Réaliste", label: "Réaliste" },
-				{  y: I/Tot*100, legendText:"Investigateur", label: "Investigateur" },
-				{  y: A/Tot*100, legendText:"Artistique", label: "Artistique" },
-				{  y: S/Tot*100, legendText:"Social" , label: "Social"},       
-				{  y: E/Tot*100, legendText:"Entreprenant" , label: "Entreprenant"},
-				{ y: C/Tot*100, legendText:"Conventionnel" , label: "Conventionnel"}
-			]
-		}
-		]
-	});
-	chart.render();
+    Highcharts.chart('container', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Resultat Test'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series:[{
+            name: 'Brands',
+            colorByPoint: true,
+            data:don
+        }]
+    });
 });
 </script>
+</div>
 	<br>
 	<a href='?' class='btn btn-warning'>Retour à l'accueil</a>
-
 </div> 
+
 <?php
 	}
 ?>
