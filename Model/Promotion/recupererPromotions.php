@@ -51,4 +51,16 @@ function recupererPromotion($connexion, $libelle)
 	}
 
 }
+
+function recupererIdPromotion($connexion, $code)
+{
+	$req = $connexion->prepare('SELECT idPromo FROM promotion WHERE codePromo=?');
+	if(!$req)
+	{
+		echo 'Erreur récupération id promotion';
+		exit();
+	}
+	$req->execute(array($code));
+	return $req->fetch();
+}
 ?>
