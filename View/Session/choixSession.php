@@ -1,5 +1,5 @@
 <?php 
-	echo '<h2 style="font-weight: bold; id="titreAcc">Promotion '.  $_POST["nomPromo"] . ': (code: '.  $_POST["codePromo"]. ')</h2><br><br>';
+	echo '<h2 style="font-weight: bold; id="titreAcc">Promotion '.  $_POST["nomPromo"] . ' (code: '.  $_POST["codePromo"]. ')</h2><br><br>';
 ?>
 <div class="container">
   	<div class="row">
@@ -60,14 +60,14 @@
 			}
 		?>
 		</div>
-		<div  class="col-sm-6">
+		<div  class="col-sm-6" >
 			<div class="session" style="padding: 10px;">
 			<h3 style="font-weight: bold;">Les différentes sessions dans cette promotion: </h3><br>
 				<?php
 				if(count($tabSess) != 0)
 				{
 					$i = 0;
-					echo '<div style="max-height: 300px; overflow-y: scroll;">';
+					echo '<div style="max-height: 200px; overflow-y: scroll;">';
 					foreach($tabSess as $key => $value)
 					{
 						echo '<form method="post" action="?page=statistiques" class="">';
