@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="font.css" type="text/css">
 		<link rel="stylesheet" href="css/styles.css" type="text/css">
 		<link rel="icon" type="image/ico" href="images/icone-piscine.ico" />
+		<link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script language="text/javascript"></script>
