@@ -20,11 +20,11 @@
 	}
 	
 	if(isset($_POST['supprimePromo']))
-{
-	include_once("Model/Promotion/supprimePromo.php"); 
-	supprimerPromo($connexion, $_POST['supprimePromo']);
-	header ("Location:?page");
-}
+	{
+		include_once("Model/Promotion/supprimePromo.php"); 
+		supprimerPromo($connexion, $_POST['supprimePromo']);
+		header ("Location:?page");
+	}
 
 	if(isset($_POST["nomPromo"]))
 	{
@@ -32,12 +32,12 @@
 		{
 			if(isset($_POST['choixPromo']))
 			{
-				$req = $connexion->prepare('INSERT INTO session(idPromo, dateSession, libelleSession, activeSession)
-				VALUES(:idPromo, NOW(), :libelleSession, 1)');
-				$req->execute(array(
-					'idPromo' => $_POST['choixPromo'],
-					'libelleSession' => $_POST['libelleSession'],
-					));
+				include_once('Model/Session/insererSession.php');
+				if(!insererSession($connexion, $_POST['choixPromo'], $_POST['libelleSession']))
+				{
+					echo 'Probleme inserer session';
+					exit;
+				}
 			}
 		}
 		include_once("Model/Session/recupererSession.php"); 

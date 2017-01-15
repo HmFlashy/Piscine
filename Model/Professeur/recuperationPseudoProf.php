@@ -1,7 +1,7 @@
 <?php
-function recuperationPseudoEleve($connexion, $pseudo)
+function recuperationPseudoProf($connexion, $pseudo)
 {
-	$req = $connexion -> prepare("SELECT pseudoEleve FROM eleve WHERE pseudoEleve = ?");
+	$req = $connexion -> prepare("SELECT pseudoProfesseur FROM professeur WHERE pseudoProfesseur = ?");
 	$req -> execute(array($pseudo));
 	if (!$req) {
    		echo "\nPDO::errorInfo():\n";
