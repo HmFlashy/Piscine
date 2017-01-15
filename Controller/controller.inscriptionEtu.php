@@ -9,9 +9,9 @@
 		}
 		else
 		{
-			include_once('Model/Eleve/verificationPseudoEleve.php');
-			$existance = verificationPseudoEleve($connexion, $_POST['pseudo']);
-			if($existance['count(pseudoEleve)']==1)
+			include_once('Model/Eleve/recuperationPseudoEleve.php');
+			$existance = recuperationPseudoEleve($connexion, $_POST['pseudo']);
+			if(isset($existance['pseudoEleve']))
 				$erreur[] = "Pseudo déjà pris, choisissez en un autre";
 		}
 		if(empty($_POST['email']))

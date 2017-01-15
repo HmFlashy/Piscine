@@ -15,8 +15,8 @@
 <a href='?' class='btn btn-warning'>Retour à l'accueil</a>
 
 
-
 <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script type="text/javascript">
 var R = '<?php echo $resultat[0]; ?>';
 
@@ -38,7 +38,7 @@ var choixData=new Array([{name: 'Realiste',y: R/Tot*100,sliced: true,selected: t
 	[{name: 'Realiste',y: R/Tot*100,}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artistique',y: A/Tot*100}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100,sliced: true,selected: true}, {name: 'Conventionnel',y: C/Tot*100}],
 
 	[{name: 'Realiste',y: R/Tot*100,}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artistique',y: A/Tot*100}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100,sliced: true,selected: true}]
-	)
+	);
 var don=null;
 if(maxi==R){
 		don=choixData[0];}
@@ -53,7 +53,7 @@ else if(maxi==E){
 else if(maxi==C){
 	don=choixData[5];}
 $(function () {
-    Highcharts.chart('container', {
+    var chart1 = new Highcharts.Chart('container', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -82,6 +82,10 @@ $(function () {
                     }
                 }
             }
+        },
+       tooltip: {
+            shared: true,
+            pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f} points</b><br/>',
         },
         series:[{
             name: 'Brands',
