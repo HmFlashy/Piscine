@@ -7,3 +7,8 @@
     font-family: "poetsen";
     src: url('fonts/poetsen.ttf');
 }
+
+@font-face {
+    font-family: "LemonMilk";
+    src: url('fonts/LemonMilk.otf');
+}
