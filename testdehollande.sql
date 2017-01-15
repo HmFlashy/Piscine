@@ -35,9 +35,7 @@ CREATE TABLE `appartenir` (
 -- Contenu de la table `appartenir`
 --
 
-INSERT INTO `appartenir` (`idPromo`, `idEleve`) VALUES
-(1, 1),
-(1, 2),
+INSERT INTO `appartenir` (`idPromo`, `idEleve`) VALUES (1, 1), (1, 2),
 (1, 3),
 (1, 4),
 (1, 5),
@@ -65,8 +63,7 @@ INSERT INTO `appartenir` (`idPromo`, `idEleve`) VALUES
 (1, 27),
 (1, 28),
 (1, 29),
-(1, 30),
-;
+(1, 30);
 
 -- --------------------------------------------------------
 

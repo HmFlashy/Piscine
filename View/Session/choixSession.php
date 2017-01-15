@@ -6,15 +6,15 @@
   		<div class="col-sm-6">
 		<h3 style="font-weight: bold;">Les élèves dans cette promotion: </h3><br>
 		<?php if(count($tabEleves) != 0){?>
-		<div style="margin-left: auto; margin-right:auto; max-height: 500px; width: 380px; overflow-y: scroll; font-size: 20px;">
+		<div style="margin-left: auto; margin-right:auto; max-height: 300px; width: 440px; overflow-y: scroll; font-size: 20px;">
 			<div style="text-align: left; margin-right: 15px; float:left; background-color:#EFEFEF;">
 				<ul>
 			<?php
 			$couleur = 0;
 			foreach($tabEleves as $key => $value)
 				{
-						echo '<li><p style="width: 120px; float:left;">'. $value['nomEleve'] . '&nbsp&nbsp</p>
-								  <p style="width: 120px; float:left;">'. $value['prenomEleve'] . '</p>
+						echo '<li><p style="width: 150px; float:left;">'. $value['nomEleve'] . '&nbsp&nbsp</p>
+								  <p style="width: 150px; float:left;">'. $value['prenomEleve'] . '</p>
 								  <p style="float:left;">
 						  		  <button data-toggle="modal" data-target="#modal'.$key.'" style="font-size: 15px; margin-top:0; height: 30px;" class="btn btn-danger" name="" value="'.$value['idEleve'].'" >
 						  		  Supprimer

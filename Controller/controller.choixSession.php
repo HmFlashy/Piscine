@@ -20,11 +20,11 @@
 	}
 	
 	if(isset($_POST['supprimePromo']))
-{
-	include_once("Model/Promotion/supprimePromo.php"); 
-	supprimerPromo($connexion, $_POST['supprimePromo']);
-	header ("Location:?page");
-}
+	{
+		include_once("Model/Promotion/supprimePromo.php"); 
+		supprimerPromo($connexion, $_POST['supprimePromo']);
+		header ("Location:?page");
+	}
 
 	if(isset($_POST["nomPromo"]))
 	{

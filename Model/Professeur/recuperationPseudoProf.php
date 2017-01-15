@@ -1,7 +1,7 @@
 <?php
-function verificationPseudoProf($connexion, $pseudo)
+function recuperationPseudoProf($connexion, $pseudo)
 {
-	$req = $connexion -> prepare("SELECT count(pseudoProfesseur) FROM professeur WHERE pseudoProfesseur = ?");
+	$req = $connexion -> prepare("SELECT pseudoProfesseur FROM professeur WHERE pseudoProfesseur = ?");
 	$req -> execute(array($pseudo));
 	if (!$req) {
    		echo "\nPDO::errorInfo():\n";

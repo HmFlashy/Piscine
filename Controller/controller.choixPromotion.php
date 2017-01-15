@@ -15,15 +15,15 @@ if(isset($_POST['libellePromo']))
 	if(insererNouvellePromotion($connexion, $session[1], $_POST['choixPromo'], $code_aleatoire, $_POST['libellePromo']))
 	{
 		include_once('Model/Promotion/recupererPromotions.php');
-		$idPromo = recupererIdPromotion($connexion, $code_aleatoire)
+		$idSess = recupererIdPromotion($connexion, $code_aleatoire);
 		setcookie("idPromo", $idSess['idPromo'] .'.'. $_POST['libellePromo'] . '.' . $code_aleatoire, time()+36000);
 		header('Location: ?page=choixSession');
 	}
 }
 elseif(isset($_POST['depart']))
 {
-	include('Model/Departement/recupererDepartements.php');
+	include('Model/Departement/recupererDepartement.php');
 	$req = recupererDepartement($connexion, $_POST['depart']);
 }
-include_once('View/AjoutPromo/choixPromotion.php');
+include_once('View/AjoutPromo/choixPromotions.php');
 ?>

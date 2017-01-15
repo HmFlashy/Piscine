@@ -48,7 +48,7 @@
 		if(count($erreur)==0)
 		{
 			include_once('Model/Eleve/insererEleve.php');
-			if(!insererEleve($connexion, $_POST['pseudo'], $_POST['nom'], $_POST['prenom'], $_POST['email'], md5($_POST['mdp'])))
+			if(!insererEleve($connexion, $_POST['pseudo'], $_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['mdp']))
 			{
 				echo 'Problème insertion élève';
 				exit;
