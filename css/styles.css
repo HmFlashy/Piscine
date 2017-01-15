@@ -394,3 +394,10 @@ input[type=radio].css-checkbox:checked
 {
 	background-position: 0 -23px;
 }
+
+.apropos
+{	width:auto;
+ padding:auto;
+ margin:auto;
+	text-align: center;
+}
