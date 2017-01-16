@@ -13,9 +13,9 @@
 		    <tbody>
 		    	<?php foreach($questions as $question) { 
 					echo '<tr><td>' .$question['libelleQuestion']. '</td>
-						<td><input type="radio"  class="radio1" name="1" value="'.$question['idCategorie'].'"></td>
-						<td><input type="radio" class="radio2" name="2" value="'.$question['idCategorie'].'"></td>
-						<td><input type="radio" class="radio3" name="3" value="'.$question['idCategorie'].'"></td>
+						<td><input type="radio"  class="radio1 roundedOne" name="1" value="'.$question['idCategorie'].'"></td>
+						<td><input type="radio" class="radio2 roundedOne" name="2" value="'.$question['idCategorie'].'"></td>
+						<td><input type="radio" class="radio3 roundedOne" name="3" value="'.$question['idCategorie'].'"></td>
 					  </tr>';
 				} ?>
 			</tbody>

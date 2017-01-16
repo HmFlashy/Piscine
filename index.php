@@ -4,7 +4,7 @@
 	<head>
 		<title>Piscine !</title>
 		<meta charset="utf-8"/>	
-		<link href="https://fonts.googleapis.com/css?family=Passion+One|Kite+One" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Passion+One|Montserrat:700" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="font.css" type="text/css">
