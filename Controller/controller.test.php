@@ -1,4 +1,10 @@
 <?php 
+	if(!isset($_POST['idSession']))
+	{
+		echo '<p>Vous devez d\'abord choisir une session! Retour dans 3 secondes..<p>';
+		header("refresh:3;url=?");//Renvoie sur la page d'acceuil au bout de 3s.
+		exit;
+	}
 	if(isset($_POST['groupe']))
 	{
 		if(isset($_POST['prec']))
