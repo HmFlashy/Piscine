@@ -27,17 +27,17 @@ var E = '<?php echo $resultat[4]; ?>';
 var C = '<?php echo $resultat[5]; ?>';
 var Tot='<?php echo $tot; ?>';
 var maxi=Math.max(R,I,A,S,E,C);
-var choixData=new Array([{name: 'Realiste',y: R/Tot*100,sliced: true,selected: true}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artistique',y: A/Tot*100}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100}],
+var choixData=new Array([{name: 'Realiste',y: R/Tot*100,sliced: true,selected: true}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artiste',y: A/Tot*100}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100}],
 
-	[{name: 'Realiste',y: R/Tot*100}, {name: 'Investigateur',y: I/Tot*100,sliced: true,selected: true}, {name: 'Artistique',y: A/Tot*100}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100}],
+	[{name: 'Realiste',y: R/Tot*100}, {name: 'Investigateur',y: I/Tot*100,sliced: true,selected: true}, {name: 'Artiste',y: A/Tot*100}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100}],
 
-	[{name: 'Realiste',y: R/Tot*100,}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artistique',y: A/Tot*100,sliced: true,selected: true}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100}],
+	[{name: 'Realiste',y: R/Tot*100,}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artiste',y: A/Tot*100,sliced: true,selected: true}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100}],
 
-	[{name: 'Realiste',y: R/Tot*100,}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artistique',y: A/Tot*100}, { name: 'Social',y: S/Tot*100,sliced: true,selected: true}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100}],
+	[{name: 'Realiste',y: R/Tot*100,}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artiste',y: A/Tot*100}, { name: 'Social',y: S/Tot*100,sliced: true,selected: true}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100}],
 
-	[{name: 'Realiste',y: R/Tot*100,}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artistique',y: A/Tot*100}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100,sliced: true,selected: true}, {name: 'Conventionnel',y: C/Tot*100}],
+	[{name: 'Realiste',y: R/Tot*100,}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artiste',y: A/Tot*100}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100,sliced: true,selected: true}, {name: 'Conventionnel',y: C/Tot*100}],
 
-	[{name: 'Realiste',y: R/Tot*100,}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artistique',y: A/Tot*100}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100,sliced: true,selected: true}]
+	[{name: 'Realiste',y: R/Tot*100,}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artiste',y: A/Tot*100}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100,sliced: true,selected: true}]
 	);
 var don=null;
 if(maxi==R){

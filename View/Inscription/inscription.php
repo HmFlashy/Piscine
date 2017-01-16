@@ -2,7 +2,7 @@
 <br>
 <form method="post" action="?page=inscriptionEtu">
 	<div class="form-group connex">
-		<input type="text" id="pseudo" class="form-control" name="pseudo" pattern="[A-Za-z0-9-]{2,12}" value="<?php if(isset($_POST['pseudo'])) echo $_POST['pseudo'];?>" placeholder="Identifiant">
+		<input type="text" id="pseudo" class="form-control" name="pseudo" pattern="[A-Za-z0-9-]{3,12}" value="<?php if(isset($_POST['pseudo'])) echo $_POST['pseudo'];?>" placeholder="Identifiant">
 		<input type="email" id="email" class="form-control" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" value="<?php if(isset($_POST['email'])) echo $_POST['email'];?>" placeholder="Votre email">
 		<input type="password" class="form-control" name="mdp" placeholder="Mot De Passe">
 		<input type="password" class="form-control" name="confmdp" placeholder="Confirmation">

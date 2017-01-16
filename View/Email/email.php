@@ -16,5 +16,14 @@
   <p style="text-align: center;">descriptionT</p>
   <br><br>
 </div>
+<div>
+  <p>Vos pourcentages:</p><br>
+  <p>Réaliste: realT%</p>
+  <p>Investigateur: invesT%</p>
+  <p>Artiste: artT%</p>
+  <p>Social: socT%</p>
+  <p>Entreprenant: entrepT%</p>
+  <p>Conventionnel: conveT%</p>
+</div>
 </body>
 </html>
