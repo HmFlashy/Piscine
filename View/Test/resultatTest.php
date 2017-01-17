@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-            <h3><?php echo '<a target="_blank" href="/piscine/pdf/'.$Type.'.pdf">'.$Type.'</a>';?></h3><br>
+            <h3><?php echo '<a target="_blank" href="/Piscine/pdf/'.$Type.'.pdf">'.$Type.'</a>';?></h3><br>
         	<p class="description"><?php echo $desc['descriptionCategorie']?></p>
         </div>
         <div class="col-sm-6">
