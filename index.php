@@ -23,7 +23,11 @@
 
    <!--Affichage de la page-->
 	<body>
-	<?php include_once('Model/connect.php');?>
+	<?php
+		include_once('Model/connexionBaseDeDonnee.php');
+		#Connexion à la base de donnée
+		$connexion = connexionBD();
+	?>
 	<?php include_once('Model/verificationConnexion.php');?>
 	<?php include_once('blacklist/blacklist.php');?>
 	<?php include_once('Controller/controller.entete.php');?>

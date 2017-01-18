@@ -1,5 +1,7 @@
 <?php
 function recupererInfosCategories($connexion)
+#Données: Prend en paramètre l'objet PDO qui contient la base de donnée
+#Résultat: Renvoi toutes les informations des catégories
 {
 	$req = $connexion -> prepare('SELECT * FROM categoriequestion');
 	if (!$req) {

@@ -1,5 +1,7 @@
 <?php
 function recupererPromotion($connexion, $libelle)
+#Données: Prend en paramètre l'objet PDO qui contient la base de donnée et un libelle de promotion
+#Résultat: Renvoi les différentes promotions existentes à polytech en fonction de la spécialité donnée en libellé
 {
 	$debut = -1;
 	$fin = -1;
@@ -53,6 +55,9 @@ function recupererPromotion($connexion, $libelle)
 }
 
 function recupererIdPromotion($connexion, $code)
+#Données: Prend en paramètre l'objet PDO qui contient la base de donnée et le code d'une promotion
+#Résultat: Renvoi l'identifiant de la promotion dont le code est celui en paramètre
+#Description: Permet de récupèrer l'identifiant d'une promotion fraichement créé
 {
 	$req = $connexion->prepare('SELECT idPromo FROM promotion WHERE codePromo=?');
 	if(!$req)

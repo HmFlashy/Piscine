@@ -1,5 +1,7 @@
 <?php
 function recupererInfoProf($connexion, $pseudo)
+#Données: Prend en paramètre l'objet PDO qui contient la base de donnée, et une chaine de caractère appelé pseudo
+#Résultat: Récupère l'identifiant et le mot de passe du professeur
 {
 	$req = $connexion -> prepare('SELECT idProfesseur, motDePasseProfesseur FROM professeur WHERE pseudoProfesseur= ?');
 	if (!$req) {

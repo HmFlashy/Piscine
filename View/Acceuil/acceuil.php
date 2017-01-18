@@ -1,4 +1,4 @@
-<h2 class="titreAcc">Bienvenue ! Vous êtes sur un site interactif permettant de réaliser le test de Hollande.<br>Veuillez vous connecter.</h2>
+<h2 class="titreAcc">Bienvenue ! Vous êtes sur un site interactif permettant de réaliser le test de Holland.<br>Veuillez vous connecter.</h2>
 <a href='?page=connexionEtu' class="button btn btn-primary" name="etudiant" style="font-weight:bold"onclick><p>Etudiant</p></a>
 <br>
 <a href='?page=connexionProf' class="button btn btn-primary" name="professeur" style="font-weight:bold"onclick>Professeur</a>

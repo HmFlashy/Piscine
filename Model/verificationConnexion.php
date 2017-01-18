@@ -1,5 +1,7 @@
 <?php
 function verificationCookie($connexion, $elements)
+#Données: Prend en paramètre l'objet PDO qui contient la base de donnée et un tableau contenant les éléments de connexions tel que l'id de la personne connecté, son pseudo et son mot de passe hashé
+#Résultat: Renvoi true si la personne a des paramètres de connexion correct, false sinon
 {
 	if($_COOKIE['type'] == 1)
 	{
