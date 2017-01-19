@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 09 Janvier 2017 à 19:41
+-- Généré le :  Jeu 19 Janvier 2017 à 17:45
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.6.28
 
@@ -35,7 +35,9 @@ CREATE TABLE `appartenir` (
 -- Contenu de la table `appartenir`
 --
 
-INSERT INTO `appartenir` (`idPromo`, `idEleve`) VALUES (1, 1), (1, 2),
+INSERT INTO `appartenir` (`idPromo`, `idEleve`) VALUES
+(1, 1),
+(1, 2),
 (1, 3),
 (1, 4),
 (1, 5),
@@ -191,8 +193,45 @@ INSERT INTO `eleve` (`idEleve`, `pseudoEleve`, `nomEleve`, `prenomEleve`, `email
 CREATE TABLE `participer` (
   `idEleve` int(11) NOT NULL DEFAULT '0',
   `idSession` int(11) NOT NULL DEFAULT '0',
-  `resultatSession` tinyint(1) DEFAULT NULL
+  `resultatSession` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `participer`
+--
+
+INSERT INTO `participer` (`idEleve`, `idSession`, `resultatSession`) VALUES
+(22, 1, 1),
+(28, 1, 1),
+(30, 1, 1),
+(8, 1, 2),
+(9, 1, 2),
+(14, 1, 2),
+(17, 1, 2),
+(24, 1, 2),
+(2, 1, 3),
+(5, 1, 3),
+(7, 1, 3),
+(12, 1, 3),
+(15, 1, 3),
+(16, 1, 3),
+(20, 1, 3),
+(31, 1, 3),
+(10, 1, 4),
+(13, 1, 4),
+(18, 1, 4),
+(19, 1, 4),
+(23, 1, 4),
+(25, 1, 4),
+(29, 1, 4),
+(4, 1, 5),
+(6, 1, 5),
+(11, 1, 5),
+(21, 1, 5),
+(26, 1, 5),
+(1, 1, 6),
+(3, 1, 6),
+(27, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -368,7 +407,6 @@ INSERT INTO `session` (`idSession`, `idPromo`, `dateSession`, `libelleSession`, 
 (8, 8, '2016-11-23 19:17:38', 'MEA5 2016 début', 0),
 (9, 9, '2016-11-23 19:17:38', 'STE4 2016 début', 0);
 
-
 --
 -- Index pour les tables exportées
 --
@@ -403,7 +441,8 @@ ALTER TABLE `eleve`
 --
 ALTER TABLE `participer`
   ADD PRIMARY KEY (`idEleve`,`idSession`),
-  ADD KEY `idSession` (`idSession`);
+  ADD KEY `idSession` (`idSession`),
+  ADD KEY `resultatSession` (`resultatSession`);
 
 --
 -- Index pour la table `professeur`
@@ -467,7 +506,7 @@ ALTER TABLE `professeur`
 -- AUTO_INCREMENT pour la table `promotion`
 --
 ALTER TABLE `promotion`
-  MODIFY `idPromo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idPromo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `questions`
 --
@@ -477,7 +516,7 @@ ALTER TABLE `questions`
 -- AUTO_INCREMENT pour la table `session`
 --
 ALTER TABLE `session`
-  MODIFY `idSession` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idSession` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- Contraintes pour les tables exportées
 --
@@ -486,8 +525,7 @@ ALTER TABLE `session`
 -- Contraintes pour la table `appartenir`
 --
 ALTER TABLE `appartenir`
-  ADD CONSTRAINT `appartenir_ibfk_1` FOREIGN KEY (`idPromo`) REFERENCES `promotion` (`idPromo`)
-  ON DELETE CASCADE,
+  ADD CONSTRAINT `appartenir_ibfk_1` FOREIGN KEY (`idPromo`) REFERENCES `promotion` (`idPromo`) ON DELETE CASCADE,
   ADD CONSTRAINT `appartenir_ibfk_2` FOREIGN KEY (`idEleve`) REFERENCES `eleve` (`idEleve`);
 
 --
@@ -495,8 +533,8 @@ ALTER TABLE `appartenir`
 --
 ALTER TABLE `participer`
   ADD CONSTRAINT `participer_ibfk_1` FOREIGN KEY (`idEleve`) REFERENCES `eleve` (`idEleve`),
-  ADD CONSTRAINT `participer_ibfk_2` FOREIGN KEY (`idSession`) REFERENCES `session` (`idSession`)
-  ON DELETE CASCADE;
+  ADD CONSTRAINT `participer_ibfk_2` FOREIGN KEY (`idSession`) REFERENCES `session` (`idSession`) ON DELETE CASCADE,
+  ADD CONSTRAINT `participer_ibfk_3` FOREIGN KEY (`resultatSession`) REFERENCES `categoriequestion` (`idCategorie`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `promotion`
@@ -516,8 +554,7 @@ ALTER TABLE `questions`
 -- Contraintes pour la table `session`
 --
 ALTER TABLE `session`
-  ADD CONSTRAINT `session_ibfk_1` FOREIGN KEY (`idPromo`) REFERENCES `promotion` (`idPromo`)
-  ON DELETE CASCADE;
+  ADD CONSTRAINT `session_ibfk_1` FOREIGN KEY (`idPromo`) REFERENCES `promotion` (`idPromo`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -8,7 +8,7 @@ function recupererPromotionsEtu($connexion, $idEleve)
    		echo "\nPDO::errorInfo():\n";
    		print_r($connexion->errorInfo());
 	}
-	$req -> execute(array($idSession));
+	$req -> execute(array($idEleve));
 	$promotions = $req -> fetchAll();
 	return $promotions;
 }
