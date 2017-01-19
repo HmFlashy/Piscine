@@ -2,34 +2,28 @@
 	$erreur = '';
 	if(isset($_POST['codePromo']))
 	{
-		$code=$_POST['codePromo'];
-		$test = $connexion -> prepare('SELECT idPromo,codePromo FROM promotion WHERE codePromo= ?');
-		$test -> execute(array($code));
-		$existance = $test -> fetch();
+		include_once('Model/Promotion/recupererInfosPromotion.php');
+		$existance = recupererInfosPromotion($connexion, $_POST['codePromo']);
 		if($existance == 0)
 		{
 			$erreur = "Code inexistant";
 		}
 		else
 		{
-			$idPromo = $existance["idPromo"];
-			$test = $connexion -> prepare('SELECT count(*) AS present FROM appartenir WHERE idPromo= :idPromo AND idEleve= :idEleve');
-			$test -> execute(array(
-				'idPromo' => $idPromo,
-				'idEleve' => $session[1]
-				));
-			$present = $test -> fetch();
+			include_once('Model/Appartenir/verificationEleveDansPromo.php');
+			$present = verificationEleveDansPromo($connexion, $existance["idPromo"], $session[1]);
 			if($present['present'] == 1)
 			{
 				$erreur = "Vous êtes déja dans cette promotion.";
 			}
 			else
 			{
-				$test = $connexion -> prepare('INSERT INTO appartenir (idEleve,idPromo) VALUES (:idEleve, :idPromo)');
-				$test -> execute(array(
-					':idEleve' => $session[1],
-					':idPromo' => $idPromo
-					));
+				include_once('Model/Appartenir/insererElevePromotion.php');
+				if(!insererElevePromotion($connexion, $session[1], $existance["idPromo"]))
+				{
+					echo 'Problème lors de l\' insertion de l\'élève dans la promotion';
+					exit;
+				}
 				header('Location: ?');
 				exit();
 			}

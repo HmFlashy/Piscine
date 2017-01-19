@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 19 Janvier 2017 à 17:45
+-- Généré le :  Jeu 19 Janvier 2017 à 18:02
 -- Version du serveur :  10.1.19-MariaDB
 -- Version de PHP :  5.6.28
 
@@ -253,7 +253,7 @@ CREATE TABLE `professeur` (
 --
 
 INSERT INTO `professeur` (`idProfesseur`, `pseudoProfesseur`, `nomProfesseur`, `prenomProfesseur`, `emailProfesseur`, `motDePasseProfesseur`) VALUES
-(1, 'testP', 'nomP', 'preP', 'p@prof', 'aa36dc6e81e2ac7ad03e12fedcb6a2c0');
+(1, 'admin', 'nomP', 'preP', 'p@prof', 'aa36dc6e81e2ac7ad03e12fedcb6a2c0');
 
 -- --------------------------------------------------------
 
