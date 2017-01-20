@@ -7,16 +7,19 @@
 	}
 	else
 	{
+		//On récupère les tableaux qui sont dans les cookies
 		$result1 = unserialize($_COOKIE['result1']);
 		$result2 = unserialize($_COOKIE['result2']);
 		$result3 = unserialize($_COOKIE['result3']);
 		$idSession = $_COOKIE['idSession'];
+		//On supprime les cookies
 		setcookie('result1');
 		setcookie('result2');
 		setcookie('result3');
 		setcookie('promo');
 		setcookie('idSession');
 		$resultat = array(0, 0, 0, 0, 0, 0);
+		//On calcule les résultats pour chaque catégorie
 		foreach($result1 as $value)
 		{
 			$resultat[$value - 1] += 3;
@@ -31,6 +34,7 @@
 		}
 		$indices = array();
 		$i = 0;
+		//On regarde si il y a des égalités
 		foreach($resultat as $value)
 		{
 			if($i == 0)
@@ -48,6 +52,7 @@
 			}
 			$i += 1;
 		}
+		//Si il y a égalité on en choisit un au hasard
 		if(count($indices) > 1)
 			$choix = $indices[rand(0, count($indices) - 1)];
 		else
@@ -85,14 +90,20 @@
 		$bon = insererResultat($connexion, $session[1], $idSession, $choix + 1);
 		include_once('View/Test/resultatTest.php');
 
+
+		//EMAIL
+		//Il faut changer le php.ini du serveur et change le smtp pour que cela fonctionne
+		//On prépare l'email à envoyer
 		include_once('Model/Eleve/recupererEmailEleve.php');
 		$to = recupererEmailEleve($connexion, $session[1]);
+		//On calcule les pourcentages
 		$ptReal = ($resultat[0] / $tot) * 100;
 		$ptInvest = ($resultat[1] / $tot) * 100;
 		$ptArti = ($resultat[2] / $tot) * 100;
 		$ptSoc = ($resultat[3] / $tot) * 100;
 		$ptEntrep = ($resultat[4] / $tot) * 100;
 		$ptConv = ($resultat[5] / $tot) * 100;
+		//On gère le passage a la ligne pour le header du mail
 		if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $to)) // On filtre les serveurs qui rencontrent des bogues.
 		{
 			$passage_ligne = "\r\n";
@@ -102,7 +113,9 @@
 			$passage_ligne = "\n";
 		}
 		$subject = 'Résultat test !';
+		//On récupère le contenu d mail dns le fichier email.php
 		$message = file_get_contents('View/Email/email.php');
+		//On remplace dans $message du texte par les variables voulus
         $parts_to_mod = array("resultT", "descriptionT", "realT", "invesT", "artT", "socT", "entrepT", "conveT");
         $replace_with = array($Type, $desc['descriptionCategorie'], mb_strimwidth($ptReal, 0, 5), mb_strimwidth($ptInvest, 0, 5), mb_strimwidth($ptArti, 0, 5), mb_strimwidth($ptSoc, 0, 5), mb_strimwidth($ptEntrep, 0, 5), mb_strimwidth($ptConv, 0, 5));
 	        for($i=0; $i<count($parts_to_mod); $i++){
@@ -111,6 +124,7 @@
 		$headers = 'From: no-answer@holland.com'.$passage_ligne;
 		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 		$headers .= "Content-Transfer-Encoding: 8bit".$passage_ligne;
+		//On envoi le message
      	mail($to, $subject, $message, $headers);
 	}
 ?>

@@ -18,6 +18,7 @@
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script type="text/javascript">
+//On récupère les résultats dans des varialbes javascript
 var R = '<?php echo $resultat[0]; ?>';
 
 var I = '<?php echo $resultat[1]; ?>';
@@ -27,6 +28,7 @@ var E = '<?php echo $resultat[4]; ?>';
 var C = '<?php echo $resultat[5]; ?>';
 var Tot='<?php echo $tot; ?>';
 var maxi=Math.max(R,I,A,S,E,C);
+//Celui qui à le plus de points sera selectionné
 var choixData=new Array([{name: 'Realiste',y: R/Tot*100,sliced: true,selected: true}, {name: 'Investigateur',y: I/Tot*100}, {name: 'Artiste',y: A/Tot*100}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100}],
 
 	[{name: 'Realiste',y: R/Tot*100}, {name: 'Investigateur',y: I/Tot*100,sliced: true,selected: true}, {name: 'Artiste',y: A/Tot*100}, { name: 'Social',y: S/Tot*100}, {name: 'Entreprenant',y: E/Tot*100}, {name: 'Conventionnel',y: C/Tot*100}],
@@ -52,6 +54,7 @@ else if(maxi==E){
 	don=choixData[4];}	
 else if(maxi==C){
 	don=choixData[5];}
+//On Affiche le graphe
 $(function () {
     var chart1 = new Highcharts.Chart('container', {
         chart: {
