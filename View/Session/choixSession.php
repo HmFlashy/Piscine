@@ -70,10 +70,22 @@
 					echo '<div style="max-height: 200px; overflow-y: scroll;">';
 					foreach($tabSess as $key => $value)
 					{
-						echo '<form method="post" action="?page=statistiques" class="">';
+						echo '<div style="margin-left:auto; margin-right:auto;"><div style="vertical-align:middle; display:inline-block;">';
+						echo '<form method="post" action="?page=statistiques">';
 				 		echo '<input type="hidden" name="idSession" value="'. $value["idSession"] .'">';
 						echo '<input type="submit" class="btn btn-info" style="display: inline-block; margin-bottom=2px;" name="choixSession" value="'.$value["libelleSession"].'">';
-						echo "</form><br>";
+						echo '</form></div><div style="width=34px; height=34px; display:inline-block;">';
+						echo '<form method="post" action="?page=choixSession">';
+				 		echo '<input type="hidden" name="choixPromo" value="'. $_POST["choixPromo"] .'">';
+				 		echo '<input type="hidden" name="codePromo" value="'. $_POST["codePromo"] .'">';
+				 		echo '<input type="hidden" name="nomPromo" value="'. $_POST["nomPromo"] .'">';
+				 		echo '<input type="hidden" name="idSession" value="'. $value["idSession"] .'">';
+						if($value['activeSession'] == 1)
+  							echo '<input type="image" src="images/checked.png" name="activeSession" value="'. $value["activeSession"] .'" alt="Submit" width="28" height="28">';
+  						else
+  							echo '<input type="image" src="images/cancel.png" name="activeSession" value="'. $value["activeSession"] .'" alt="Submit" width="28" height="28">';
+  						echo '</form>';
+						echo '</div></div>';
 					}
 					echo '</div>';
 				}

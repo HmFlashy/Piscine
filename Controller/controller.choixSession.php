@@ -18,6 +18,20 @@
 			exit;
 		}
 	}
+
+	if(isset($_POST['activeSession']))
+	{
+		include_once("Model/Session/changerStatueSession.php"); 
+		if($_POST['activeSession'] == 1)
+			$reussie = changerStatueSession($connexion, $_POST['idSession'], 0);
+		else
+			$reussie = changerStatueSession($connexion, $_POST['idSession'], 1);
+		if(!$reussie)
+		{
+			echo 'Erreur suppression etudiant';
+			exit;
+		}
+	}
 	
 	if(isset($_POST['supprimePromo']))
 	{

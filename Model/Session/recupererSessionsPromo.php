@@ -6,7 +6,7 @@ function recupererSessionsPromo($connexion, $libelle)
 #tab[x]['idSession']
 #tab[x]['libelleSession'] avec x le numero de ligne
 {
-	$req = $connexion -> prepare('SELECT idSession, libelleSession FROM session, promotion WHERE promotion.libellePromo = ? AND session.idPromo = promotion.idPromo');
+	$req = $connexion -> prepare('SELECT idSession, libelleSession, activeSession FROM session, promotion WHERE promotion.libellePromo = ? AND session.idPromo = promotion.idPromo');
 	if (!$req) {
    		echo "\nPDO::errorInfo():\n";
    		print_r($connexion->errorInfo());

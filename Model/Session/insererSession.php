@@ -7,7 +7,7 @@
 									VALUES(:idPromo, NOW(), :libelleSession, 1)');
 		if(!$req)
 		{
-			echo 'Erreur insertion session'
+			echo 'Erreur insertion session';
 			exit;
 		}
 		$req->execute(array(

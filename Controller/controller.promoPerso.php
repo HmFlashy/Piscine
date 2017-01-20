@@ -24,8 +24,11 @@
 					}
 					else
 					{
-						$libelleSessNonFaites[] = $value['libelleSession'];
-						$idSessNonFaites[] = $value['idSession'];
+						if($value['activeSession'] == 1)
+						{
+							$libelleSessNonFaites[] = $value['libelleSession'];
+							$idSessNonFaites[] = $value['idSession'];
+						}
 					}
 				}
 			}
